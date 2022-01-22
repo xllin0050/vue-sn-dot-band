@@ -1,6 +1,9 @@
-# sn-vue3
+# Super Napkin Dot Band
 
 This template should help get you started developing with Vue 3 in Vite.
+
+## Icons
+[Fontisto](https://icones.netlify.app/collection/fontisto)
 
 ## Recommended IDE Setup
 

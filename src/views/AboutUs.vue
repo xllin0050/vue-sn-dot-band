@@ -14,17 +14,17 @@
     <ul class="link-area">
       <a href="mailto:supernapkinsogood@gmail.com" class="hover-target">
         <li class="link-area__item">
-          <span class="material-icons"> alternate_email </span>
+          <span class="iconify" data-icon="fontisto:email"></span>
         </li>
       </a>
       <a href="https://www.facebook.com/SuperNapkin/" class="hover-target">
         <li class="link-area__item">
-          <span class="material-icons"> facebook </span>
+          <span class="iconify" data-icon="fontisto:facebook"></span>
         </li>
       </a>
       <a href="https://www.instagram.com/super_napkin/" class="hover-target">
         <li class="link-area__item">
-          <span class="material-icons"> monochrome_photos </span>
+          <span class="iconify" data-icon="fontisto:instagram"></span>
         </li>
       </a>
     </ul>
