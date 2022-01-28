@@ -6,11 +6,11 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      name: "home",
+      name: "Home",
       component: Home,
     },
     {
-      path: "/about",
+      path: "/about-us",
       name: "About Us",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
@@ -37,6 +37,11 @@ const router = createRouter({
       name: "Products",
       component: () => import("../views/Products.vue"),
     },
+    {
+      path:"/update-admin",
+      name: "Update Admin",
+      component:()=> import('../views/UpdateAdmin.vue')
+    }
   ],
 })
 

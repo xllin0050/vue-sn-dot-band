@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
+@font-face {
+  font-family: 'ayar';
+  src: url('./assets/ayar.ttf')format('ttf');
+}
+
 @tailwind utilities;
+
+body {
+  background-color: rgb(40, 40, 40);
+  -webkit-transition: all 350ms linear;
+  transition: all 350ms linear;
+  -webkit-transition-property: width, height;
+  transition-property: width, height;
+}

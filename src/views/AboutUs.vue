@@ -30,3 +30,8 @@
     </ul>
   </main>
 </template>
+<script>
+export default {
+  name: 'AboutIndex',
+}
+</script>
