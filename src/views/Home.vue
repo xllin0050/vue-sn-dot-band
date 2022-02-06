@@ -1,14 +1,25 @@
 <template>
   <section>
-    <h1>Home</h1>
+    <MembersNameCircle />
+    <NextGigCard />
+    <AlbumSlides />
   </section>
 </template>
 
 <script>
 export default {
   name: 'SiteIndex',
-  data() {
-    return {}
+  setup(props) {
+    const photoSet = {
+      shih: './images/members/shih.jpg',
+      // weiting: '@/assets/images/members/weiting.jpg',
+      // yau: '@/assets/images/members/yau.jpg',
+    }
+
+    const imgUrl = new URL('../assets/images/members/shih.jpg', import.meta.url)
+      .href
+
+    return { photoSet, imgUrl }
   },
 }
 </script>

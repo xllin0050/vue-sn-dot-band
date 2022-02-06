@@ -1,9 +1,11 @@
 <template>
-  <nav class="flex">
+  <NoGlitchTitle />
+
+  <nav class="flex justify-center py-4">
     <div
       v-for="routeName in routes"
       :key="routeName"
-      class="px-4 text-gray-400"
+      class="px-4 py-4 font-redhat text-xl font-medium"
     >
       <router-link :to="{ name: routeName }">{{ routeName }}</router-link>
     </div>
@@ -26,7 +28,6 @@ export default {
     ]
     async function getData() {
       let { data: albums, error } = await supabase.from('albums').select('*')
-      console.log(albums)
     }
     getData()
 

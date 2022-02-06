@@ -2,9 +2,11 @@
 
 This template should help get you started developing with Vue 3 in Vite.
 
-## Icons
 [Fontisto](https://icones.netlify.app/collection/fontisto)
 
+[Red Hat Mono](https://fonts.google.com/specimen/Red+Hat+Mono?query=Red+Hat+Mono#standard-styles)
+
+[Vueper Slides](https://antoniandre.github.io/vueper-slides/)
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (and disable Vetur).
