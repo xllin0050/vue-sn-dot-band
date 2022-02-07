@@ -1,9 +1,9 @@
 <template>
-  <section>
+  <main>
     <MembersNameCircle />
     <NextGigCard />
     <AlbumSlides />
-  </section>
+  </main>
 </template>
 
 <script>

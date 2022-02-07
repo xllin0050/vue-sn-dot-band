@@ -2,7 +2,7 @@
 
 This template should help get you started developing with Vue 3 in Vite.
 
-[Fontisto](https://icones.netlify.app/collection/fontisto)
+[Iconify](https://icones.netlify.app/collection/all)
 
 [Red Hat Mono](https://fonts.google.com/specimen/Red+Hat+Mono?query=Red+Hat+Mono#standard-styles)
 
