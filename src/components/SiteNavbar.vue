@@ -3,7 +3,7 @@
     <div
       v-for="routeName in routes"
       :key="routeName"
-      class="px-4 py-4 font-redhat text-xl font-medium"
+      class="px-4 py-4 font-redhat text-xl font-medium text-gray-800"
     >
       <router-link :to="{ name: routeName }">{{ routeName }}</router-link>
     </div>

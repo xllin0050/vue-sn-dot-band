@@ -14,6 +14,7 @@ import { supabase } from '@/supabase.js'
 import { ref } from 'vue'
 
 export default {
+  name: 'AdminPage',
   setup(props) {
     const showTime = ref('')
     const venue = ref('')

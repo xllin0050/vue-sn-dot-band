@@ -1,16 +1,25 @@
 <template>
-  <section class="w-full flex justify-center items-center py-8">
-    <a
-      href="#"
-      class="tilt block max-w-sm rounded-lg border border-gray-200 bg-white p-6 shadow-md hover:bg-gray-100"
+  <section class="flex w-full flex-col items-center justify-center py-16">
+    <h3
+      class="mb-6 text-center font-redhat text-3xl font-medium uppercase tracking-widest text-gray-800"
     >
-      <h5 class="mb-2 text-2xl font-redhat font-medium tracking-tight text-gray-900">
-        NEXT GIG
-      </h5>
-      <p class="font-redhat font-normal text-gray-700">
-        Here are the biggest enterprise technology acquisitions of 2021 so far,
-        in reverse chronological order.
+      next gig
+    </h3>
+    <div
+      class="tilt block max-w-xl rounded-lg border border-gray-200 bg-white p-6 shadow-md hover:bg-gray-100"
+    >
+      <p class="font-redhat font-normal text-gray-600">
+        {{ props }}
       </p>
-    </a>
+    </div>
   </section>
 </template>
+<script>
+export default {
+  props: { nextGig: Array },
+
+  setup(props) {
+    return { props }
+  },
+}
+</script>

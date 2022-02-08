@@ -1,37 +1,47 @@
 <template>
   <section>
     <h1>Discography</h1>
+    <p>{{ albumDatas }}</p>
   </section>
 </template>
 
 <script>
-export default {
+import { supabase } from '@/supabase.js'
+import { ref } from 'vue'
 
+export default {
+  name: 'DiscPage',
+  setup(props) {
+    const albumDatas = ref([])
+
+    const getAlbumsArt = (title) => {
+      const fileName = title.replace(/ /g, '-')
+      const { publicURL, error } = supabase.storage
+        .from('works')
+        .getPublicUrl(`albums/${fileName}.jpg`)
+      return publicURL
+    }
+
+    async function getAlbumsData() {
+      const { data: albums, error } = await supabase
+        .from('albums')
+        .select('*')
+        .order('release', { ascending: false })
+      if (albums.length)
+        albumDatas.value = albums.map((item) => {
+          item.url = item.title
+            .toLowerCase()
+            .replace(/'|\s/g, (e) => (e === "'" ? '' : '-'))
+          item.cover = getAlbumsArt(item.title)
+          return item
+        })
+    }
+
+    getAlbumsData()
+
+    return { albumDatas }
+  },
 }
 </script>
 
-<style scoped>
-.container {
-  width: 100%;
-  color: $text-color-main;
-  margin: auto;
-
-  @media (min-width: 670px) {
-    width: 45rem;
-    transform: translateX(3rem);
-  }
-
-  .pageTitle {
-    font-size: $font-size-album;
-    text-transform: uppercase;
-    padding: 5rem 5rem 0;
-    margin-bottom: 0.5rem;
-    text-align: center;
-
-    @media (min-width: 670px) {
-      text-align: left;
-      padding: 7rem 0rem 3.5rem;
-    }
-  }
-}
-</style>
+<style scoped></style>

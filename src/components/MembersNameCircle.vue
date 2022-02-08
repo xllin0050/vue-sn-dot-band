@@ -1,5 +1,5 @@
 <template>
-  <section class="relative">
+  <section class="relative my-4">
     <svg width="500" height="500" viewBox="0 0 500 500" class="w-full">
       <defs>
         <path
@@ -22,7 +22,7 @@
         <textPath
           xlink:href="#textcircle"
           textLength="290"
-          :fill="'weiting' === backgroundName ? '' : 'lightgray'"
+          :fill="'weiting' === backgroundName ? '#111827' : '#d1d5db'"
         >
           Weiting(bass)
         </textPath>
@@ -30,7 +30,7 @@
           xlink:href="#textcircle"
           startOffset="820"
           textLength="250"
-          :fill="'yau' === backgroundName ? '' : 'lightgray'"
+          :fill="'yau' === backgroundName ? '#111827' : '#d1d5db'"
         >
           Yau(gtr/vox)
         </textPath>
@@ -38,7 +38,7 @@
           xlink:href="#textcircle"
           startOffset="440"
           textLength="200"
-          :fill="'shih' === backgroundName ? '' : 'lightgray'"
+          :fill="'shih' === backgroundName ? '#111827' : '#d1d5db'"
         >
           Shih(drum)
         </textPath>
@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import { ref, onUnmounted } from 'vue'
+import { ref, onBeforeUnmount } from 'vue'
 export default {
   setup(props) {
     const membersName = ['shih', 'yau', 'weiting']
@@ -67,7 +67,7 @@ export default {
       if (nameIndex === 3) nameIndex = 0
       backgroundName.value = membersName[nameIndex]
     }, 1000 * 7)
-    onUnmounted(() => {
+    onBeforeUnmount(() => {
       clearInterval(changeNameTimer)
     })
     return { membersName, backgroundName }
