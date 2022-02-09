@@ -1,5 +1,5 @@
 <template>
-  <section class="relative my-4">
+  <div class="relative my-4">
     <svg width="500" height="500" viewBox="0 0 500 500" class="w-full">
       <defs>
         <path
@@ -51,7 +51,7 @@
       :class="name"
       v-show="name === backgroundName"
     ></div>
-  </section>
+  </div>
 </template>
 
 <script>

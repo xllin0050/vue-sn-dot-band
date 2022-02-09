@@ -1,9 +1,9 @@
 <template>
-  <main>
+  <div>
     <MembersNameCircle />
     <NextGigCard :next-gig="nextGigDatas" />
     <AlbumList :albums="albumDatas" />
-  </main>
+  </div>
 </template>
 
 <script>
