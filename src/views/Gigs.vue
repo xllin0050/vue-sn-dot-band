@@ -4,7 +4,8 @@
             <li
                 v-for="gig in gigDatas"
                 :key="gig.id"
-                class="mb-2 flex items-center uppercase rounded-sm border p-3 shadow-sm"
+                class="mb-2 flex items-center rounded-md border p-3 uppercase shadow-sm"
+                :class="gig.coming ? 'border-gray-500 py-6' : ''"
             >
                 <div class="">{{ gig.show_time }}</div>
                 <div class="mx-4 flex grow items-center font-normal">
@@ -24,13 +25,20 @@
                     >{{ gig.city }}
                 </div>
                 <div
-                    class="mx-2 rounded-sm border p-1 px-2"
+                    class="mx-2 cursor-pointer rounded-md border p-1 px-2"
+                    :class="gig.coming ? 'border-gray-400' : ''"
                     @click="showModal(gig)"
                 >
                     info
                 </div>
-                <div class="rounded-sm border p-1 px-2">
-                    <a herf="#">ticket</a>
+                <div
+                    class="rounded-md border p-1 px-2"
+                    :class="[
+                        gig.event_url ? 'cursor-pointer' : '',
+                        gig.coming ? 'border-gray-400' : '',
+                    ]"
+                >
+                    <a :href="gig.event_url" target="_blank">ticket</a>
                 </div>
             </li>
         </ul>
@@ -57,13 +65,17 @@ export default {
         }
 
         async function getGigsData() {
-            const today = new Date().toISOString()
+            const today = new Date()
             const { data: gigs, error } = await supabase
                 .from('gigs')
                 .select('*')
                 .order('show_time', { ascending: false })
-            if (gigs.length) gigDatas.value = gigs
-            // console.log(gigDatas.value);
+            if (gigs.length)
+                gigDatas.value = gigs.map((gig) => {
+                    const gigDate = new Date(gig.show_time)
+                    gig.coming = gigDate >= today
+                    return gig
+                })
         }
         getGigsData()
 

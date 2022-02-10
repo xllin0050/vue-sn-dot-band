@@ -28,8 +28,11 @@
                     <a herf="#">ticket</a>
                 </div>
             </li>
-            <li class="mb-2 flex items-center rounded-sm border p-3 shadow-sm">
-                <div class="uppercase px-16">tba</div>
+            <li
+                v-if="!props"
+                class="mb-2 flex items-center rounded-sm border p-3 shadow-sm"
+            >
+                <div class="px-16 uppercase">tba</div>
             </li>
         </ul>
     </div>

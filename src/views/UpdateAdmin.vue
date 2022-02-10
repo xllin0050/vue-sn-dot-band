@@ -1,20 +1,30 @@
 <template>
     <div class="mx-auto max-w-lg font-redhat">
         <h3 class="text-2xl font-medium uppercase">gigs update</h3>
-
         <div class="flex flex-col text-xl">
-            <label for="venue" class="pt-4">venue </label>
-            <input type="text" v-model="venue" class="max-w-lg border-2 p-1" />
-            <label for="city" class="pt-4">city </label>
-            <input type="text" v-model="city" class="max-w-lg border-2 p-1" />
-            <label for="showTime" class="pt-4">show time </label>
+            <label for="venue" class="pt-5 uppercase">venue</label>
+            <input
+                type="text"
+                v-model="venue"
+                class="max-w-lg border-2 p-1"
+                required
+            />
+            <label for="city" class="pt-5 uppercase">city</label>
+            <input
+                type="text"
+                v-model="city"
+                class="max-w-lg border-2 p-1"
+                required
+            />
+            <label for="showTime" class="pt-5 uppercase">show time</label>
             <input
                 type="date"
                 v-model="showTime"
                 class="max-w-lg border-2 p-1"
+                required
             />
-            <label for="event_url" class="pt-4">url </label>
-            <p class="text-sm">
+            <label for="eventUrl" class="pt-5 uppercase">url</label>
+            <p class="p-2 text-sm">
                 facebook event url or any links can buy the ticket
             </p>
             <input
@@ -22,9 +32,9 @@
                 v-model="eventUrl"
                 class="max-w-lg border-2 p-1"
             />
-            <label for="banner" class="pt-4">banner</label>
-            <p class="text-sm">file name should be like: 2022-01-01.jpg</p>
-            <p class="text-sm">file size should be under: 1MB (1024KB)</p>
+            <label for="banner" class="pt-5 uppercase">banner</label>
+            <p class="p-1 text-sm">file name should be like: 2022-01-01.jpg</p>
+            <p class="p-1 text-sm">file size under 1MB (1024KB) is better</p>
             <input
                 type="file"
                 ref="fileInput"
@@ -71,8 +81,8 @@ export default {
                     show_time: showTime.value,
                     venue: venue.value,
                     city: city.value,
-                    event_url: eventUrl.value || '',
-                    banner: withPicture ? getGigBanner(date) : '',
+                    event_url: eventUrl.value || null,
+                    banner: withPicture ? getGigBanner(date) : null,
                 },
             ])
             if (data.length) {
@@ -89,7 +99,6 @@ export default {
             const { data, error } = await supabase.storage
                 .from('gigs')
                 .upload(`banners/${date}.jpg`, fileInput.value.files[0])
-
             if (error) console.log(error)
             if (data) updateGigInfo(date, true)
         }
