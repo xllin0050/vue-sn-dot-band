@@ -17,6 +17,7 @@ export default {
       'About Us',
       'Discography',
       'Gigs',
+      'Videos',
       'Photos',
       'Products',
       'Update Admin',

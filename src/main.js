@@ -6,6 +6,7 @@ import router from './router'
 import '@purge-icons/generated'
 import "./index.css"
 
+
 const app = createApp(App)
 
 app.use(createPinia())

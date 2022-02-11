@@ -1,11 +1,11 @@
 <template>
-    <div class="mx-auto max-w-4xl">
+    <div class="w-full min-h-screen">
         <ul class="font-redhat">
             <li
                 v-for="gig in gigDatas"
                 :key="gig.id"
                 class="mb-2 flex items-center rounded-md border p-3 uppercase shadow-sm"
-                :class="gig.coming ? 'border-gray-500 py-6' : ''"
+                :class="gig.coming ? 'border-gray-700 py-6 shadow-md' : ''"
             >
                 <div class="">{{ gig.show_time }}</div>
                 <div class="mx-4 flex grow items-center font-normal">
@@ -25,18 +25,20 @@
                     >{{ gig.city }}
                 </div>
                 <div
-                    class="mx-2 cursor-pointer rounded-md border p-1 px-2"
-                    :class="gig.coming ? 'border-gray-400' : ''"
+                    class="mx-2 cursor-pointer rounded-md border p-1 px-2 hover:border-gray-600"
+                    :class="gig.coming ? 'border-gray-400 ' : ''"
                     @click="showModal(gig)"
                 >
                     info
                 </div>
                 <div
+                    v-show="gig.coming"
                     class="rounded-md border p-1 px-2"
-                    :class="[
-                        gig.event_url ? 'cursor-pointer' : '',
-                        gig.coming ? 'border-gray-400' : '',
-                    ]"
+                    :class="
+                        gig.coming
+                            ? 'cursor-pointer border-gray-400 hover:border-gray-600 '
+                            : ''
+                    "
                 >
                     <a :href="gig.event_url" target="_blank">ticket</a>
                 </div>

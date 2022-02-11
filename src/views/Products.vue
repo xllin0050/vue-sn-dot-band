@@ -1,5 +1,5 @@
 <template>
-  <section class="section">
+  <div class="w-full">
     <div class="container">
       <h1 class="pageTitle">products</h1>
       <div class="product-list">
@@ -93,7 +93,7 @@
         </tr>
       </table>
     </div>
-  </section>
+  </div>
 </template>
 
 <script>

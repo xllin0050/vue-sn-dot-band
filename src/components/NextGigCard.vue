@@ -8,14 +8,14 @@
             next gig
         </h3>
 
-        <ul class="font-redhat">
+        <ul class="font-redhat uppercase">
             <li
                 v-for="gig in props.nextGig"
                 :key="gig.id"
-                class="mb-2 flex items-center rounded-sm border p-3 shadow-sm"
+                class="mb-2 flex items-center rounded border border-gray-500 p-3 px-6 shadow"
             >
                 <div class="">{{ gig.show_time }}</div>
-                <div class="mx-4 flex grow items-center font-normal">
+                <div class="mx-2 flex grow items-center font-normal">
                     <span
                         class="iconify mx-1"
                         data-icon="ic:outline-place"
@@ -23,14 +23,23 @@
                     ></span
                     >{{ gig.venue }}/{{ gig.city }}
                 </div>
-                <div class="mx-1 rounded-sm border p-1 px-2">info</div>
-                <div class="rounded-sm border p-1 px-2">
-                    <a herf="#">ticket</a>
+                <div
+                    class="ml-2 cursor-pointer rounded border p-1 px-2 text-sm hover:border-gray-700"
+                >
+                    <a :href="gig.event_url" target="_blank" class="flex items-center">
+                    <span class="mr-1">ticket</span>
+                        <span
+                            class="iconify"
+                            data-icon="ion:md-open"
+                            data-inline="false"
+                        ></span
+                        ></a
+                    >
                 </div>
             </li>
             <li
                 v-if="!props"
-                class="mb-2 flex items-center rounded-sm border p-3 shadow-sm"
+                class="mb-2 flex items-center rounded border border-gray-500 p-3 shadow"
             >
                 <div class="px-16 uppercase">tba</div>
             </li>

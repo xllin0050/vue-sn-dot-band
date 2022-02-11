@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <div class="w-full">
     <article
       class="mx-auto max-w-xl text-justify font-redhat text-base font-normal text-gray-800"
     >
@@ -49,7 +49,7 @@
     <picture>
       <img :src="imgUrl" alt="About Us" class="mx-auto max-w-xl object-cover pt-8" />
     </picture>
-  </main>
+  </div>
 </template>
 <script>
 export default {

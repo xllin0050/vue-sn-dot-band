@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="w-full min-h-screen">
     <MembersNameCircle />
     <NextGigCard :next-gig="nextGigDatas" />
     <AlbumList :albums="albumDatas" />

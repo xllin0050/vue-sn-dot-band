@@ -38,6 +38,11 @@ const router = createRouter({
       component: () => import('../views/Products.vue'),
     },
     {
+      path: '/videos',
+      name: 'Videos',
+      component: () => import('../views/Videos.vue'),
+    },
+    {
       path: '/update-admin',
       name: 'Update Admin',
       component: () => import('../views/UpdateAdmin.vue'),

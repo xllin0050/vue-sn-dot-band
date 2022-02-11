@@ -6,6 +6,8 @@ This template should help get you started developing with Vue 3 in Vite.
 
 [Red Hat Mono](https://fonts.google.com/specimen/Red+Hat+Mono?query=Red+Hat+Mono#standard-styles)
 
+[vue-img-viewr](https://github.com/jekorx/vue-img-viewr)
+
 [Vueper Slides](https://antoniandre.github.io/vueper-slides/)
 ## Recommended IDE Setup
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto max-w-4xl">
+  <div class="w-full min-h-screen">
     <div
       v-for="album in albumDatas"
       :key="album.id"
@@ -58,7 +58,6 @@ export default {
           return item
         })
     }
-
     getAlbumsData()
 
     return { albumDatas }

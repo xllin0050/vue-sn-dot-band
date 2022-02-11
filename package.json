@@ -12,6 +12,7 @@
     "pinia": "^2.0.6",
     "postcss-import": "^14.0.2",
     "vue": "^3.2.28",
+    "vue-img-viewr": "^2.0.8",
     "vue-router": "^4.0.12",
     "vueperslides": "^3.3.2"
   },
