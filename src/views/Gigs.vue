@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full min-h-screen">
+    <div class="min-h-screen w-full">
         <ul class="font-redhat">
             <li
                 v-for="gig in gigDatas"
