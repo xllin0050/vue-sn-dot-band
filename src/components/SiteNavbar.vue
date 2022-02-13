@@ -11,7 +11,7 @@
 </template>
 <script>
 export default {
-  setup(props) {
+  setup() {
     const routes = [
       'Home',
       'About Us',

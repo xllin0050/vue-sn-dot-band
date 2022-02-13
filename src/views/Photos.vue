@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full">
+    <div class="min-h-screen w-full">
         <div class="grid grid-cols-3 gap-2">
             <div
                 v-for="(url, i) in urls"
@@ -7,7 +7,7 @@
                 :key="`c_${i}`"
                 @click="showImagesByComponent(i)"
             >
-                <img :src="url" class="block" />
+                <img :src="url" class="block shadow-md" />
             </div>
         </div>
         <ImgViewr

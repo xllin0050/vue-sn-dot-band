@@ -2,7 +2,7 @@
   <footer class="w-full py-8 font-redhat font-medium uppercase">
     <ul class="mx-auto flex max-w-sm items-center justify-center">
       <li v-for="(link, key) in links" :key="key">
-        <a :href="link[0]" :aria-label="link[2]">
+        <a :href="link[0]" target="_blank" :aria-label="link[2]">
           <span class="iconify mx-3 text-3xl" :data-icon="link[1]"></span>
         </a>
       </li>
@@ -15,7 +15,7 @@
 </template>
 <script>
 export default {
-  setup(props) {
+  setup() {
     const thisYear = new Date().getFullYear()
 
     const links = [

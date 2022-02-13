@@ -44,20 +44,22 @@
         </textPath>
       </text>
     </svg>
-    <div
-      v-for="name in membersName"
-      :key="name"
-      class="membersPhoto absolute aspect-square w-80 -translate-x-1/2 rounded-full"
-      :class="name"
-      v-show="name === backgroundName"
-    ></div>
+    <transition-group name="fade">
+      <div
+        v-for="name in membersName"
+        :key="name"
+        class="membersPhoto absolute aspect-square w-80 -translate-x-1/2 rounded-full"
+        :class="name"
+        v-show="name === backgroundName"
+      ></div>
+    </transition-group>
   </div>
 </template>
 
 <script>
 import { ref, onBeforeUnmount } from 'vue'
 export default {
-  setup(props) {
+  setup() {
     const membersName = ['shih', 'yau', 'weiting']
     let nameIndex = 0
     let backgroundName = ref('yau')
@@ -122,5 +124,14 @@ export default {
     top: 5.5em;
     left: 50%;
   }
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 300ms linear;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
