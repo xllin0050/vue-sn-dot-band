@@ -1,17 +1,31 @@
 <template>
-  <NoGlitchTitle />
-  <SiteNavbar />
-  <div class="mx-auto max-w-4xl">
-    <transition appear>
-      <router-view />
-    </transition>
-  </div>
-  <SiteFooter />
+    <NoGlitchTitle />
+    <AppNavbar :routes-list="routes" />
+    <SiteNavbar :routes-list="routes" />
+    <div class="mx-auto max-w-xs lg:max-w-4xl">
+        <router-view />
+    </div>
+    <SiteFooter />
 </template>
 <script>
 export default {
-  setup() {
-    return {}
-  },
+    setup() {
+        const routes = [
+            'Home',
+            'About Us',
+            'Discography',
+            'Gigs',
+            'Videos',
+            'Photos',
+            'Products',
+            'Update Admin',
+        ]
+        return { routes }
+    },
 }
 </script>
+<style>
+body {
+    position: relative;
+}
+</style>

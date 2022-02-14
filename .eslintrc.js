@@ -11,6 +11,7 @@ module.exports = {
   plugins: ['vue'],
   rules: {
     // override/add rules settings here, such as:
+    // 'prettier/prettier': ['error', { endOfLine: 'auto' }],
     'vue/no-unused-vars': 'off',
     'vue/require-default-prop': 'off',
     'no-console': 'off',

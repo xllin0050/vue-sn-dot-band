@@ -1,28 +1,19 @@
 <template>
-  <nav class="flex justify-center py-4">
-    <div
-      v-for="routeName in routes"
-      :key="routeName"
-      class="px-4 py-4 font-redhat text-xl font-medium uppercase text-gray-800"
-    >
-      <router-link :to="{ name: routeName }">{{ routeName }}</router-link>
-    </div>
-  </nav>
+    <nav class="hidden py-4 md:flex md:justify-center">
+        <div
+            v-for="routeName in props.routesList"
+            :key="routeName"
+            class="px-4 py-4 font-redhat text-sm font-medium uppercase text-gray-700 lg:text-xl"
+        >
+            <router-link :to="{ name: routeName }">{{ routeName }}</router-link>
+        </div>
+    </nav>
 </template>
 <script>
 export default {
-  setup() {
-    const routes = [
-      'Home',
-      'About Us',
-      'Discography',
-      'Gigs',
-      'Videos',
-      'Photos',
-      'Products',
-      'Update Admin',
-    ]
-    return { routes }
-  },
+    props: { routesList: Array },
+    setup(props) {
+        return { props }
+    },
 }
 </script>
