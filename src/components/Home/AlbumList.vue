@@ -15,7 +15,7 @@
             >
                 {{ album.title }}
             </h5>
-            <div class="mx-auto max-w-sm">
+            <div class="mx-auto max-w-[75%] lg:max-w-sm">
                 <router-link :to="`/album/${album.release}/${album.url}`">
                     <img
                         :src="album.cover"

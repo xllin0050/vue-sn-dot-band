@@ -1,14 +1,17 @@
 <template>
     <div class="min-h-screen w-full">
-        <ul class="font-redhat">
+        <PageTitle>gigs</PageTitle>
+        <ul class="font-redhat pt-6 md:pt-0">
             <li
                 v-for="gig in gigDatas"
                 :key="gig.id"
-                class="mb-2 flex items-center rounded-md border p-3 uppercase shadow-sm"
-                :class="gig.coming ? 'border-gray-700 py-6 shadow-md' : ''"
+                class="mb-2 flex flex-col items-center rounded-md border p-2 uppercase shadow-sm lg:flex-row lg:p-3"
+                :class="gig.coming ? 'border-gray-700 shadow-md lg:py-6' : ''"
             >
                 <div class="">{{ gig.show_time }}</div>
-                <div class="mx-4 flex grow items-center font-normal">
+                <div
+                    class="my-1 flex items-center text-sm font-normal lg:my-0 lg:grow lg:text-base"
+                >
                     <span
                         class="iconify mx-1"
                         data-icon="ic:outline-place"
@@ -16,7 +19,9 @@
                     ></span
                     >{{ gig.venue }}
                 </div>
-                <div class="mx-4 flex w-36 items-center font-normal">
+                <div
+                    class="flex items-center text-sm font-normal lg:mx-4 lg:w-36 lg:text-base"
+                >
                     <span
                         class="iconify mx-1"
                         data-icon="mdi:city-variant-outline"
@@ -24,23 +29,25 @@
                     ></span
                     >{{ gig.city }}
                 </div>
-                <div
-                    class="mx-2 cursor-pointer rounded-md border p-1 px-2 hover:border-gray-600"
-                    :class="gig.coming ? 'border-gray-400 ' : ''"
-                    @click="showModal(gig)"
-                >
-                    info
-                </div>
-                <div
-                    v-show="gig.coming"
-                    class="rounded-md border p-1 px-2"
-                    :class="
-                        gig.coming
-                            ? 'cursor-pointer border-gray-400 hover:border-gray-600 '
-                            : ''
-                    "
-                >
-                    <a :href="gig.event_url" target="_blank">ticket</a>
+                <div class="flex pt-2 lg:pt-0">
+                    <div
+                        class="mx-2 cursor-pointer rounded-md border p-1 px-2 text-sm hover:border-gray-600 lg:text-base"
+                        :class="gig.coming ? 'border-gray-400 ' : ''"
+                        @click="showModal(gig)"
+                    >
+                        info
+                    </div>
+                    <div
+                        v-show="gig.coming"
+                        class="rounded-md border p-1 px-2 text-sm lg:text-base"
+                        :class="
+                            gig.coming
+                                ? 'cursor-pointer border-gray-400 hover:border-gray-600 '
+                                : ''
+                        "
+                    >
+                        <a :href="gig.event_url" target="_blank">ticket</a>
+                    </div>
                 </div>
             </li>
         </ul>

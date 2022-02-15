@@ -1,5 +1,6 @@
 <template>
     <div class="min-h-screen w-full">
+        <PageTitle></PageTitle>
         <div class="grid grid-cols-3 gap-2">
             <div
                 v-for="(url, i) in urls"

@@ -1,7 +1,8 @@
 <template>
     <div class="w-full">
+        <PageTitle>about us</PageTitle>
         <article
-            class="mx-auto max-w-2xl text-justify font-redhat text-base font-normal text-gray-700 leading-relaxed"
+            class="mx-auto max-w-2xl pt-2 text-justify font-redhat text-sm font-normal leading-relaxed text-gray-700 sm:pt-0 sm:text-base"
         >
             <p class="paragraph">
                 Super Napkin is a fuzz-pop trio hailing from Taiwan. Feeling
@@ -51,13 +52,9 @@
                 bubble up to the surface.
             </p>
         </article>
-        <picture>
-            <img
-                :src="imgUrl"
-                alt="About Us"
-                class="mx-auto max-w-2xl object-cover pt-8"
-            />
-        </picture>
+        <div class="mx-auto max-w-2xl pt-12">
+            <img :src="imgUrl" alt="About Us" class="block w-full" />
+        </div>
     </div>
 </template>
 <script>

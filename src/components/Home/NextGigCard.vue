@@ -3,7 +3,7 @@
         class="mx-auto flex max-w-4xl flex-col items-center justify-center py-8 text-center lg:py-16"
     >
         <h3
-            class="pt-6 pb-6 font-redhat text-xl font-medium uppercase tracking-widest text-gray-800 lg:text-3xl"
+            class="p-2 lg:p-6 font-redhat text-xl font-medium uppercase tracking-widest text-gray-800 lg:text-3xl"
         >
             next gig
         </h3>
@@ -12,10 +12,10 @@
             <li
                 v-for="gig in props.nextGig"
                 :key="gig.id"
-                class="mb-2 flex flex-col items-center rounded border border-gray-500 p-5 px-6 text-sm shadow lg:flex-row lg:p-3 lg:text-base"
+                class="mb-2 flex flex-col items-center rounded border border-gray-500 p-4 text-sm shadow lg:flex-row lg:p-3 lg:text-base"
             >
                 <div class="text-sm lg:text-base">{{ gig.show_time }}</div>
-                <div class="m-0 flex grow items-center py-4 lg:mx-2 lg:py-0 text-sm lg:text-base">
+                <div class="m-0 flex grow items-center py-3 lg:mx-2 lg:py-0 text-sm lg:text-base">
                     <span
                         class="iconify mx-1"
                         data-icon="ic:outline-place"

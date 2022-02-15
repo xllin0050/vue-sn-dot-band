@@ -50,7 +50,7 @@
             <div
                 v-for="name in membersName"
                 :key="name"
-                class="membersPhoto absolute aspect-square w-60 -translate-x-1/2 -translate-y-6 rounded-full lg:w-80 lg:-translate-y-0"
+                class="membersPhoto absolute aspect-square w-60 -translate-x-1/2 -translate-y-10 rounded-full lg:w-80 lg:-translate-y-0"
                 :class="name"
                 v-show="name === backgroundName"
             ></div>
@@ -90,17 +90,17 @@ export default {
     }
 }
 .shih {
-    background: url('../assets/images/members/shih.jpg');
+    background: url('@/assets/images/members/shih.jpg');
     background-size: cover;
     background-position: center;
 }
 .yau {
-    background: url('../assets/images/members/yau.jpg');
+    background: url('@/assets/images/members/yau.jpg');
     background-size: cover;
     background-position: left;
 }
 .weiting {
-    background: url('../assets/images/members/weiting.jpg');
+    background: url('@/assets/images/members/weiting.jpg');
     background-size: cover;
     background-position: left;
 }
