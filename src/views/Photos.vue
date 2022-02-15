@@ -1,14 +1,16 @@
 <template>
     <div class="min-h-screen w-full">
-        <PageTitle></PageTitle>
-        <div class="grid grid-cols-3 gap-2">
+        <PageTitle>photos</PageTitle>
+        <div
+            class="grid grid-cols-1 gap-4 pt-4 lg:grid-cols-3 lg:gap-2 lg:pt-0"
+        >
             <div
                 v-for="(url, i) in urls"
                 class="w-full"
                 :key="`c_${i}`"
                 @click="showImagesByComponent(i)"
             >
-                <img :src="url" class="block shadow-md" />
+                <img :src="url" class="block shadow-xl" />
             </div>
         </div>
         <ImgViewr

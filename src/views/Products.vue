@@ -1,17 +1,17 @@
 <template>
     <div class="w-full">
-        <PageTitle></PageTitle>
-        <div v-for="(product, i) in products" :key="i" class="pt-16">
+        <PageTitle>products</PageTitle>
+        <div v-for="(product, i) in products" :key="i" class="pt-8 lg:pt-16">
             <ProductCard :product="product" />
         </div>
         <p
-            class="mx-auto w-3/4 py-8 font-redhat text-xl font-medium leading-relaxed text-gray-600"
+            class="mx-auto w-full py-8 font-redhat text-sm font-medium leading-relaxed tracking-widest text-gray-600 lg:w-3/4 lg:text-xl"
         >
             If you’d like to get a copy of our albums or merchants, please drop
             us a line at
             <a href="mailto:supernapkinsogood@gmail.com"
                 >supernapkinsogood@gmail.com</a
-            >.
+            >
         </p>
     </div>
 </template>

@@ -1,7 +1,7 @@
 <template>
     <div class="min-h-screen w-full">
         <PageTitle>gigs</PageTitle>
-        <ul class="font-redhat pt-6 md:pt-0">
+        <ul class="pt-6 font-redhat md:pt-0">
             <li
                 v-for="gig in gigDatas"
                 :key="gig.id"
@@ -10,7 +10,7 @@
             >
                 <div class="">{{ gig.show_time }}</div>
                 <div
-                    class="my-1 flex items-center text-sm font-normal lg:my-0 lg:grow lg:text-base"
+                    class="my-1 flex items-center text-sm font-normal text-gray-800 lg:my-0 lg:grow lg:text-base"
                 >
                     <span
                         class="iconify mx-1"
@@ -20,7 +20,7 @@
                     >{{ gig.venue }}
                 </div>
                 <div
-                    class="flex items-center text-sm font-normal lg:mx-4 lg:w-36 lg:text-base"
+                    class="flex items-center text-sm font-normal text-gray-800 lg:mx-4 lg:w-36 lg:text-base"
                 >
                     <span
                         class="iconify mx-1"

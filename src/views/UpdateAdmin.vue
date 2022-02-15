@@ -1,6 +1,6 @@
 <template>
     <div class="mx-auto max-w-lg font-redhat">
-        <h3 class="text-2xl font-medium uppercase">gigs update</h3>
+        <h3 class="text-2xl font-medium uppercase pt-8 sm:pt-0">gigs update</h3>
         <div class="flex flex-col text-xl">
             <label for="venue" class="pt-5 uppercase">venue</label>
             <input
