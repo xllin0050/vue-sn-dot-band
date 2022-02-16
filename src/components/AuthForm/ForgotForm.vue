@@ -1,10 +1,13 @@
 <template>
     <form class="flex flex-col" @submit.prevent="handlePasswordReset()">
-        <h1 class="my-4 text-lg">Forgot Password?</h1>
+        <h1 class="my-4 text-xl">Forgot Password?</h1>
         <label
-            >Email <input v-model="email" type="email" class="border"
+            >Email
+            <input v-model="email" type="email" class="border border-gray-600"
         /></label>
-        <button class="rounded border p-2 mt-4">Send Reset Email</button>
+        <button class="mt-4 rounded border border-gray-600 p-2">
+            Send Reset Email
+        </button>
     </form>
 </template>
 <script setup>

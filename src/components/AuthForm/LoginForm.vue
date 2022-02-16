@@ -1,16 +1,26 @@
 <template>
     <form @submit.prevent="handleLogin">
         <h1 class="my-4 text-xl">Login</h1>
-        <div class="felx-col flex">
-            <label class="border"
-                >Email <input v-model="form.email" type="email" class="border"
+        <div>
+            <label
+                >Email
+                <input
+                    v-model="form.email"
+                    type="email"
+                    class="mx-2 border border-gray-600"
             /></label>
-            <label class="border"
+            <label
                 >Password
-                <input v-model="form.password" type="password" class="border"
+                <input
+                    v-model="form.password"
+                    type="password"
+                    class="mx-2 border border-gray-600"
             /></label>
-            <button class="border px-2">Login</button>
         </div>
+
+        <button class="mt-4 rounded border border-gray-600 py-1 px-2">
+            Login
+        </button>
     </form>
 </template>
 <script setup>
