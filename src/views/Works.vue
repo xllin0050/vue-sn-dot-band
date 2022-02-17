@@ -45,7 +45,7 @@ import { ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 export default {
   name: 'AlbumPage',
-  setup(props) {
+  setup() {
     const router = useRouter()
     const route = useRoute()
     const albumData = ref([])

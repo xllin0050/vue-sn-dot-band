@@ -64,7 +64,7 @@ import { supabase } from '@/supabase.js'
 import { ref } from 'vue'
 export default {
     name: 'GigsPage',
-    setup(props) {
+    setup() {
         const gigDatas = ref([])
         const gigInfoData = ref({})
         const modalVisible = ref(false)

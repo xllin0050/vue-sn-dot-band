@@ -60,7 +60,7 @@ import { ref } from 'vue'
 
 export default {
     name: 'GigUpdate',
-    setup(props) {
+    setup() {
         const showTime = ref('')
         const venue = ref('')
         const city = ref('')

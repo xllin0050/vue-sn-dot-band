@@ -38,7 +38,7 @@ import { ref } from 'vue'
 
 export default {
     name: 'DiscPage',
-    setup(props) {
+    setup() {
         const albumDatas = ref([])
 
         const getAlbumsArt = (title) => {

@@ -60,7 +60,7 @@
 <script>
 export default {
     name: 'AboutPage',
-    setup(props) {
+    setup() {
         const imgUrl = new URL('../assets/images/about-us.jpg', import.meta.url)
             .href
         return { imgUrl }
