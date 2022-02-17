@@ -14,7 +14,7 @@
         "vue": "^3.2.31",
         "vue-img-viewr": "^2.0.8",
         "vue-router": "^4.0.12",
-        "vueperslides": "^3.3.2"
+        "vue3-lazyload": "^0.2.5-beta"
     },
     "devDependencies": {
         "@iconify/json": "^1.1.461",

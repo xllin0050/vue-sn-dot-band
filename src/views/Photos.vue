@@ -10,7 +10,7 @@
                 :key="`c_${i}`"
                 @click="showImagesByComponent(i)"
             >
-                <img :src="url" class="block shadow-xl" />
+                <img v-lazy="url" class="block shadow-xl" />
             </div>
         </div>
         <ImgViewr

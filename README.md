@@ -8,7 +8,8 @@ This template should help get you started developing with Vue 3 in Vite.
 
 [vue-img-viewr](https://github.com/jekorx/vue-img-viewr)
 
-[Vueper Slides](https://antoniandre.github.io/vueper-slides/)
+[vue3-lazyload](https://github.com/murongg/vue3-lazyload)
+
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (and disable Vetur).
