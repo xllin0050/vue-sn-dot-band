@@ -6,23 +6,19 @@
         <router-view />
     </div>
     <SiteFooter />
+    <ScrollToTop />
 </template>
-<script>
-export default {
-    setup() {
-        const routes = [
-            'Home',
-            'About Us',
-            'Discography',
-            'Gigs',
-            'Videos',
-            'Photos',
-            'Products',
-            'GigUpdate',
-        ]
-        return { routes }
-    },
-}
+<script setup>
+const routes = [
+    'Home',
+    'About Us',
+    'Discography',
+    'Gigs',
+    'Videos',
+    'Photos',
+    'Products',
+    'GigUpdate',
+]
 </script>
 <style>
 body {
