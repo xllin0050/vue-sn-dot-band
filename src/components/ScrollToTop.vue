@@ -1,17 +1,13 @@
 <template>
     <div
         ref="scrollTopButton"
-        class="sticky bottom-0 flex w-full justify-end transition"
+        class="fixed bottom-5 z-10 flex w-full justify-center bg-gray-400 opacity-60 transition sm:hidden"
     >
         <div
-            class="p-2 px-4 text-gray-400 transition hover:text-gray-600"
+            class="py-3 px-8 font-redhat text-xl uppercase text-white transition"
             @click="scrollToTop"
         >
-            <span
-                class="iconify rotate-180 text-2xl"
-                data-icon="mdi:arrow-down-thin"
-                data-inline="false"
-            ></span>
+            top
         </div>
     </div>
 </template>
@@ -28,7 +24,7 @@ onBeforeUnmount(() => {
 })
 
 const handleScroll = () => {
-    if (window.scrollY > 500) {
+    if (window.scrollY > 1100) {
         scrollTopButton.value.classList.remove('invisible')
     } else {
         scrollTopButton.value.classList.add('invisible')
