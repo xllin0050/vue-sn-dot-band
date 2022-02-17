@@ -5,12 +5,12 @@
             <li
                 v-for="gig in gigDatas"
                 :key="gig.id"
-                class="mb-2 flex flex-col items-center rounded-md border p-2 uppercase shadow-sm lg:flex-row lg:p-3"
+                class="mb-8 lg:mb-4 flex flex-col items-center rounded-md border p-2 uppercase shadow-sm lg:flex-row lg:p-3"
                 :class="gig.coming ? 'border-gray-700 shadow-md lg:py-6' : ''"
             >
                 <div class="">{{ gig.show_time }}</div>
                 <div
-                    class="my-1 flex items-center text-sm font-normal text-gray-800 lg:my-0 lg:grow lg:text-base"
+                    class="my-2 flex items-center text-sm font-normal text-gray-800 lg:my-0 lg:grow lg:text-base"
                 >
                     <span
                         class="iconify mx-1"
@@ -20,7 +20,7 @@
                     >{{ gig.venue }}
                 </div>
                 <div
-                    class="flex items-center text-sm font-normal text-gray-800 lg:mx-4 lg:w-36 lg:text-base"
+                    class="my-1 flex items-center text-sm font-normal text-gray-800 lg:my-0 lg:mx-4 lg:w-36 lg:text-base"
                 >
                     <span
                         class="iconify mx-1"

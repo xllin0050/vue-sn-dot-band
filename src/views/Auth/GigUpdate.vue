@@ -1,6 +1,6 @@
 <template>
     <div class="mx-auto max-w-lg font-redhat">
-        <h3 class="text-2xl font-medium uppercase pt-8 sm:pt-0">gigs update</h3>
+        <h3 class="pt-8 text-2xl font-medium uppercase sm:pt-0">gigs update</h3>
         <div class="flex flex-col text-xl">
             <label for="venue" class="pt-5 uppercase">venue</label>
             <input
@@ -59,7 +59,7 @@ import { supabase } from '@/supabase.js'
 import { ref } from 'vue'
 
 export default {
-    name: 'AdminPage',
+    name: 'GigUpdate',
     setup(props) {
         const showTime = ref('')
         const venue = ref('')

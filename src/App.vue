@@ -18,7 +18,7 @@ export default {
             'Videos',
             'Photos',
             'Products',
-            'Update Admin',
+            'GigUpdate',
         ]
         return { routes }
     },

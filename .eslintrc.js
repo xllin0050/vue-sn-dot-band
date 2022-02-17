@@ -1,19 +1,21 @@
 module.exports = {
-  root: true,
-  env: {
-    browser: true,
-    node: true,
-  },
-  extends: ['plugin:vue/vue3-strongly-recommended', 'prettier'],
-  parserOptions: {
-    ecmaVersion: 2020,
-  },
-  plugins: ['vue'],
-  rules: {
-    // override/add rules settings here, such as:
-    // 'prettier/prettier': ['error', { endOfLine: 'auto' }],
-    'vue/no-unused-vars': 'off',
-    'vue/require-default-prop': 'off',
-    'no-console': 'off',
-  },
+    root: true,
+    env: {
+        es2021: true,
+        browser: true,
+        node: true,
+    },
+    extends: ['plugin:vue/vue3-strongly-recommended', 'prettier'],
+    parserOptions: {
+        ecmaVersion: 2021,
+        sourceType: 'module',
+    },
+    plugins: ['vue'],
+    rules: {
+        // override/add rules settings here, such as:
+        // 'prettier/prettier': ['error', { endOfLine: 'auto' }],
+        'vue/no-unused-vars': 'off',
+        'vue/require-default-prop': 'off',
+        'no-console': 'off',
+    },
 }
