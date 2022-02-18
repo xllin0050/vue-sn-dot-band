@@ -57,7 +57,6 @@
             @close-modal="showModal"
         />
     </div>
-    <ScrollToTop />
 </template>
 
 <script>

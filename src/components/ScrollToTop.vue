@@ -1,10 +1,10 @@
 <template>
     <div
         ref="scrollTopButton"
-        class="fixed bottom-5 z-10 flex w-full justify-center bg-gray-400 opacity-60 transition sm:hidden"
+        class="fixed bottom-5 z-10 flex w-20 rounded justify-center bg-gray-300 opacity-80 transition sm:hidden"
     >
         <div
-            class="py-3 px-8 font-redhat text-xl uppercase text-white transition"
+            class="py-2 px-5 font-redhat text-xl uppercase text-white font-medium"
             @click="scrollToTop"
         >
             top
@@ -17,6 +17,7 @@ const scrollTopButton = ref(null)
 
 onMounted(() => {
     window.addEventListener('scroll', handleScroll)
+    scrollTopButton.value.classList.add('invisible')
 })
 
 onBeforeUnmount(() => {

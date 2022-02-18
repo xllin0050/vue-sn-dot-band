@@ -22,7 +22,6 @@
             @show="showHandle"
         />
     </div>
-    <ScrollToTop />
 </template>
 <script>
 import { supabase } from '@/supabase.js'
