@@ -55,11 +55,6 @@ const router = createRouter({
             component: () => import('../views/Auth/Login.vue'),
         },
         {
-            path: '/rest-password',
-            name: 'RestPassword',
-            component: () => import('../views/Auth/RestPassword.vue'),
-        },
-        {
             name: 'Logout',
             path: '/logout',
             beforeEnter: async () => {

@@ -10,7 +10,7 @@
                 </a>
             </li>
         </ul>
-        <div class="flex items-center justify-center pt-4">
+        <div class="flex items-center justify-center text-gray-700 pt-4">
             <span class="iconify text-lg" data-icon="uil:copyright"></span
             >{{ thisYear }} Super Napkin
         </div>

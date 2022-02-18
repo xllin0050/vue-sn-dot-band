@@ -1,7 +1,7 @@
 <template>
     <form @submit.prevent="handleLogin">
-        <h1 class="my-4 text-xl">Login</h1>
-        <div>
+        <h1 class="py-8 text-xl uppercase">Login</h1>
+        <div class="py-12">
             <label
                 >Email
                 <input
@@ -18,7 +18,9 @@
             /></label>
         </div>
 
-        <button class="mt-4 rounded border border-gray-600 py-1 px-2">
+        <button
+            class="my-8 rounded border border-gray-400 py-2 px-4 hover:border-gray-600"
+        >
             Login
         </button>
     </form>

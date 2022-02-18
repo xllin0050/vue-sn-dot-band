@@ -1,7 +1,7 @@
 <template>
     <form @submit.prevent="handleRegister">
-        <h1 class="my-4 text-xl">Register</h1>
-        <div>
+        <h1 class="py-8 text-xl uppercase">Register</h1>
+        <div class="py-12">
             <label
                 >Email
                 <input
@@ -17,7 +17,9 @@
                     class="mx-2 border border-gray-600"
             /></label>
         </div>
-        <button class="mt-4 rounded border border-gray-600 py-1 px-2">
+        <button
+            class="my-8 rounded border border-gray-400 py-2 px-4 hover:border-gray-600"
+        >
             Register
         </button>
     </form>
