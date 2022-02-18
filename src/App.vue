@@ -6,7 +6,6 @@
         <router-view />
     </div>
     <SiteFooter />
-    <ScrollToTop />
 </template>
 <script setup>
 const routes = [

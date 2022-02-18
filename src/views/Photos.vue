@@ -22,6 +22,7 @@
             @show="showHandle"
         />
     </div>
+    <ScrollToTop />
 </template>
 <script>
 import { supabase } from '@/supabase.js'
@@ -87,7 +88,7 @@ export default {
 }
 </script>
 <style>
-.img-viewr__icon.icon__download-image{
+.img-viewr__icon.icon__download-image {
     display: none !important;
 }
 </style>
