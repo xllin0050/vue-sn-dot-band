@@ -4,7 +4,7 @@
             class="flex items-center pt-8 text-2xl font-medium uppercase sm:pt-0"
         >
             <span
-                class="iconify text-4xl text-green-500 mr-2"
+                class="iconify mr-2 text-4xl text-green-500"
                 data-icon="gg:add"
             ></span>
             gig update
@@ -96,7 +96,7 @@
             class="flex items-center pt-16 text-2xl font-medium uppercase sm:pt-0"
         >
             <span
-                class="iconify text-3xl text-red-500 mr-2"
+                class="iconify mr-2 text-3xl text-red-500"
                 data-icon="gg:danger"
             ></span
             >gig delete
@@ -186,11 +186,13 @@ export default {
         }
 
         async function deleteGig() {
-            const { data, error } = await supabase
-                .from('gigs')
-                .delete()
-                .eq('show_time', delShowTime.value)
-            if (data.length) deleteComplete.value = true
+            if (delShowTime.value) {
+                const { data, error } = await supabase
+                    .from('gigs')
+                    .delete()
+                    .eq('show_time', delShowTime.value)
+                if (data.length) deleteComplete.value = true
+            }
         }
 
         return {
