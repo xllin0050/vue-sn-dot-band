@@ -31,7 +31,7 @@ const urls = [
 ]
 export default {
     name: 'VideosPage',
-    setup(props) {
+    setup() {
         return { urls }
     },
 }

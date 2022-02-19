@@ -1,5 +1,5 @@
 <template>
-    <div class="mx-auto max-w-4xl py-8 lg:py-16">
+    <div class="mx-auto max-w-4xl py-8 lg:py-12">
         <h3
             class="pb-4 text-center font-redhat text-xl font-medium uppercase tracking-widest text-gray-800 lg:text-3xl"
         >

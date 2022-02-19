@@ -10,7 +10,7 @@
                 :key="`c_${i}`"
                 @click="showImagesByComponent(i)"
             >
-                <img :src="url" class="block shadow-xl" />
+                <img v-lazy="url" class="block shadow-xl" />
             </div>
         </div>
         <ImgViewr
@@ -32,7 +32,7 @@ import 'vue-img-viewr/styles/index.css'
 export default {
     name: 'PhotosPage',
     components: { ImgViewr },
-    setup(props) {
+    setup() {
         const urls = ref([])
         const index = ref(0)
         const visible = ref(false)
@@ -86,3 +86,8 @@ export default {
     },
 }
 </script>
+<style>
+.img-viewr__icon.icon__download-image {
+    display: none !important;
+}
+</style>

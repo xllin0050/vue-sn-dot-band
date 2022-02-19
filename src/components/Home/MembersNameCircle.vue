@@ -50,7 +50,7 @@
             <div
                 v-for="name in membersName"
                 :key="name"
-                class="membersPhoto absolute aspect-square w-60 -translate-x-1/2 -translate-y-10 rounded-full lg:w-80 lg:-translate-y-0"
+                class="membersPhoto absolute aspect-square w-60 -translate-x-1/2 -translate-y-10 rounded-full shadow-lg lg:w-80 lg:-translate-y-0"
                 :class="name"
                 v-show="name === backgroundName"
             ></div>
@@ -80,7 +80,7 @@ export default {
 </script>
 <style scoped>
 .membersPhoto {
-    animation: circleRun 3s linear infinite;
+    animation: circleRun 1s linear infinite;
     animation-play-state: paused;
 }
 @media (min-width: 1024px) {

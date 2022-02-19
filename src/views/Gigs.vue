@@ -5,7 +5,7 @@
             <li
                 v-for="gig in gigDatas"
                 :key="gig.id"
-                class="mb-8 lg:mb-4 flex flex-col items-center rounded-md border p-2 uppercase shadow-sm lg:flex-row lg:p-3"
+                class="mb-6 flex flex-col items-center rounded-md border p-2 uppercase shadow-sm lg:mb-4 lg:flex-row lg:p-3"
                 :class="gig.coming ? 'border-gray-700 shadow-md lg:py-6' : ''"
             >
                 <div class="">{{ gig.show_time }}</div>
@@ -64,7 +64,7 @@ import { supabase } from '@/supabase.js'
 import { ref } from 'vue'
 export default {
     name: 'GigsPage',
-    setup(props) {
+    setup() {
         const gigDatas = ref([])
         const gigInfoData = ref({})
         const modalVisible = ref(false)
