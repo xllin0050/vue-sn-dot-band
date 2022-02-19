@@ -38,7 +38,7 @@ const form = ref({
 const handleRegister = async () => {
     try {
         await register(form.value)
-        router.go()
+        router.push({ name: 'Login' })
     } catch (error) {
         alert(error.message)
     }
