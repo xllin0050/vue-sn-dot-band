@@ -10,7 +10,7 @@
                 </a>
             </li>
         </ul>
-        <div class="flex items-center justify-center text-gray-700 pt-4">
+        <div class="flex items-center justify-center pt-4 text-gray-700">
             <span class="iconify text-lg" data-icon="uil:copyright"></span
             >{{ thisYear }} Super Napkin
         </div>
@@ -23,19 +23,24 @@ export default {
 
         const links = [
             [
-                'mailto:supernapkinsogood@gmail.com',
-                'ic:round-mail-outline',
-                'mail',
-            ],
-            [
                 'https://www.facebook.com/SuperNapkin/',
                 'ic:outline-facebook',
                 'facebook',
             ],
             [
+                'https://www.youtube.com/channel/UCla5IDvJMbZdiiEuhJyh-1Q',
+                'grommet-icons:youtube',
+                'youtube',
+            ],
+            [
                 'https://www.instagram.com/super_napkin/',
                 'ph:instagram-logo',
                 'instagram',
+            ],
+            [
+                'mailto:supernapkinsogood@gmail.com',
+                'ic:round-mail-outline',
+                'mail',
             ],
         ]
         return { links, thisYear }

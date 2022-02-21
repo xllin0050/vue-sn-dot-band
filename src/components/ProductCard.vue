@@ -17,10 +17,10 @@
                 v-if="!props.product.available"
                 class="text-sm font-medium uppercase lg:text-xl"
                 :class="
-                    props.product.available ? 'text-gray-600' : 'text-gray-400'
+                    props.product.available ? 'text-gray-600' : 'text-red-200'
                 "
             >
-                not available
+                currently sold out
             </p>
         </div>
     </div>
