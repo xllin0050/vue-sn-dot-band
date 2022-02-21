@@ -17,6 +17,7 @@
     },
     "devDependencies": {
         "@iconify/json": "^1.1.461",
+        "@intlify/vite-plugin-vue-i18n": "^3.3.0",
         "@vitejs/plugin-vue": "^2.2.0",
         "autoprefixer": "^10.4.2",
         "eslint": "^8.7.0",
