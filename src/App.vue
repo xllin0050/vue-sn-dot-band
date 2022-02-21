@@ -1,4 +1,5 @@
 <template>
+    <LangSwitch />
     <NoGlitchTitle />
     <AppNavbar :routes-list="routes" />
     <SiteNavbar :routes-list="routes" />
@@ -20,6 +21,7 @@ const routes = [
     'GigUpdate',
 ]
 </script>
+
 <style>
 body {
     position: relative;

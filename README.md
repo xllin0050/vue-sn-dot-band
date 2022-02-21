@@ -9,3 +9,5 @@
 [vue3-lazyload](https://github.com/murongg/vue3-lazyload)
 
 [@intlify/vite-plugin-vue-i18n](https://github.com/intlify/bundle-tools/tree/main/packages/vite-plugin-vue-i18n)
+
+[Vue I18n](https://vue-i18n.intlify.dev/)

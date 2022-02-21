@@ -11,6 +11,7 @@
         "@supabase/supabase-js": "^1.30.2",
         "postcss-import": "^14.0.2",
         "vue": "^3.2.31",
+        "vue-i18n": "^9.1.9",
         "vue-img-viewr": "^2.0.8",
         "vue-router": "^4.0.12",
         "vue3-lazyload": "^0.2.5-beta"

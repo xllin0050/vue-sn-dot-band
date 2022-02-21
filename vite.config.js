@@ -12,13 +12,10 @@ export default defineConfig({
     plugins: [
         vue(),
         vueI18n({
-            include: path.resolve(__dirname, './path/to/src/locales/**'),
+            include: path.resolve(__dirname, './src/language/**'),
         }),
         PurgeIcons({
-            // globs for searching source file to analyze
-            content: [
-                '**/*.vue', // scan for .vue file as well
-            ],
+            content: ['**/*.vue'],
             format: 'mjs',
         }),
         Components(),
