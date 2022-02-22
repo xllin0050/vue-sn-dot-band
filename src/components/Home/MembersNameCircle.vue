@@ -20,11 +20,13 @@
                     />
                 </path>
             </defs>
-            <text class="font-redhat text-2xl font-medium uppercase">
+            <text
+                class="block font-redhat text-2xl font-medium uppercase dark:hidden"
+            >
                 <textPath
                     xlink:href="#textcircle"
                     textLength="290"
-                    :fill="'weiting' === backgroundName ? '#111827' : '#d1d5db'"
+                    :fill="'weiting' === backgroundName ? '#404040' : '#E5E5E5'"
                 >
                     Weiting(bass)
                 </textPath>
@@ -32,7 +34,7 @@
                     xlink:href="#textcircle"
                     startOffset="820"
                     textLength="250"
-                    :fill="'yau' === backgroundName ? '#111827' : '#d1d5db'"
+                    :fill="'yau' === backgroundName ? '#404040' : '#E5E5E5'"
                 >
                     Yau(gtr/vox)
                 </textPath>
@@ -40,7 +42,34 @@
                     xlink:href="#textcircle"
                     startOffset="440"
                     textLength="200"
-                    :fill="'shih' === backgroundName ? '#111827' : '#d1d5db'"
+                    :fill="'shih' === backgroundName ? '#404040' : '#E5E5E5'"
+                >
+                    Shih(drum)
+                </textPath>
+            </text>
+            <text
+                class="hidden font-redhat text-2xl font-medium uppercase dark:block"
+            >
+                <textPath
+                    xlink:href="#textcircle"
+                    textLength="290"
+                    :fill="'weiting' === backgroundName ? '#E9D5FF' : '#525252'"
+                >
+                    Weiting(bass)
+                </textPath>
+                <textPath
+                    xlink:href="#textcircle"
+                    startOffset="820"
+                    textLength="250"
+                    :fill="'yau' === backgroundName ? '#E9D5FF' : '#525252'"
+                >
+                    Yau(gtr/vox)
+                </textPath>
+                <textPath
+                    xlink:href="#textcircle"
+                    startOffset="440"
+                    textLength="200"
+                    :fill="'shih' === backgroundName ? '#E9D5FF' : '#525252'"
                 >
                     Shih(drum)
                 </textPath>

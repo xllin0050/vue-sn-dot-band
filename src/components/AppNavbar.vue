@@ -11,10 +11,14 @@
     <transition name="fade">
         <div
             v-if="isShow"
-            class="fixed flex justify-around pt-12 top-0 z-10 min-h-screen w-full bg-white"
+            class="fixed top-0 z-10 flex min-h-screen w-full justify-around bg-white pt-12 dark:bg-neutral-900"
         >
-            <ul class="font-redhat uppercase font-medium tracking-wider">
-                <li v-for="routeName in props.routesList" :key="routeName" class="py-3">
+            <ul class="font-redhat font-medium uppercase tracking-wider">
+                <li
+                    v-for="routeName in props.routesList"
+                    :key="routeName"
+                    class="py-3"
+                >
                     <p>
                         <router-link :to="{ name: routeName }">
                             <span @click="isShow = false">
