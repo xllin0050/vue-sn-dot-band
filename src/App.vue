@@ -1,4 +1,5 @@
 <template>
+    <!-- <p class="text-2xl">{{ $t('GENERAL.OK') }}</p> -->
     <LangSwitch />
     <NoGlitchTitle />
     <AppNavbar :routes-list="routes" />

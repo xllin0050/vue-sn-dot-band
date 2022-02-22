@@ -11,8 +11,10 @@
     </div>
 </template>
 <script setup>
+
 import { useRouter } from 'vue-router'
 const router = useRouter()
+
 
 const langSwitch = () => {
     let userLang = localStorage.getItem('lang')
