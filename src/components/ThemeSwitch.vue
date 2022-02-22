@@ -4,7 +4,7 @@
         @click="themeSwitch"
     >
         <span
-            class="iconify md:text-2xl"
+            class="iconify dark:text-purple-400 md:text-2xl"
             data-icon="ic:outline-dark-mode"
             data-inline="false"
         ></span>
