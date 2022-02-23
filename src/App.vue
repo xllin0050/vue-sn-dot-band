@@ -1,8 +1,8 @@
 <template>
     <!-- <p class="text-2xl">{{ $t('GENERAL.OK') }}</p> -->
     <div class="w-full min-h-screen dark:bg-neutral-900 dark:text-purple-200">
-        <LangSwitch />
         <ThemeSwitch />
+        <LangSwitch />
         <NoGlitchTitle />
         <AppNavbar :routes-list="routes" />
         <SiteNavbar :routes-list="routes" />

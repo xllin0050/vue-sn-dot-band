@@ -1,6 +1,6 @@
 <template>
     <div
-        class="fixed top-0 right-0 p-3 md:right-8 md:top-4"
+        class="md:right-10 fixed top-0 right-0 p-3 md:top-4"
         @click="langSwitch"
     >
         <span

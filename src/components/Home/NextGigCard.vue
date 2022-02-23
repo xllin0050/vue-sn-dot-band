@@ -12,7 +12,7 @@
             <li
                 v-for="gig in props.nextGig"
                 :key="gig.id"
-                class="mb-3 flex flex-col items-center rounded border border-gray-400 p-4 text-sm shadow lg:mb-6 lg:flex-row lg:p-3 lg:text-base"
+                class="mb-3 flex flex-col items-center rounded border border-gray-400 p-4 text-sm shadow dark:border-2 lg:mb-6 lg:flex-row lg:p-3 lg:text-base"
             >
                 <div class="text-sm lg:text-base">{{ gig.show_time }}</div>
                 <div

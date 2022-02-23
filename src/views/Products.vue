@@ -5,7 +5,7 @@
             <ProductCard :product="product" />
         </div>
         <p
-            class="mx-auto w-full py-8 font-redhat text-sm font-medium leading-relaxed tracking-widest text-gray-800 lg:w-3/4 lg:text-xl"
+            class="mx-auto w-full py-8 font-redhat text-sm font-medium leading-relaxed tracking-widest text-neutral-800 dark:text-neutral-400 lg:w-3/4 lg:text-xl"
         >
             If you’d like to get a copy of our albums or merchants, please drop
             us a line at

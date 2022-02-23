@@ -2,7 +2,7 @@
     <div class="min-h-screen w-full pb-16">
         <PageTitle></PageTitle>
         <h2
-            class="pt-4 text-center font-redhat text-lg font-medium uppercase text-gray-500 lg:pt-8 lg:text-xl"
+            class="pt-4 text-center font-redhat text-lg font-medium uppercase text-neutral-500 dark:text-purple-200 lg:pt-8 lg:text-xl"
         >
             videos
         </h2>
