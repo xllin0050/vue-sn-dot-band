@@ -2,7 +2,7 @@
     <div class="w-full">
         <PageTitle>about us</PageTitle>
         <article
-            class="mx-auto max-w-2xl break-all pt-2 text-left font-redhat text-sm font-normal leading-relaxed text-gray-700 sm:break-words sm:pt-0 sm:text-justify sm:text-base"
+            class="mx-auto max-w-2xl break-all pt-2 text-left font-redhat text-sm font-normal leading-relaxed text-neutral-600 dark:text-neutral-400 sm:break-words sm:pt-0 sm:text-justify sm:text-base"
         >
             <p class="paragraph">
                 Super Napkin is a fuzz-pop trio hailing from Taiwan. Feeling

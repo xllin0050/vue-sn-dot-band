@@ -13,12 +13,12 @@
             </div>
             <div class="grow pt-8 pl-8 lg:pt-0">
                 <h3
-                    class="pb-4 text-sm font-medium uppercase text-gray-800 lg:text-xl"
+                    class="pb-4 text-sm font-medium uppercase text-neutral-800 dark:text-purple-200 lg:text-xl"
                 >
                     {{ album.title }}
                 </h3>
                 <p
-                    class="pt-4 pb-8 text-xs leading-6 tracking-widest text-gray-600 lg:text-base"
+                    class="pt-4 pb-8 text-xs leading-6 tracking-widest text-neutral-600 dark:text-neutral-400 lg:text-base"
                 >
                     {{ album.desc }}
                 </p>

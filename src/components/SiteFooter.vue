@@ -1,7 +1,7 @@
 <template>
     <footer class="w-full py-8 font-redhat font-medium uppercase">
         <ul class="mx-auto flex max-w-sm items-center justify-center">
-            <li v-for="(link, key) in links" :key="key">
+            <li v-for="(link, key) in links" :key="key" class="dark:text-purple-400">
                 <a :href="link[0]" target="_blank" :aria-label="link[2]">
                     <span
                         class="iconify mx-3 text-2xl sm:text-3xl"
@@ -10,7 +10,9 @@
                 </a>
             </li>
         </ul>
-        <div class="flex items-center justify-center pt-4 text-gray-700">
+        <div
+            class="flex items-center justify-center pt-4 text-neutral-900 dark:text-purple-200"
+        >
             <span class="iconify text-lg" data-icon="uil:copyright"></span
             >{{ thisYear }} Super Napkin
         </div>

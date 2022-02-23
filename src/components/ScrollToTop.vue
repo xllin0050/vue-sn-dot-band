@@ -1,13 +1,16 @@
 <template>
     <div
         ref="scrollTopButton"
-        class="fixed bottom-5 z-10 flex w-20 rounded justify-center bg-gray-300 opacity-80 transition sm:hidden"
+        class="fixed bottom-5 z-10 block rounded-sm transition sm:hidden"
     >
         <div
-            class="py-2 px-5 font-redhat text-xl uppercase text-white font-medium"
+            class="py-2 px-4 font-redhat font-medium uppercase text-neutral-900 dark:text-purple-400"
             @click="scrollToTop"
         >
-            top
+            <span
+                class="iconify rotate-180 text-2xl"
+                data-icon="mdi:arrow-down-bold-circle-outline"
+            ></span>
         </div>
     </div>
 </template>

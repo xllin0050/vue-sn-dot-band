@@ -6,24 +6,28 @@
                 v-for="gig in gigDatas"
                 :key="gig.id"
                 class="mb-6 flex flex-col items-center rounded-md border p-2 uppercase shadow-sm lg:mb-4 lg:flex-row lg:p-3"
-                :class="gig.coming ? 'border-gray-700 shadow-md lg:py-6' : ''"
+                :class="
+                    gig.coming
+                        ? 'border-neutral-700 shadow-md dark:border-2 dark:border-purple-400 lg:py-6'
+                        : ''
+                "
             >
                 <div class="">{{ gig.show_time }}</div>
                 <div
-                    class="my-2 flex items-center text-sm font-normal text-gray-800 lg:my-0 lg:grow lg:text-base"
+                    class="my-2 flex items-center text-sm font-normal text-neutral-800 dark:text-neutral-200 lg:my-0 lg:grow lg:text-base"
                 >
                     <span
-                        class="iconify mx-1"
+                        class="iconify mx-1 dark:text-neutral-400"
                         data-icon="ic:outline-place"
                         data-inline="false"
                     ></span
                     >{{ gig.venue }}
                 </div>
                 <div
-                    class="my-1 flex items-center text-sm font-normal text-gray-800 lg:my-0 lg:mx-4 lg:w-36 lg:text-base"
+                    class="my-1 flex items-center text-sm font-normal text-neutral-800 dark:text-neutral-200 lg:my-0 lg:mx-4 lg:w-36 lg:text-base"
                 >
                     <span
-                        class="iconify mx-1"
+                        class="iconify mx-1 dark:text-neutral-400"
                         data-icon="mdi:city-variant-outline"
                         data-inline="false"
                     ></span
@@ -31,8 +35,12 @@
                 </div>
                 <div class="flex pt-2 lg:pt-0">
                     <div
-                        class="mx-2 cursor-pointer rounded-md border p-1 px-2 text-sm hover:border-gray-600 lg:text-base"
-                        :class="gig.coming ? 'border-gray-400 ' : ''"
+                        class="mx-2 cursor-pointer rounded-md border p-1 px-2 text-sm hover:border-neutral-600 lg:text-base"
+                        :class="
+                            gig.coming
+                                ? 'border-neutral-400 dark:border-purple-400'
+                                : ''
+                        "
                         @click="showModal(gig)"
                     >
                         info
@@ -42,7 +50,7 @@
                         class="rounded-md border p-1 px-2 text-sm lg:text-base"
                         :class="
                             gig.coming
-                                ? 'cursor-pointer border-gray-400 hover:border-gray-600 '
+                                ? 'cursor-pointer border-neutral-400 hover:border-neutral-600 dark:border-purple-400'
                                 : ''
                         "
                     >
