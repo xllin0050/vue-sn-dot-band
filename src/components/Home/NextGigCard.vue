@@ -43,10 +43,10 @@
                 </div>
             </li>
             <li
-                v-if="!props"
-                class="mb-2 flex flex-col items-center rounded border border-gray-500 p-5 text-sm shadow lg:flex-row lg:p-3 lg:text-base"
+                v-if="props.nextGig.length === 0"
+                class="mb-2 flex flex-col items-center rounded border border-neutral-500 p-4 text-sm shadow lg:flex-row lg:p-3 lg:px-20 lg:text-lg"
             >
-                <div class="px-16 uppercase">tba</div>
+                <div class="px-16 uppercase tracking-widest">tba</div>
             </li>
         </ul>
     </div>
