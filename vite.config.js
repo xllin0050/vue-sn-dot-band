@@ -9,13 +9,14 @@ import Components from 'unplugin-vue-components/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    // define: {
-    //     __VUE_OPTIONS_API__: false,
-    //     __VUE_PROD_DEVTOOLS__: false,
-    // },
+    define: {
+        __VUE_OPTIONS_API__: false,
+        __VUE_PROD_DEVTOOLS__: false,
+    },
     plugins: [
         vue(),
         vueI18n({
+            runtimeOnly: false,
             include: path.resolve(__dirname, './src/language/**'),
         }),
         PurgeIcons({
@@ -28,6 +29,7 @@ export default defineConfig({
     resolve: {
         alias: {
             '@': fileURLToPath(new URL('./src', import.meta.url)),
+            'vue-i18n': 'vue-i18n/dist/vue-i18n.esm-bundler.js',
         },
     },
     server: {
