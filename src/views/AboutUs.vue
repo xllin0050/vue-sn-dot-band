@@ -4,8 +4,8 @@
         <article
             class="mx-auto max-w-2xl break-all pt-2 text-left font-redhat text-sm font-normal leading-relaxed text-neutral-600 dark:text-neutral-400 sm:break-words sm:pt-0 sm:text-justify sm:text-base"
         >
-            <p class="paragraph">
-                {{ $t('ABOUT.paragraph01') }}
+            <p v-for="n in 7" :key="n" class="paragraph">
+                {{ $t(`ABOUT.paragraph0${n}`) }}
             </p>
         </article>
         <div class="mx-auto max-w-2xl pt-12">
