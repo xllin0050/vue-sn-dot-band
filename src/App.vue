@@ -1,7 +1,7 @@
 <template>
     <div class="min-h-screen w-full dark:bg-neutral-900 dark:text-purple-200">
         <ThemeSwitch />
-        <LangSwitch />
+        <LangSwitch @change-router="router.go(0)" />
         <NoGlitchTitle />
         <AppNavbar :routes-list="routes" />
         <SiteNavbar :routes-list="routes" />
@@ -19,6 +19,9 @@
 </template>
 <script setup>
 import { onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+const router = useRouter()
+
 const routes = [
     'Home',
     'About Us',
