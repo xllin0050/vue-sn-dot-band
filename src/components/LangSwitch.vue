@@ -11,15 +11,11 @@
     </div>
 </template>
 <script setup>
-// import { useRouter } from 'vue-router'
-// const router = useRouter()
 const emit = defineEmits(['changeRouter'])
 const langSwitch = () => {
     let userLang = localStorage.getItem('lang')
     userLang === 'en' ? (userLang = 'zh') : (userLang = 'en')
     localStorage.setItem('lang', userLang)
-    // router.go()
-    // router.push({ name: 'About Us' })
     emit('changeRouter')
 }
 </script>
