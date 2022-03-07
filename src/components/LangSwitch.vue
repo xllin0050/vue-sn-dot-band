@@ -1,6 +1,6 @@
 <template>
     <div
-        class="md:right-10 absolute top-0 right-0 p-3 md:top-4"
+        class="absolute top-0 right-0 p-3 md:right-10 md:top-4 cursor-pointer"
         @click="langSwitch"
     >
         <span
@@ -18,6 +18,6 @@ const langSwitch = () => {
     let userLang = localStorage.getItem('lang')
     userLang === 'en' ? (userLang = 'zh') : (userLang = 'en')
     localStorage.setItem('lang', userLang)
-    router.go()
+    router.go(0)
 }
 </script>
