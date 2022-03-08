@@ -1,7 +1,7 @@
 <template>
     <div class="min-h-screen w-full">
         <div
-            v-for="album in albumData"
+            v-for="album in singleAlbum"
             :key="album.id"
             class="flex flex-col pt-6 font-redhat lg:pt-0"
         >
@@ -50,7 +50,9 @@
                 >
                     release date
                 </h3>
-                <p class="text-xs text-neutral-800 dark:text-neutral-400 lg:text-lg">
+                <p
+                    class="text-xs text-neutral-800 dark:text-neutral-400 lg:text-lg"
+                >
                     {{ album.release }}
                 </p>
                 <h3
@@ -74,37 +76,20 @@
     </div>
 </template>
 <script>
-import { supabase } from '@/supabase.js'
-import { ref } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
+import { onMounted } from 'vue'
+import { useRoute } from 'vue-router'
+import useStorage from '@/composables/UseStorage'
 export default {
     name: 'AlbumPage',
     setup() {
-        const router = useRouter()
+        const { getSingleAlbum, singleAlbum } = useStorage()
         const route = useRoute()
-        const albumData = ref([])
 
-        const getAlbumsArt = (title) => {
-            const fileName = title.replace(/ /g, '-')
-            const { publicURL, error } = supabase.storage
-                .from('works')
-                .getPublicUrl(`albums/${fileName}.jpg`)
-            return publicURL
-        }
+        onMounted(() => {
+            getSingleAlbum(route.params.date)
+        })
 
-        async function getAlbumData(params) {
-            let { data: albums, error } = await supabase
-                .from('albums')
-                .select()
-                .match({ release: params })
-            albumData.value = albums.map((item) => {
-                item.cover = getAlbumsArt(item.title)
-                return item
-            })
-        }
-        getAlbumData(route.params.date)
-
-        return { albumData }
+        return { singleAlbum }
     },
 }
 </script>
