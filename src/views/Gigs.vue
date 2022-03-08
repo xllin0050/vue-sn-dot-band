@@ -68,33 +68,22 @@
 </template>
 
 <script>
-import { supabase } from '@/supabase.js'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
+import useStorage from '@/composables/UseStorage'
+
 export default {
     name: 'GigsPage',
     setup() {
-        const gigDatas = ref([])
+        const { gigDatas, getGigsData } = useStorage()
+        onMounted(() => {
+            getGigsData()
+        })
         const gigInfoData = ref({})
         const modalVisible = ref(false)
         const showModal = (data) => {
             if (data) gigInfoData.value = data
             modalVisible.value = !modalVisible.value
         }
-
-        async function getGigsData() {
-            const today = new Date()
-            const { data: gigs, error } = await supabase
-                .from('gigs')
-                .select('*')
-                .order('show_time', { ascending: false })
-            if (gigs.length)
-                gigDatas.value = gigs.map((gig) => {
-                    const gigDate = new Date(gig.show_time)
-                    gig.coming = gigDate >= today
-                    return gig
-                })
-        }
-        getGigsData()
 
         return { gigDatas, gigInfoData, showModal, modalVisible }
     },

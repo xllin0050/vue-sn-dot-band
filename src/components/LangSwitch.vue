@@ -1,6 +1,6 @@
 <template>
     <div
-        class="md:right-10 absolute top-0 right-0 p-3 md:top-4"
+        class="absolute top-0 right-0 cursor-pointer p-3 md:right-10 md:top-4"
         @click="langSwitch"
     >
         <span
@@ -11,13 +11,11 @@
     </div>
 </template>
 <script setup>
-import { useRouter } from 'vue-router'
-const router = useRouter()
-
+const emit = defineEmits(['changeRouter'])
 const langSwitch = () => {
     let userLang = localStorage.getItem('lang')
     userLang === 'en' ? (userLang = 'zh') : (userLang = 'en')
     localStorage.setItem('lang', userLang)
-    router.go()
+    emit('changeRouter')
 }
 </script>

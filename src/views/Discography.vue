@@ -33,37 +33,17 @@
 </template>
 
 <script>
-import { supabase } from '@/supabase.js'
-import { ref } from 'vue'
+import { onMounted } from 'vue'
+import useStorage from '@/composables/UseStorage'
 
 export default {
     name: 'DiscPage',
     setup() {
-        const albumDatas = ref([])
+        const { getAlbumsData, albumDatas } = useStorage()
 
-        const getAlbumsArt = (title) => {
-            const fileName = title.replace(/ /g, '-')
-            const { publicURL, error } = supabase.storage
-                .from('works')
-                .getPublicUrl(`albums/${fileName}.jpg`)
-            return publicURL
-        }
-
-        async function getAlbumsData() {
-            const { data: albums, error } = await supabase
-                .from('albums')
-                .select('*')
-                .order('release', { ascending: false })
-            if (albums.length)
-                albumDatas.value = albums.map((item) => {
-                    item.url = item.title
-                        .toLowerCase()
-                        .replace(/'|\s/g, (e) => (e === "'" ? '' : '-'))
-                    item.cover = getAlbumsArt(item.title)
-                    return item
-                })
-        }
-        getAlbumsData()
+        onMounted(() => {
+            getAlbumsData('*')
+        })
 
         return { albumDatas }
     },

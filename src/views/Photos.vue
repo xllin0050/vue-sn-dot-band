@@ -5,7 +5,7 @@
             class="grid grid-cols-1 gap-4 pt-4 lg:grid-cols-3 lg:gap-2 lg:pt-0"
         >
             <div
-                v-for="(url, i) in urls"
+                v-for="(url, i) in photoUrls"
                 class="w-full"
                 :key="`c_${i}`"
                 @click="showImagesByComponent(i)"
@@ -15,7 +15,7 @@
         </div>
         <ImgViewr
             :visible="visible"
-            :urls="urls"
+            :urls="photoUrls"
             :initial-index="index"
             @close="closeHandle"
             @switch="changeHandle"
@@ -24,8 +24,8 @@
     </div>
 </template>
 <script>
-import { supabase } from '@/supabase.js'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
+import useStorage from '@/composables/UseStorage'
 import ImgViewr from 'vue-img-viewr'
 import 'vue-img-viewr/styles/index.css'
 
@@ -33,7 +33,7 @@ export default {
     name: 'PhotosPage',
     components: { ImgViewr },
     setup() {
-        const urls = ref([])
+        const { getPhotoUrls, photoUrls } = useStorage()
         const index = ref(0)
         const visible = ref(false)
         const showImagesByComponent = (i) => {
@@ -50,32 +50,12 @@ export default {
         const showHandle = (isShow) => {
             console.log(`component is show: ${isShow}`)
         }
-
-        const getStorageList = async (buckets, traget) => {
-            const { data, error } = await supabase.storage
-                .from(buckets)
-                .list(traget)
-            return data
-        }
-        const getPhotoUrls = async () => {
-            const phothDates = await getStorageList('gigs', 'photos')
-            phothDates.forEach(async (folder) => {
-                const photoFilesName = await getStorageList(
-                    'gigs',
-                    `photos/${folder.name}`
-                )
-                photoFilesName.forEach((fileName) => {
-                    const { publicURL, error } = supabase.storage
-                        .from('gigs')
-                        .getPublicUrl(`photos/${folder.name}/${fileName.name}`)
-                    urls.value.push(publicURL)
-                })
-            })
-        }
-        getPhotoUrls()
-
+        onMounted(() => {
+            getPhotoUrls()
+        })
+   
         return {
-            urls,
+            photoUrls,
             index,
             visible,
             showImagesByComponent,

@@ -16,7 +16,7 @@
             >
                 <div class="text-sm lg:text-base">{{ gig.show_time }}</div>
                 <div
-                    class="m-0 flex grow items-center py-3 text-sm lg:mx-2 lg:py-0 lg:text-base"
+                    class="m-0 flex grow items-center py-3 text-sm lg:mx-2 lg:py-4 lg:text-base"
                 >
                     <span
                         class="iconify mx-1"
