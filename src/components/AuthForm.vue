@@ -7,19 +7,19 @@
             <slot></slot>
         </h1>
         <div class="flex flex-col py-3">
-            <label class="w-2 py-4 text-teal-500 font-semibold"
+            <label class="w-2 py-4 font-semibold text-teal-500"
                 >Email
                 <input
                     v-model="form.email"
                     type="email"
-                    class="rounded border-2 border-teal-500 outline-none focus:border-teal-300"
+                    class="rounded border-2 border-teal-400 outline-none focus:border-teal-600"
             /></label>
-            <label class="w-2 py-4 text-teal-500 font-semibold"
+            <label class="w-2 py-4 font-semibold text-teal-500"
                 >Password
                 <input
                     v-model="form.password"
                     type="password"
-                    class="rounded border-2 border-teal-500 outline-none focus:border-teal-300"
+                    class="rounded border-2 border-teal-400 outline-none focus:border-teal-600"
             /></label>
         </div>
         <button
