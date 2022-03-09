@@ -1,6 +1,6 @@
 <template>
     <div
-        class="absolute top-0 right-0 hidden p-3 md:right-20 md:top-4 md:block"
+        class="absolute top-0 right-0 hidden p-3 md:right-4 md:top-4 md:block"
         @click="themeSwitch"
     >
         <span
