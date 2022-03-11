@@ -82,7 +82,13 @@
                 class="membersPhoto absolute aspect-square w-60 -translate-x-1/2 -translate-y-10 rounded-full shadow-lg lg:w-80 lg:-translate-y-0"
                 :class="name"
                 v-show="name === backgroundName"
-            ></div>
+            >
+                <div
+                    class="visible absolute bottom-4 w-full text-center uppercase tracking-widest text-white lg:invisible"
+                >
+                    {{ name }}
+                </div>
+            </div>
         </transition-group>
     </div>
 </template>
