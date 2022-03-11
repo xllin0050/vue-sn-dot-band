@@ -1,16 +1,14 @@
 <template>
     <div class="min-h-screen w-full">
         <PageTitle>photos</PageTitle>
-        <div
-            class="grid grid-cols-1 gap-4 pt-4 lg:grid-cols-3 lg:gap-2 lg:pt-0"
-        >
+        <div class="columns-1 pt-4 lg:columns-2 lg:gap-x-0 lg:pt-0">
             <div
                 v-for="(url, i) in photoUrls"
                 class="w-full"
                 :key="`c_${i}`"
                 @click="showImagesByComponent(i)"
             >
-                <img v-lazy="url" class="block shadow-xl" />
+                <img v-lazy="url" class="p-1 shadow-sm" />
             </div>
         </div>
         <ImgViewr
@@ -53,7 +51,7 @@ export default {
         onMounted(() => {
             getPhotoUrls()
         })
-   
+
         return {
             photoUrls,
             index,
