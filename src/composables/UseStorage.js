@@ -48,7 +48,7 @@ export default function useStorage() {
             .from('gigs')
             .select('*')
             .order('show_time')
-            .gt('show_time', today)
+            .gte('show_time', today)
         nextGigDatas.value = gigs
     }
 
