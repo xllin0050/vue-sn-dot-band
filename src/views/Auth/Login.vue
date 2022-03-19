@@ -2,24 +2,27 @@
     <div class="m-auto max-w-lg">
         <ul class="flex py-4">
             <li
-                v-for="(menu, i) in menus"
+                v-for="(action, i) in authActions"
                 :key="i"
-                class=" mr-2 cursor-pointer rounded border-2 border-gray-400 px-4 text-xl uppercase hover:border-gray-600"
-                @click="showForm(menu)"
+                class="mr-2 cursor-pointer rounded border-2 border-gray-300 px-4 py-2 text-base uppercase text-gray-300 hover:border-gray-500 hover:text-gray-500"
+                :class="
+                    isShow === action
+                        ? '!border-teal-500 text-teal-600 hover:border-teal-300 hover:bg-teal-100 hover:!text-teal-800'
+                        : ''
+                "
+                @click="showForm(action)"
             >
-                {{ menu }}
+                {{ action }}
             </li>
         </ul>
-        <LoginForm v-if="isShow === 'login'" />
-        <RegisterForm v-if="isShow === 'register'" />
+        <AuthForm :is-show="isShow">{{ isShow }}</AuthForm>
     </div>
 </template>
 <script setup>
 import { ref } from 'vue'
-
-const menus = ['login', 'register']
+const authActions = ['login', 'register']
 const isShow = ref('login')
-const showForm = (menu) => {
-    isShow.value = menu
+const showForm = (action) => {
+    isShow.value = action
 }
 </script>

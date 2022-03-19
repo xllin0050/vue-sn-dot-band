@@ -1,7 +1,10 @@
 <template>
     <div class="min-h-screen w-full dark:bg-neutral-900 dark:text-purple-200">
         <ThemeSwitch />
-        <LangSwitch @change-router="router.go(0)" />
+        <LangSwitch
+            v-if="route.name === 'About Us'"
+            @change-router="router.go(0)"
+        />
         <NoGlitchTitle />
         <AppNavbar :routes-list="routes" />
         <SiteNavbar :routes-list="routes" />
@@ -19,9 +22,9 @@
 </template>
 <script setup>
 import { onMounted } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 const router = useRouter()
-
+const route = useRoute()
 const routes = [
     'Home',
     'About Us',
@@ -30,8 +33,8 @@ const routes = [
     'Videos',
     'Photos',
     'Products',
-    'GigUpdate',
 ]
+
 onMounted(() => {
     localStorage.setItem('theme', 'light')
 

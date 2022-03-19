@@ -1,6 +1,6 @@
 <template>
     <div
-        class="absolute top-0 right-0 cursor-pointer p-3 md:right-10 md:top-4"
+        class="absolute top-0 right-0 cursor-pointer p-3 md:right-16 md:top-4"
         @click="langSwitch"
     >
         <span

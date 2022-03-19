@@ -1,11 +1,11 @@
 <template>
     <div
-        class="mx-auto mb-8 flex w-3/4 flex-col items-center border-2 border-neutral-300 py-2 shadow-md lg:mb-16 lg:flex-row"
+        class="mx-auto mb-8 flex w-3/4 flex-col items-center border-2 border-neutral-300 py-2 shadow-md lg:mb-16 lg:w-1/2"
     >
         <div class="max-w-sm border-neutral-500">
             <img :src="props.product.picture" class="block w-full" />
         </div>
-        <div class="flex grow flex-col items-center font-redhat">
+        <div class="flex grow flex-col items-center py-4 font-redhat lg:py-8">
             <!-- <SizeGuide v-if="props.product.size" :guide="props.product.size" /> -->
             <p
                 v-if="props.product.available"
