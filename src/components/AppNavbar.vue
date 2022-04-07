@@ -11,7 +11,7 @@
     <transition name="fade">
         <div
             v-if="isShow"
-            class="fixed top-0 z-10 flex min-h-screen w-full justify-around bg-white pt-12 dark:bg-neutral-900"
+            class="fixed top-0 z-10 flex min-h-screen w-screen justify-around bg-white pt-12 dark:bg-neutral-900"
         >
             <ul class="font-redhat font-medium uppercase tracking-wider">
                 <li
