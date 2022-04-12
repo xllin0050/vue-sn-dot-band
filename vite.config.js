@@ -2,21 +2,18 @@ import { fileURLToPath } from 'url'
 import path from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import legacy from '@vitejs/plugin-legacy'
 import vueI18n from '@intlify/vite-plugin-vue-i18n'
 import PurgeIcons from 'vite-plugin-purge-icons'
 import eslintPlugin from 'vite-plugin-eslint'
 import Components from 'unplugin-vue-components/vite'
 
-// https://vitejs.dev/config/
 export default defineConfig({
-    // define: {
-    //     __VUE_I18N_FULL_INSTALL__: true,
-    //     __VUE_I18N_LEGACY_API__: true,
-    //     __VUE_PROD_DEVTOOLS__: false,
-    //     __INTLIFY_PROD_DEVTOOLS__: false,
-    // },
     plugins: [
         vue(),
+        legacy({
+            targets: ['defaults', 'not IE 11'],
+        }),
         vueI18n({
             runtimeOnly: false,
             include: path.resolve(__dirname, './src/language/**'),
