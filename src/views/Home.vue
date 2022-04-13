@@ -8,13 +8,13 @@
 
 <script>
 import { onMounted } from 'vue'
-import useStorage from '@/composables/UseStorage'
+import useDatabase from '@/composables/UseDatabase'
 
 export default {
     name: 'HomePage',
     setup() {
         const { getAlbumsData, albumDatas, nextGigDatas, getNextGigs } =
-            useStorage()
+            useDatabase()
 
         onMounted(() => {
             getAlbumsData('id, release, title, created_at')

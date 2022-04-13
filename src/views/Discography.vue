@@ -34,12 +34,12 @@
 
 <script>
 import { onMounted } from 'vue'
-import useStorage from '@/composables/UseStorage'
+import useDatabase from '@/composables/UseDatabase'
 
 export default {
     name: 'DiscPage',
     setup() {
-        const { getAlbumsData, albumDatas } = useStorage()
+        const { getAlbumsData, albumDatas } = useDatabase()
 
         onMounted(() => {
             getAlbumsData('*')

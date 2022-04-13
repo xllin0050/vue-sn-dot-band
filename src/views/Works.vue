@@ -78,11 +78,11 @@
 <script>
 import { onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import useStorage from '@/composables/UseStorage'
+import useDatabase from '@/composables/UseDatabase'
 export default {
     name: 'AlbumPage',
     setup() {
-        const { getSingleAlbum, singleAlbum } = useStorage()
+        const { getSingleAlbum, singleAlbum } = useDatabase()
         const route = useRoute()
 
         onMounted(() => {

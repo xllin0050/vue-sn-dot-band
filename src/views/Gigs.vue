@@ -69,12 +69,12 @@
 
 <script>
 import { onMounted, ref } from 'vue'
-import useStorage from '@/composables/UseStorage'
+import useDatabase from '@/composables/UseDatabase'
 
 export default {
     name: 'GigsPage',
     setup() {
-        const { gigDatas, getGigsData } = useStorage()
+        const { gigDatas, getGigsData } = useDatabase()
         onMounted(() => {
             getGigsData()
         })
