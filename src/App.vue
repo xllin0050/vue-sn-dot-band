@@ -1,6 +1,6 @@
 <template>
   <div
-    class="min-h-screen w-screen overflow-x-hidden dark:bg-neutral-900 dark:text-purple-200"
+    class="min-h-screen max-w-screen overflow-x-hidden dark:bg-neutral-900 dark:text-purple-200"
   >
     <ThemeSwitch />
     <LangSwitch
@@ -8,10 +8,9 @@
       @change-router="router.go(0)"
     />
     <NoGlitchTitle />
-    <AppNavbar :routes-list="routes" />
-    <SiteNavbar :routes-list="routes" />
+    <AppNavbar :routes-list="pageNames" />
+    <SiteNavbar :routes-list="pageNames" />
     <div class="mx-auto max-w-xs lg:max-w-4xl">
-      <!-- <router-view /> -->
       <router-view v-slot="{ Component }">
         <transition name="fade" mode="out-in">
           <component :is="Component" />
@@ -27,7 +26,8 @@ import { onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 const router = useRouter()
 const route = useRoute()
-const routes = [
+
+const pageNames = [
   'Home',
   'About Us',
   'Discography',
@@ -63,7 +63,7 @@ body {
 }
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.3s ease;
+  transition: opacity 120ms linear;
 }
 
 .fade-enter-from,
