@@ -12,7 +12,7 @@ export default defineConfig({
   plugins: [
     vue(),
     legacy({
-      targets: ['defaults', 'iOS 7', 'not IE 11'],
+      targets: ['defaults', 'last 2 iOS major versions', 'not IE 11'],
     }),
     vueI18n({
       runtimeOnly: false,
