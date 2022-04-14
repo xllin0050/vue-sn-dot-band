@@ -1,6 +1,6 @@
 <template>
   <div class="relative my-0 pb-0 lg:my-4 lg:py-16">
-    <div class="invisible flex items-center justify-center lg:visible">
+    <div class="z-0 flex items-center justify-center opacity-0 lg:opacity-100">
       <div
         class="relative block h-[480px] w-[480px] rounded-full font-redhat text-xl font-medium"
       >
@@ -44,11 +44,11 @@
       <div
         v-for="name in membersName"
         :key="name"
-        class="absolute top-1/2 left-1/2 aspect-square w-60 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-lg lg:w-80"
+        class="absolute top-1/2 left-1/2 z-10 aspect-square w-60 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-lg lg:w-80"
         :class="[name, name === backgroundName ? 'opacity-100' : 'opacity-0']"
       >
         <div
-          class="visible absolute bottom-4 w-full text-center uppercase tracking-widest text-white lg:invisible"
+          class="absolute bottom-4 z-20 w-full text-center uppercase tracking-widest text-white opacity-100 lg:opacity-0"
         >
           {{ name }}
         </div>

@@ -42,7 +42,7 @@ const scrollTopButton = ref(null)
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
-  scrollTopButton.value.classList.add('invisible')
+  scrollTopButton.value.classList.add('opacity-0')
 })
 
 onBeforeUnmount(() => {
@@ -50,10 +50,10 @@ onBeforeUnmount(() => {
 })
 
 const handleScroll = () => {
-  if (window.scrollY > 750) {
-    scrollTopButton.value.classList.remove('invisible')
+  if (window.scrollY > 670) {
+    scrollTopButton.value.classList.remove('opacity-0')
   } else {
-    scrollTopButton.value.classList.add('invisible')
+    scrollTopButton.value.classList.add('opacity-0')
   }
 }
 
