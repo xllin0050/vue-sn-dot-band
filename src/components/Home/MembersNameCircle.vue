@@ -1,6 +1,6 @@
 <template>
-  <div class="relative my-0 pb-0 lg:my-4 lg:py-16">
-    <div class="z-0 flex items-center justify-center opacity-0 lg:opacity-100">
+  <div class="relative my-0 h-[380px] w-full pb-0 lg:h-[500px]">
+    <div class="z-0 hidden lg:flex lg:items-center lg:justify-center lg:pt-3">
       <div
         class="relative block h-[480px] w-[480px] rounded-full font-redhat text-xl font-medium"
       >
@@ -40,20 +40,18 @@
       </div>
     </div>
 
-    <transition-group name="fade">
+    <div
+      v-for="name in membersName"
+      :key="name"
+      class="absolute top-1/2 left-1/2 z-10 aspect-square w-60 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-lg lg:w-80"
+      :class="[name, name === backgroundName ? 'opacity-100' : 'opacity-0']"
+    >
       <div
-        v-for="name in membersName"
-        :key="name"
-        class="absolute top-1/2 left-1/2 z-10 aspect-square w-60 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-lg lg:w-80"
-        :class="[name, name === backgroundName ? 'opacity-100' : 'opacity-0']"
+        class="absolute bottom-4 z-20 w-full text-center uppercase tracking-widest text-white opacity-100 lg:opacity-0"
       >
-        <div
-          class="absolute bottom-4 z-20 w-full text-center uppercase tracking-widest text-white opacity-100 lg:opacity-0"
-        >
-          {{ name }}
-        </div>
+        {{ name }}
       </div>
-    </transition-group>
+    </div>
   </div>
 </template>
 
@@ -126,15 +124,5 @@ onBeforeUnmount(() => {
   background: url('@/assets/images/members/weiting.jpg');
   background-size: cover;
   background-position: left;
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 300ms linear;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
 }
 </style>
