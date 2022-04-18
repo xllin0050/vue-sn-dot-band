@@ -1,6 +1,6 @@
 <template>
-  <div class="relative my-0 h-[380px] w-full pb-0 lg:h-[500px]">
-    <div class="z-0 hidden lg:flex lg:items-center lg:justify-center lg:pt-3">
+  <div class="relative my-0 h-[380px] w-full pb-0 lg:h-[510px]">
+    <div class="z-0 hidden lg:flex lg:items-center lg:justify-center lg:pt-4">
       <div
         class="relative block h-[480px] w-[480px] rounded-full font-redhat text-xl font-medium"
       >
@@ -43,7 +43,7 @@
     <div
       v-for="name in membersName"
       :key="name"
-      class="absolute top-1/2 left-1/2 z-10 h-60 w-60 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-lg lg:w-80"
+      class="absolute top-1/2 left-1/2 z-10 h-60 w-60 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-lg lg:h-80 lg:w-80"
       :class="[name, name === backgroundName ? 'opacity-100' : 'opacity-0']"
     >
       <div
@@ -92,6 +92,7 @@ onBeforeUnmount(() => {
   clearInterval(changeNameTimer)
 })
 </script>
+
 <style>
 @keyframes rotateText {
   0% {
