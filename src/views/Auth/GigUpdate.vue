@@ -86,6 +86,7 @@
                 </label>
                 <input
                     type="submit"
+                    value="update"
                     @click="havePicture"
                     class="my-14 mx-auto w-40 cursor-pointer rounded-md border py-1 shadow-md"
                 />
@@ -121,6 +122,7 @@
                 </label>
                 <input
                     type="submit"
+                    value="delete"
                     @click="deleteGig"
                     class="my-10 mx-auto w-40 cursor-pointer rounded-md border py-1 text-red-500 shadow-md"
                 />
