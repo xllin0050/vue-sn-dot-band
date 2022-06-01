@@ -3,7 +3,6 @@ import path from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import legacy from '@vitejs/plugin-legacy'
-import vueI18n from '@intlify/vite-plugin-vue-i18n'
 import PurgeIcons from 'vite-plugin-purge-icons'
 import eslintPlugin from 'vite-plugin-eslint'
 import Components from 'unplugin-vue-components/vite'
@@ -13,10 +12,6 @@ export default defineConfig({
     vue(),
     legacy({
       targets: ['defaults', 'last 2 iOS major versions', 'not IE 11'],
-    }),
-    vueI18n({
-      runtimeOnly: false,
-      include: path.resolve(__dirname, './src/language/**'),
     }),
     PurgeIcons({
       content: ['**/*.vue'],
@@ -28,11 +23,10 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
-      'vue-i18n': 'vue-i18n/dist/vue-i18n.esm-bundler.js',
     },
   },
   server: {
-    host: '0.0.0.0',
+    host: true,
     port: 4000,
   },
 })

@@ -1,31 +1,29 @@
 <template>
   <div
-    class="min-h-screen max-w-screen overflow-x-hidden dark:bg-neutral-900 dark:text-purple-200"
+    class="max-w-screen min-h-screen overflow-x-hidden scroll-smooth dark:bg-neutral-900 dark:text-purple-200"
   >
     <ThemeSwitch />
-    <LangSwitch
-      v-if="route.name === 'About Us'"
-      @change-router="router.go(0)"
-    />
+    <LangSwitch v-if="route.name === 'About Us'" />
     <NoGlitchTitle />
+
     <AppNavbar :routes-list="pageNames" />
     <SiteNavbar :routes-list="pageNames" />
-    <div class="mx-auto max-w-xs lg:max-w-4xl">
-      <router-view v-slot="{ Component }">
-        <transition name="fade" mode="out-in">
-          <component :is="Component" />
-        </transition>
-      </router-view>
-    </div>
+    <main class="mx-auto max-w-xs lg:max-w-4xl">
+      <router-view />
+    </main>
+
     <SiteFooter />
     <ScrollToTop />
   </div>
 </template>
 <script setup>
-import { onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
+import { storeUserLang } from '@/stores/lang'
+
 const router = useRouter()
 const route = useRoute()
+const store = storeUserLang()
 
 const pageNames = [
   'Home',
@@ -38,22 +36,14 @@ const pageNames = [
 ]
 
 onMounted(() => {
+  // 主題色
   localStorage.setItem('theme', 'light')
-
-  if (!localStorage.getItem('lang')) {
-    const zh = ['zh-tw', 'zh-cn', 'zh-hk']
-    if (
-      zh.includes(
-        (
-          window.navigator.language || window.navigator.browserLanguage
-        ).toLowerCase()
-      )
-    ) {
-      localStorage.setItem('lang', 'zh')
-    } else {
-      localStorage.setItem('lang', 'en')
-    }
-  }
+  // 語言
+  const zh = ['zh-tw', 'zh-cn', 'zh-hk']
+  const browser = window.navigator.language || window.navigator.browserLanguage
+  store.$patch((state) => {
+    if (zh.includes(browser.toLowerCase())) state.lang = 'zh'
+  })
 })
 </script>
 
