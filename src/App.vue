@@ -1,15 +1,20 @@
 <template>
   <div
-    class="max-w-screen min-h-screen overflow-x-hidden scroll-smooth dark:bg-neutral-900 dark:text-purple-200"
+    class="max-w-screen min-h-screen overflow-x-hidden dark:bg-neutral-900 dark:text-purple-200"
   >
     <ThemeSwitch />
-    <LangSwitch v-if="route.name === 'About Us'" />
+    <LangSwitch v-show="route.name === 'About Us'" />
     <NoGlitchTitle />
+    <SiteNavbar :routes-list="pageNames" />
 
     <AppNavbar :routes-list="pageNames" />
-    <SiteNavbar :routes-list="pageNames" />
+
     <main class="mx-auto max-w-xs lg:max-w-4xl">
-      <router-view />
+      <router-view v-slot="{ Component }">
+        <transition name="fade">
+          <component :is="Component" />
+        </transition>
+      </router-view>
     </main>
 
     <SiteFooter />
@@ -53,7 +58,7 @@ body {
 }
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 120ms linear;
+  transition: opacity 180ms ease;
 }
 
 .fade-enter-from,

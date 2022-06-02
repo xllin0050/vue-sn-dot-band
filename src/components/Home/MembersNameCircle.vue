@@ -1,8 +1,8 @@
 <template>
-  <div class="relative my-0 h-[380px] w-full pb-0 lg:h-[510px]">
-    <div class="z-0 hidden lg:flex lg:items-center lg:justify-center lg:pt-4">
+  <div class="relative my-0 h-[380px] w-full pb-0 lg:h-[475px]">
+    <div class="hidden lg:flex lg:items-center lg:justify-center lg:pt-4">
       <div
-        class="relative block h-[480px] w-[480px] rounded-full font-redhat text-xl font-medium"
+        class="relative block h-[440px] w-[440px] rounded-full font-redhat text-xl font-medium"
       >
         <p
           ref="shihDrum"
@@ -43,11 +43,11 @@
     <div
       v-for="name in membersName"
       :key="name"
-      class="absolute top-1/2 left-1/2 z-10 h-60 w-60 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-lg lg:h-80 lg:w-80"
+      class="absolute top-1/2 left-1/2 h-60 w-60 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-lg lg:h-80 lg:w-80"
       :class="[name, name === backgroundName ? 'opacity-100' : 'opacity-0']"
     >
       <div
-        class="absolute bottom-4 z-20 w-full text-center uppercase tracking-widest text-white opacity-100 lg:opacity-0"
+        class="absolute bottom-4 w-full text-center uppercase tracking-widest text-white opacity-100 lg:opacity-0"
       >
         {{ name }}
       </div>
@@ -87,7 +87,7 @@ const changeNameTimer = setInterval(() => {
   nameIndex++
   if (nameIndex === 3) nameIndex = 0
   backgroundName.value = membersName[nameIndex]
-}, 1000 * 4)
+}, 1000 * 6)
 onBeforeUnmount(() => {
   clearInterval(changeNameTimer)
 })
@@ -109,7 +109,7 @@ onBeforeUnmount(() => {
 .nameText span {
   position: absolute;
   left: 50%;
-  transform-origin: 0 240px;
+  transform-origin: 0 220px;
 }
 .shih {
   background: url('@/assets/images/members/shih.jpg');
