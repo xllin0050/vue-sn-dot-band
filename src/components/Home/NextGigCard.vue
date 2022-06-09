@@ -1,9 +1,9 @@
 <template>
   <div
-    class="mx-auto flex max-w-4xl flex-col items-center justify-center py-16 text-center lg:py-24"
+    class="mx-auto flex max-w-4xl flex-col items-center justify-center py-16 text-center lg:py-36"
   >
     <h3
-      class="pb-6 font-redhat text-xl font-medium uppercase tracking-widest text-neutral-800 dark:text-purple-200 lg:pb-10 lg:text-3xl"
+      class="pb-6 font-redhat text-xl font-medium uppercase tracking-widest text-neutral-800 dark:text-purple-200 lg:pb-20 lg:text-3xl"
     >
       next gig
     </h3>
@@ -12,7 +12,7 @@
       <li
         v-for="(gig, ind) in props.nextGig"
         :key="gig.id"
-        class="nextGig"
+        class="card-shadow hover:card-shadow-elev flex flex-col items-center rounded-lg bg-neutral-50 p-4 text-sm lg:text-base"
         :class="{
           'mb-12': props.nextGig.length > 1 && ind !== props.nextGig.length - 1,
         }"
@@ -44,24 +44,15 @@
           </div>
         </a>
       </li>
-      <li v-if="props.nextGig.length === 0" class="nextGig">
+      <li
+        v-if="props.nextGig.length === 0"
+        class="card-shadow flex flex-col items-center rounded-lg bg-neutral-50 p-4 text-sm lg:text-base"
+      >
         <div class="p-16 text-xl uppercase tracking-widest">tba</div>
       </li>
     </ul>
   </div>
 </template>
-<script>
-export default {
-  props: { nextGig: Array },
-  setup(props) {
-    return { props }
-  },
-}
+<script setup>
+const props = defineProps({ nextGig: Array })
 </script>
-<style>
-.nextGig {
-  border-radius: 10px;
-  box-shadow: 10px 10px 20px #d9d9d9, -10px -10px 20px #ffffff;
-  @apply flex flex-col items-center bg-neutral-50 p-4 text-sm lg:text-base;
-}
-</style>
