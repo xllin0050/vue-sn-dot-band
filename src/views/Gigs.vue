@@ -1,11 +1,11 @@
 <template>
-    <div class="min-h-screen w-full">
+    <div class="min-h-screen w-full pb-16">
         <PageTitle>gigs</PageTitle>
         <ul class="pt-6 font-redhat md:pt-0">
             <li
                 v-for="gig in gigDatas"
                 :key="gig.id"
-                class="mb-6 flex flex-col items-center rounded-md border p-2 uppercase shadow-sm lg:mb-4 lg:flex-row lg:p-3"
+                class="mb-6 flex flex-col items-center rounded-md border p-2 uppercase shadow lg:flex-row lg:p-3"
                 :class="
                     gig.coming
                         ? 'border-neutral-700 shadow-md dark:border-2 dark:border-purple-400 lg:py-6'

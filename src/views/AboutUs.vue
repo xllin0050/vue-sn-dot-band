@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full">
+  <div class="w-full pb-10 lg:pb-40">
     <PageTitle>about us</PageTitle>
     <article v-show="userLang === 'zh'" class="article">
       <p class="paragraph">
@@ -83,7 +83,7 @@
       </p>
     </article>
 
-    <div class="mx-auto max-w-2xl pt-12">
+    <div class="mx-auto max-w-2xl pt-12 lg:pt-28">
       <img :src="imgUrl" alt="About Us" class="block w-full" />
     </div>
   </div>
