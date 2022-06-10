@@ -1,14 +1,13 @@
 <template>
-  <div class="min-h-screen w-full pb-16">
-    <PageTitle></PageTitle>
-    <h2
-      class="text-center font-redhat text-lg font-medium uppercase text-neutral-500 dark:text-purple-200 lg:text-xl"
-    >
-      videos
-    </h2>
-    <ul>
-      <li v-for="video in videos" :key="video.title">
-        <h3>{{ video.title }}</h3>
+  <div class="min-h-screen w-full pb-16 font-redhat">
+    <PageTitle>videos</PageTitle>
+    <ul class="mx-auto max-w-3xl">
+      <li v-for="video in videos" :key="video.title" class="pb-0 lg:pb-28">
+        <h3
+          class="pt-10 pb-3 text-xs font-medium  lg:pb-6 lg:text-base"
+        >
+          {{ video.title }}
+        </h3>
         <img
           :src="video.snapshot"
           :alt="video.title"
@@ -68,5 +67,4 @@ const setVideoUrl = (data) => {
   lightBoxSource.value = data.url
   toggler.value = !toggler.value
 }
-
 </script>
