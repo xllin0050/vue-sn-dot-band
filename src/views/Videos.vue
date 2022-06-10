@@ -6,33 +6,67 @@
     >
       videos
     </h2>
-    <div v-for="(url, i) in urls" :key="i" class="py-8 lg:py-12">
-      <div
-        class="mx-auto max-w-screen-sm border-2 border-gray-300 p-1 shadow-md"
-      >
-        <iframe
-          style="width: 100%; aspect-ratio: 16 / 9"
-          :src="url"
-          title="Super Napkin Video"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </div>
+    <ul>
+      <li v-for="video in videos" :key="video.title">
+        <h3>{{ video.title }}</h3>
+        <img
+          :src="video.snapshot"
+          :alt="video.title"
+          @click="setVideoUrl(video)"
+        />
+      </li>
+    </ul>
+    <FsLightbox :toggler="toggler" type="youtube" :sources="[lightBoxSource]" />
   </div>
 </template>
-<script>
-const urls = [
-  'https://www.youtube.com/embed/HhBR0t9zyAY',
-  'https://www.youtube.com/embed/mfFnPvhy-GE',
-  'https://www.youtube.com/embed/EdBtZZiCC38',
-  'https://www.youtube.com/embed/uoLYfKt-l38',
-]
-export default {
-  name: 'VideosPage',
-  setup() {
-    return { urls }
+<script setup>
+import { ref } from 'vue'
+import FsLightbox from 'fslightbox-vue/v3'
+
+const videos = [
+  {
+    title: 'Time to Understand 2020 (Live at The Wall)',
+    snapshot: new URL(
+      '../assets/images/videos/time_to_understand_live.jpeg',
+      import.meta.url
+    ).href,
+    url: 'https://www.youtube.com/watch?v=HhBR0t9zyAY',
+    id: 'HhBR0t9zyAY',
   },
+  {
+    title: 'Sonic Candy Pepper Blitz (OFFICIAL VIDEO)',
+    snapshot: new URL(
+      '../assets/images/videos/sonic_candy_pepper_blitz_video.jpeg',
+      import.meta.url
+    ).href,
+    url: 'https://www.youtube.com/watch?v=mfFnPvhy-GE',
+    id: 'mfFnPvhy-GE',
+  },
+  {
+    title: 'Diamond Shaped Hearts pt.1 (OFFICIAL VIDEO)',
+    snapshot: new URL(
+      '../assets/images/videos/diamond_shaped_hearts_pt1_video.jpeg',
+      import.meta.url
+    ).href,
+    url: 'https://www.youtube.com/watch?v=EdBtZZiCC38',
+    id: 'EdBtZZiCC38',
+  },
+  {
+    title: 'Brahe (OFFICIAL VIDEO)',
+    snapshot: new URL(
+      '../assets/images/videos/brahe_ video.jpeg',
+      import.meta.url
+    ).href,
+    url: 'https://www.youtube.com/watch?v=uoLYfKt-l38',
+    id: 'uoLYfKt-l38',
+  },
+]
+const toggler = ref(false)
+const lightBoxSource = ref('')
+
+const setVideoUrl = (data) => {
+  lightBoxSource.value = data.url
+  toggler.value = !toggler.value
 }
+
 </script>
