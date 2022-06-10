@@ -2,7 +2,6 @@
   <div
     class="max-w-screen min-h-screen overflow-x-hidden dark:bg-neutral-900 dark:text-purple-200"
   >
-    <ThemeSwitch />
     <LangSwitch v-show="route.name === 'About Us'" />
     <NoGlitchTitle />
     <SiteNavbar :routes-list="pageNames" />
@@ -22,11 +21,10 @@
   </div>
 </template>
 <script setup>
-import { ref, onMounted } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
+import { onMounted } from 'vue'
+import { useRoute } from 'vue-router'
 import { storeUserLang } from '@/stores/lang'
 
-const router = useRouter()
 const route = useRoute()
 const store = storeUserLang()
 

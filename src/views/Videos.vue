@@ -2,18 +2,16 @@
   <div class="min-h-screen w-full pb-16 font-redhat">
     <PageTitle>videos</PageTitle>
     <ul class="mx-auto max-w-3xl">
-      <li v-for="video in videos" :key="video.title" class="pb-0 lg:pb-28 ">
-        <h3
-          class="pt-10 pb-3 text-xs font-medium  lg:pb-6 lg:text-base"
-        >
+      <li
+        v-for="video in videos"
+        :key="video.title"
+        class="pb-0 lg:pb-28"
+        @click="setVideoUrl(video)"
+      >
+        <h3 class="pt-10 pb-3 text-xs font-medium lg:pb-6 lg:text-base">
           {{ video.title }}
         </h3>
-        <img
-          :src="video.snapshot"
-          :alt="video.title"
-          class="card-shadow"
-          @click="setVideoUrl(video)"
-        />
+        <img :src="video.snapshot" :alt="video.title" class="card-shadow cursor-pointer" />
       </li>
     </ul>
     <FsLightbox :toggler="toggler" type="youtube" :sources="[lightBoxSource]" />
