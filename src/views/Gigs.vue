@@ -31,7 +31,7 @@
           ></span
           >{{ gig.city }}
         </div>
-        <div class="flex pt-2 lg:pt-0">
+        <div class="flex w-auto pt-2 lg:w-[150px] lg:pt-0">
           <div
             class="mx-2 cursor-pointer rounded-md border p-1 px-2 text-sm hover:border-neutral-600 lg:text-base"
             :class="{ 'border-neutral-400 ': gig.coming }"
