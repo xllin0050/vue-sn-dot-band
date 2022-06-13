@@ -1,25 +1,35 @@
 <template>
-  <div class="min-h-screen w-full pb-16 font-redhat">
+  <div
+    class="min-h-screen w-full pb-16 font-redhat"
+    :class="{ 'overflow-hidden': modalVisible }"
+  >
     <PageTitle>videos</PageTitle>
     <ul class="mx-auto max-w-3xl">
       <li
         v-for="video in videos"
         :key="video.title"
         class="pb-0 lg:pb-28"
-        @click="setVideoUrl(video)"
+        @click="showModal(video)"
       >
         <h3 class="pt-10 pb-3 text-xs font-medium lg:pb-6 lg:text-base">
           {{ video.title }}
         </h3>
-        <img :src="video.snapshot" :alt="video.title" class="card-shadow cursor-pointer" />
+        <img
+          :src="video.snapshot"
+          :alt="video.title"
+          class="card-shadow cursor-pointer"
+        />
       </li>
     </ul>
-    <FsLightbox :toggler="toggler" type="youtube" :sources="[lightBoxSource]" />
+    <VideoModal
+      v-if="modalVisible"
+      :data="modalData"
+      @close-modal="showModal"
+    />
   </div>
 </template>
 <script setup>
 import { ref } from 'vue'
-import FsLightbox from 'fslightbox-vue/v3'
 
 const videos = [
   {
@@ -59,11 +69,11 @@ const videos = [
     id: 'uoLYfKt-l38',
   },
 ]
-const toggler = ref(false)
-const lightBoxSource = ref('')
 
-const setVideoUrl = (data) => {
-  lightBoxSource.value = data.url
-  toggler.value = !toggler.value
+const modalVisible = ref(false)
+const modalData = ref({})
+const showModal = (data) => {
+  modalData.value = data
+  modalVisible.value = !modalVisible.value
 }
 </script>
