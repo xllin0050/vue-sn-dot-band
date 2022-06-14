@@ -4,7 +4,7 @@
       <li
         v-for="(link, key) in links"
         :key="key"
-        class="text-neutral-700 hover:text-neutral-900 dark:text-purple-400"
+        class="text-neutral-700 hover:text-neutral-900"
       >
         <a :href="link[0]" target="_blank" :aria-label="link[2]">
           <span
@@ -14,9 +14,7 @@
         </a>
       </li>
     </ul>
-    <div
-      class="flex items-center justify-center pt-4 text-neutral-700 dark:text-purple-200"
-    >
+    <div class="flex items-center justify-center pt-4 text-neutral-700">
       <span class="iconify text-lg" data-icon="uil:copyright"></span
       >{{ thisYear }} Super Napkin
     </div>

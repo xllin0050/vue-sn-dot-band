@@ -3,7 +3,7 @@
     class="mx-auto flex max-w-4xl flex-col items-center justify-center py-16 text-center lg:py-36"
   >
     <h3
-      class="pb-6 font-redhat text-xl font-medium uppercase tracking-widest text-neutral-800 dark:text-purple-200 lg:pb-20 lg:text-3xl"
+      class="pb-6 font-redhat text-xl font-medium uppercase tracking-widest text-neutral-800 lg:pb-20 lg:text-3xl"
     >
       next gig
     </h3>

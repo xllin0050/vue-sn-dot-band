@@ -1,9 +1,13 @@
 <template>
-  <div
-    class="max-w-screen min-h-screen overflow-x-hidden dark:bg-neutral-900 dark:text-purple-200"
-  >
+  <div class="max-w-screen min-h-screen overflow-x-hidden">
     <LangSwitch v-show="route.name === 'About Us'" />
-    <NoGlitchTitle />
+    <div class="w-full pt-16">
+      <div
+        class="text-center font-redhat text-3xl font-medium uppercase tracking-[.1em] text-neutral-900 lg:text-7xl lg:tracking-[.3em]"
+      >
+        super napkin
+      </div>
+    </div>
     <SiteNavbar :routes-list="pageNames" />
 
     <AppNavbar :routes-list="pageNames" />
@@ -39,8 +43,6 @@ const pageNames = [
 ]
 
 onMounted(() => {
-  // 主題色
-  localStorage.setItem('theme', 'light')
   // 語言
   const zh = ['zh-tw', 'zh-cn', 'zh-hk']
   const browser = window.navigator.language || window.navigator.browserLanguage
@@ -51,9 +53,6 @@ onMounted(() => {
 </script>
 
 <style>
-body {
-  position: relative;
-}
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 180ms ease;

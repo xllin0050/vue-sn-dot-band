@@ -12,28 +12,28 @@
       >
         <div class="">{{ gig.show_time }}</div>
         <div
-          class="my-2 flex items-center text-sm font-normal text-neutral-800 dark:text-neutral-200 lg:my-0 lg:grow lg:text-base"
+          class="my-2 flex items-center text-sm font-normal text-neutral-800 lg:my-0 lg:grow lg:text-base"
         >
           <span
-            class="iconify mx-1 dark:text-neutral-400"
+            class="iconify mx-1"
             data-icon="ic:outline-place"
             data-inline="false"
           ></span
           >{{ gig.venue }}
         </div>
         <div
-          class="my-1 flex items-center text-sm font-normal text-neutral-800 dark:text-neutral-200 lg:my-0 lg:mx-4 lg:w-36 lg:text-base"
+          class="my-1 flex items-center text-sm font-normal text-neutral-800 lg:my-0 lg:mx-3 lg:w-20 lg:text-base"
         >
           <span
-            class="iconify mx-1 dark:text-neutral-400"
+            class="iconify mx-1"
             data-icon="mdi:city-variant-outline"
             data-inline="false"
           ></span
           >{{ gig.city }}
         </div>
-        <div class="flex w-auto pt-2 lg:w-[150px] lg:pt-0">
+        <div class="flex w-auto pt-2 lg:w-[160px] lg:pt-0">
           <div
-            class="mx-2 cursor-pointer rounded-md border p-1 px-2 text-sm hover:border-neutral-600 lg:text-base"
+            class="mx-2 cursor-pointer rounded-md border p-1 px-3 text-sm hover:border-neutral-600 lg:text-base"
             :class="{ 'border-neutral-400 ': gig.coming }"
             @click="showModal(gig)"
           >
@@ -41,10 +41,9 @@
           </div>
           <div
             v-show="gig.coming"
-            class="rounded-md border p-1 px-2 text-sm lg:text-base"
+            class="rounded-md border p-1 px-3 text-sm lg:text-base"
             :class="{
-              'cursor-pointer border-neutral-400 hover:border-neutral-600 ':
-                gig.coming,
+              ' border-neutral-400 hover:border-neutral-600 ': gig.coming,
             }"
           >
             <a :href="gig.event_url" target="_blank">ticket</a>

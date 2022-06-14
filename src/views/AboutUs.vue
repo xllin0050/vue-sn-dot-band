@@ -102,6 +102,6 @@ const imgUrl = new URL('../assets/images/about-us.jpg', import.meta.url).href
   @apply py-4;
 }
 .article {
-  @apply mx-auto max-w-2xl break-all pt-2 text-left font-redhat text-sm font-normal leading-relaxed text-neutral-600 dark:text-neutral-400 sm:break-words sm:pt-0 sm:text-justify sm:text-base;
+  @apply mx-auto max-w-2xl break-all pt-2 text-left font-redhat text-sm font-normal leading-relaxed text-neutral-700  sm:break-words sm:pt-0 sm:text-justify sm:text-base;
 }
 </style>

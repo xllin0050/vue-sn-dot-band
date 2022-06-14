@@ -11,13 +11,13 @@
       <!-- <SizeGuide v-if="props.product.size" :guide="props.product.size" /> -->
       <p
         v-if="props.product.available"
-        class="text-sm font-medium uppercase text-neutral-600 dark:text-pink-400 lg:text-xl"
+        class="text-sm font-medium uppercase text-neutral-600 lg:text-xl"
       >
         available
       </p>
       <p
         v-if="!props.product.available"
-        class="text-sm font-medium uppercase text-neutral-300 dark:text-pink-200 lg:text-xl"
+        class="text-sm font-medium uppercase text-neutral-300 lg:text-xl"
       >
         currently sold out
       </p>
