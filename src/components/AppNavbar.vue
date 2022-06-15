@@ -15,7 +15,7 @@
     >
       <ul class="font-redhat font-medium uppercase tracking-wider">
         <li v-for="routeName in props.routesList" :key="routeName" class="py-3">
-          <p>
+          <p style="word-spacing: -0.3em">
             <router-link :to="{ name: routeName }">
               <span @click="isShow = false">
                 {{ routeName }}

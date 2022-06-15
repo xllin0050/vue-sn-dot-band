@@ -15,7 +15,7 @@
           <img
             :src="album.cover"
             :alt="album.title"
-            class="card-shadow hover:card-shadow-elev mx-auto block aspect-square w-full object-cover"
+            class="card-shadow hover:card-shadow-elev mx-auto block aspect-square w-full object-cover transition"
           />
         </router-link>
       </div>

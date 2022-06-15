@@ -5,9 +5,9 @@
       <li
         v-for="gig in gigDatas"
         :key="gig.id"
-        class="mb-6 flex flex-col items-center rounded-md border p-2 uppercase shadow lg:flex-row lg:p-3"
+        class="mb-6 flex flex-col items-center rounded-md p-2 py-8 uppercase shadow lg:flex-row lg:p-3"
         :class="{
-          'border-neutral-700 shadow-md dark:border-2 lg:py-6': gig.coming,
+          'card-shadow bg-neutral-50 lg:py-6': gig.coming,
         }"
       >
         <div class="">{{ gig.show_time }}</div>
@@ -22,7 +22,7 @@
           >{{ gig.venue }}
         </div>
         <div
-          class="my-1 flex items-center text-sm font-normal text-neutral-800 lg:my-0 lg:mx-3 lg:w-20 lg:text-base"
+          class="my-1 flex items-center text-sm font-normal text-neutral-800 lg:my-0 lg:mx-3 lg:w-24"
         >
           <span
             class="iconify mx-1"
@@ -33,18 +33,14 @@
         </div>
         <div class="flex w-auto pt-2 lg:w-[160px] lg:pt-0">
           <div
-            class="mx-2 cursor-pointer rounded-md border p-1 px-3 text-sm hover:border-neutral-600 lg:text-base"
-            :class="{ 'border-neutral-400 ': gig.coming }"
+            class="mx-2 cursor-pointer rounded-md p-1 px-3 font-extralight text-sm underline hover:underline-offset-4 lg:text-base"
             @click="showModal(gig)"
           >
             info
           </div>
           <div
             v-show="gig.coming"
-            class="rounded-md border p-1 px-3 text-sm lg:text-base"
-            :class="{
-              ' border-neutral-400 hover:border-neutral-600 ': gig.coming,
-            }"
+            class="rounded-md p-1 px-3 font-extralight text-sm underline hover:underline-offset-4 lg:text-base"
           >
             <a :href="gig.event_url" target="_blank">ticket</a>
           </div>

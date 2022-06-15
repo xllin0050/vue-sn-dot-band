@@ -1,6 +1,6 @@
 <template>
   <div
-    class="card-shadow hover:card-shadow-elev mx-auto mb-8 flex h-[300px] w-[300px] flex-col justify-between rounded-lg bg-neutral-50 py-2 lg:mb-16 lg:h-[500px] lg:w-[500px]"
+    class="card-shadow hover:card-shadow-elev mx-auto mb-8 flex h-[300px] w-[300px] flex-col justify-between rounded-lg bg-neutral-50 py-2 transition lg:mb-16 lg:h-[500px] lg:w-[500px]"
   >
     <div
       class="mx-auto flex max-w-sm grow flex-col items-center justify-center border-neutral-500"

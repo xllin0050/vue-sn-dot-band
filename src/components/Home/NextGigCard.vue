@@ -12,7 +12,7 @@
       <li
         v-for="(gig, ind) in props.nextGig"
         :key="gig.id"
-        class="card-shadow hover:card-shadow-elev flex flex-col items-center rounded-lg bg-neutral-50 p-4 text-sm lg:text-base"
+        class="card-shadow hover:card-shadow-elev flex flex-col items-center rounded-lg bg-neutral-50 p-4 text-sm transition lg:text-base"
         :class="{
           'mb-12': props.nextGig.length > 1 && ind !== props.nextGig.length - 1,
         }"
