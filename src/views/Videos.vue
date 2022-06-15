@@ -4,7 +4,7 @@
     :class="{ 'overflow-hidden': modalVisible }"
   >
     <PageTitle>videos</PageTitle>
-    <ul class="mx-auto max-w-3xl">
+    <TransitionGroup name="list" tag="ul" class="mx-auto max-w-3xl">
       <li
         v-for="video in videos"
         :key="video.title"
@@ -20,7 +20,7 @@
           class="card-shadow cursor-pointer"
         />
       </li>
-    </ul>
+    </TransitionGroup>
     <VideoModal
       v-if="modalVisible"
       :data="modalData"
@@ -77,3 +77,15 @@ const showModal = (data) => {
   modalVisible.value = !modalVisible.value
 }
 </script>
+<style>
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.5s ease;
+  transition-property: opacity, transform;
+}
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+</style>

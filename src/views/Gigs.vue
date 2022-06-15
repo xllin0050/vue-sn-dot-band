@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen w-full pb-16">
     <PageTitle>gigs</PageTitle>
-    <ul class="pt-6 font-redhat md:pt-0">
+    <TransitionGroup name="list" tag="ul" class="pt-6 font-redhat md:pt-0">
       <li
         v-for="gig in gigDatas"
         :key="gig.id"
@@ -50,7 +50,7 @@
           </div>
         </div>
       </li>
-    </ul>
+    </TransitionGroup>
     <GigInfoModal
       v-if="modalVisible"
       :gig-info-data="gigInfoData"
@@ -82,4 +82,15 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style>
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.5s ease;
+  transition-property: opacity, transform;
+}
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+</style>

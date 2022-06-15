@@ -3,24 +3,28 @@
     <PageTitle>photos</PageTitle>
     <div class="flex flex-col flex-wrap pt-8 md:flex-row md:pt-0">
       <div class="max-w-1/2 basis-1/2">
-        <img
-          v-for="(url, i) in photoUrlsA"
-          :key="i"
-          v-lazy="url"
-          alt="photo"
-          class="w-full p-1"
-          @click="showImagesByComponent(url)"
-        />
+        <TransitionGroup name="list">
+          <img
+            v-for="(url, i) in photoUrlsA"
+            :key="i"
+            v-lazy="url"
+            alt="photo"
+            class="w-full p-1"
+            @click="showImagesByComponent(url)"
+          />
+        </TransitionGroup>
       </div>
       <div class="max-w-1/2 basis-1/2">
-        <img
-          v-for="(url, i) in photoUrlsB"
-          :key="i"
-          v-lazy="url"
-          alt="photo"
-          class="w-full p-1"
-          @click="showImagesByComponent(url)"
-        />
+        <TransitionGroup name="list">
+          <img
+            v-for="(url, i) in photoUrlsB"
+            :key="i"
+            v-lazy="url"
+            alt="photo"
+            class="w-full p-1"
+            @click="showImagesByComponent(url)"
+          />
+        </TransitionGroup>
       </div>
     </div>
     <ImgViewr :visible="visible" :urls="singlePhotoUrl" @close="closeHandler" />
@@ -75,5 +79,15 @@ export default {
 <style>
 .img-viewr__icon.icon__download-image {
   display: none !important;
+}
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.5s ease;
+  transition-property: opacity, transform;
+}
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
 }
 </style>
