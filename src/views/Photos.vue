@@ -1,28 +1,33 @@
 <template>
   <div class="min-h-screen w-full">
     <PageTitle>photos</PageTitle>
-    <div class="columns-1 pt-4 lg:columns-2 lg:gap-x-0 lg:pt-0">
-      <div
-        v-for="(url, i) in photoUrls"
-        class="w-full"
-        :key="`c_${i}`"
-        @click="showImagesByComponent(i)"
-      >
-        <img v-lazy="url" class="p-1 shadow-sm" />
+    <div class="flex flex-col flex-wrap pt-8 md:flex-row md:pt-0">
+      <div class="max-w-1/2 basis-1/2">
+        <img
+          v-for="(url, i) in photoUrlsA"
+          :key="i"
+          v-lazy="url"
+          alt="photo"
+          class="w-full p-1"
+          @click="showImagesByComponent(url)"
+        />
+      </div>
+      <div class="max-w-1/2 basis-1/2">
+        <img
+          v-for="(url, i) in photoUrlsB"
+          :key="i"
+          v-lazy="url"
+          alt="photo"
+          class="w-full p-1"
+          @click="showImagesByComponent(url)"
+        />
       </div>
     </div>
-    <ImgViewr
-      :visible="visible"
-      :urls="photoUrls"
-      :initial-index="index"
-      @close="closeHandle"
-      @switch="changeHandle"
-      @show="showHandle"
-    />
+    <ImgViewr :visible="visible" :urls="singlePhotoUrl" @close="closeHandler" />
   </div>
 </template>
 <script>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, computed, onUpdated } from 'vue'
 import useStorage from '@/composables/UseStorage'
 import ImgViewr from 'vue-img-viewr'
 import 'vue-img-viewr/styles/index.css'
@@ -31,35 +36,38 @@ export default {
   name: 'PhotosPage',
   components: { ImgViewr },
   setup() {
-    const { getPhotoUrls, photoUrls } = useStorage()
-    const index = ref(0)
+    const { getPhotoUrls } = useStorage()
     const visible = ref(false)
-    const showImagesByComponent = (i) => {
+    const singlePhotoUrl = ref([])
+    const photoUrlsA = ref([])
+    const photoUrlsB = ref([])
+
+    const showImagesByComponent = (url) => {
+      singlePhotoUrl.value = [url]
       visible.value = true
-      index.value = i
     }
-    const changeHandle = (i) => {
-      console.log(`current image index: ${i}`)
-    }
-    const closeHandle = () => {
+
+    const closeHandler = () => {
       console.log('closed component')
       visible.value = false
+      singlePhotoUrl.value = []
     }
-    const showHandle = (isShow) => {
-      console.log(`component is show: ${isShow}`)
-    }
+
     onMounted(() => {
-      getPhotoUrls()
+      getPhotoUrls().then((data) => {
+        const half = Math.ceil(data.length / 2)
+        photoUrlsA.value = data.slice(0, half)
+        photoUrlsB.value = data.slice(half)
+      })
     })
 
     return {
-      photoUrls,
-      index,
+      singlePhotoUrl,
+      photoUrlsA,
+      photoUrlsB,
       visible,
       showImagesByComponent,
-      closeHandle,
-      changeHandle,
-      showHandle,
+      closeHandler,
     }
   },
 }
