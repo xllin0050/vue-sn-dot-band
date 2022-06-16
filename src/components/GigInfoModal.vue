@@ -9,7 +9,12 @@
       class="flex w-[300px] flex-col items-center justify-between rounded-md border bg-white p-4 font-redhat uppercase lg:w-[500px]"
     >
       <div class="w-full">
-        <img :src="props.gigInfoData.banner" class="mx-auto w-full" />
+        <img
+          :src="props.gigInfoData.banner"
+          class="mx-auto w-full"
+          @load="show = false"
+        />
+        <div v-if="show" class="h-[300px] w-full text-center">wait for poster loading or nothing at all</div>
       </div>
       <div class="flex p-4 text-base">
         <p class="p-1">{{ props.gigInfoData.show_time }}</p>
@@ -48,7 +53,7 @@
   </div>
 </template>
 <script setup>
-import { onMounted, onBeforeUnmount } from 'vue'
+import { onMounted, onBeforeUnmount, ref } from 'vue'
 
 const props = defineProps({ gigInfoData: Object })
 const emits = defineEmits(['closeModal'])
@@ -58,5 +63,6 @@ onMounted(() => {
 onBeforeUnmount(() => {
   document.body.style.overflow = 'auto'
 })
+const show = ref(true)
 </script>
 <style scoped></style>

@@ -47,11 +47,13 @@
         </div>
       </li>
     </TransitionGroup>
-    <GigInfoModal
-      v-if="modalVisible"
-      :gig-info-data="gigInfoData"
-      @close-modal="showModal"
-    />
+    <transition name="fade">
+      <GigInfoModal
+        v-if="modalVisible"
+        :gig-info-data="gigInfoData"
+        @close-modal="showModal"
+      />
+    </transition>
   </div>
 </template>
 
@@ -89,5 +91,13 @@ export default {
 .list-leave-to {
   opacity: 0;
   transform: translateY(30px);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 200ms ease-out;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>
