@@ -11,7 +11,7 @@ export default defineConfig({
   plugins: [
     vue(),
     legacy({
-      targets: ['defaults', 'last 2 iOS major versions', 'not IE 11'],
+      targets: ['defaults', 'not IE 11'],
     }),
     PurgeIcons({
       content: ['**/*.vue'],

@@ -5,7 +5,7 @@
       <li
         v-for="gig in gigDatas"
         :key="gig.id"
-        class="mb-6 flex flex-col items-center rounded-md p-2 py-8 uppercase shadow lg:flex-row lg:p-3"
+        class="mb-14 flex flex-col items-center rounded-md p-2 py-8 uppercase shadow lg:mb-8 lg:flex-row lg:p-3"
         :class="{
           'card-shadow bg-neutral-50 lg:py-6': gig.coming,
         }"
@@ -33,14 +33,14 @@
         </div>
         <div class="flex w-auto pt-2 lg:w-[160px] lg:pt-0">
           <div
-            class="mx-2 cursor-pointer rounded-md p-1 px-3 font-extralight text-sm underline hover:underline-offset-4 lg:text-base"
+            class="mx-2 cursor-pointer rounded-md p-1 px-3 text-sm font-extralight underline hover:underline-offset-4 lg:text-base"
             @click="showModal(gig)"
           >
             info
           </div>
           <div
             v-show="gig.coming"
-            class="rounded-md p-1 px-3 font-extralight text-sm underline hover:underline-offset-4 lg:text-base"
+            class="rounded-md p-1 px-3 text-sm font-extralight underline hover:underline-offset-4 lg:text-base"
           >
             <a :href="gig.event_url" target="_blank">ticket</a>
           </div>
@@ -68,6 +68,7 @@ export default {
     })
     const gigInfoData = ref({})
     const modalVisible = ref(false)
+
     const showModal = (data) => {
       if (data) gigInfoData.value = data
       modalVisible.value = !modalVisible.value
