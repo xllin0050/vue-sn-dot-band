@@ -1,6 +1,9 @@
 <template>
-  <div class="w-full pb-10 lg:pb-40">
+  <div class="relative w-full pb-10 lg:pb-40">
     <PageTitle>about us</PageTitle>
+    <LangSwitch
+      class="absolute top-7 right-3 md:top-0 md:right-0 md:-translate-y-8 md:-translate-x-20"
+    />
     <article v-show="userLang === 'zh'" class="article">
       <p class="paragraph">
         Super Napkin (超級紙巾)

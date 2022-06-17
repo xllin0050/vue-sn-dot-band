@@ -1,7 +1,7 @@
 <template>
   <div
     id="modal-backdrop"
-    class="fixed inset-0 flex items-center justify-center bg-white/90"
+    class="fixed inset-0 flex items-center justify-center bg-neutral-50/95"
     @click.self="$emit('closeModal')"
   >
     <div id="modal" class="w-full p-0 font-redhat text-lg uppercase lg:w-3/4">

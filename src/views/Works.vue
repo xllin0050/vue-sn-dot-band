@@ -10,11 +10,11 @@
       </div>
 
       <div class="mx-auto mb-16">
-        <h1 class="py-10 text-lg font-bold uppercase lg:py-20 lg:text-2xl">
+        <h1 class="py-10 pb-14 text-lg font-bold uppercase lg:py-20 lg:text-2xl">
           {{ album.title }}
         </h1>
         <h3
-          class="pb-3 text-base font-medium uppercase text-neutral-600 lg:text-lg"
+          class="pb-3 text-sm font-medium uppercase text-neutral-600 lg:text-lg"
         >
           tracks
         </h3>
@@ -29,7 +29,7 @@
         </ul>
         <div v-if="album.note">
           <h3
-            class="pt-6 pb-3 text-base font-medium uppercase text-neutral-600 lg:pt-16 lg:text-lg"
+            class="pt-10 pb-3 text-sm font-medium uppercase text-neutral-600 lg:pt-16 lg:text-lg"
           >
             credits
           </h3>
@@ -42,7 +42,7 @@
           </p>
         </div>
         <h3
-          class="pt-6 pb-3 text-base font-medium uppercase text-neutral-600 lg:pt-16 lg:text-lg"
+          class="pt-10 pb-3 text-sm font-medium uppercase text-neutral-600 lg:pt-16 lg:text-lg"
         >
           release date
         </h3>
@@ -50,7 +50,7 @@
           {{ album.release }}
         </p>
         <h3
-          class="pt-6 pb-3 text-base font-medium uppercase text-neutral-600 lg:pt-16 lg:text-lg"
+          class="pt-10 pb-3 text-sm font-medium uppercase text-neutral-600 lg:pt-16 lg:text-lg"
         >
           streams
         </h3>

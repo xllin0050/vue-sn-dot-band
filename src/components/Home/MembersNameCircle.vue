@@ -45,7 +45,7 @@
       :class="[name, name === backgroundName ? 'opacity-100' : 'opacity-0']"
     >
       <div
-        class="absolute bottom-4 w-full text-center uppercase tracking-widest text-white opacity-100 lg:opacity-0"
+        class="absolute bottom-4 w-full text-center uppercase tracking-widest text-neutral-50 opacity-100 lg:opacity-0"
       >
         {{ name }}
       </div>

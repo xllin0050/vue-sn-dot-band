@@ -1,6 +1,6 @@
 <template>
   <div
-    class="mx-auto flex max-w-4xl flex-col items-center justify-center py-16 text-center lg:py-36"
+    class="mx-auto flex max-w-4xl flex-col items-center justify-center py-16 pt-10 text-center lg:py-36"
   >
     <h3
       class="pb-6 font-redhat text-xl font-medium uppercase tracking-widest text-neutral-800 lg:pb-20 lg:text-3xl"

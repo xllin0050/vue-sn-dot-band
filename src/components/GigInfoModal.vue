@@ -6,7 +6,7 @@
   >
     <div
       id="modal"
-      class="flex w-[300px] flex-col items-center justify-between rounded-md border bg-white p-4 font-redhat uppercase lg:w-[500px]"
+      class="flex w-[300px] flex-col items-center justify-between rounded-md border bg-neutral-50 p-4 font-redhat uppercase lg:w-[500px]"
     >
       <div class="w-full">
         <img

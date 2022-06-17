@@ -1,6 +1,6 @@
 <template>
-  <div class="absolute top-0 block md:hidden">
-    <div @click="handlerMenu" class="p-3">
+  <div class="absolute top-2 right-2 block md:hidden">
+    <div @click="handlerMenu" class="p-3 opacity-70 hover:opacity-100">
       <span
         class="iconify text-xl"
         data-icon="ri:menu-fill"
@@ -11,10 +11,14 @@
   <transition name="fade">
     <div
       v-if="isShow"
-      class="fixed top-0 z-10 flex min-h-screen w-screen justify-around bg-white pt-12"
+      class="fixed top-0 z-10 flex min-h-screen w-full justify-between bg-neutral-50"
     >
-      <ul class="font-redhat font-medium uppercase tracking-wider">
-        <li v-for="routeName in props.routesList" :key="routeName" class="py-3">
+      <ul class="pt-10 font-redhat font-medium uppercase tracking-wider">
+        <li
+          v-for="routeName in props.routesList"
+          :key="routeName"
+          class="p-3 px-12 hover:underline"
+        >
           <p style="word-spacing: -0.3em">
             <router-link :to="{ name: routeName }">
               <span @click="isShow = false">
@@ -24,9 +28,9 @@
           </p>
         </li>
       </ul>
-      <div @click="handlerMenu" class="p-3">
+      <div @click="handlerMenu" class="px-8 pt-5">
         <span
-          class="iconify text-2xl"
+          class="iconify text-2xl opacity-70 hover:opacity-100"
           data-icon="ri:close-fill"
           data-inline="false"
         ></span>

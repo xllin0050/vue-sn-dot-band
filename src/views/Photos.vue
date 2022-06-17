@@ -31,7 +31,7 @@
   </div>
 </template>
 <script>
-import { onMounted, ref, computed, onUpdated } from 'vue'
+import { onMounted, ref } from 'vue'
 import useStorage from '@/composables/UseStorage'
 import ImgViewr from 'vue-img-viewr'
 import 'vue-img-viewr/styles/index.css'
@@ -79,6 +79,10 @@ export default {
 <style>
 .img-viewr__icon.icon__download-image {
   display: none !important;
+}
+.img-viewr__mask {
+  background-color: #fafafa;
+  opacity: 0.98;
 }
 .list-enter-active,
 .list-leave-active {
