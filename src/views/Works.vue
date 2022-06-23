@@ -10,11 +10,13 @@
       </div>
 
       <div class="mx-auto mb-16">
-        <h1 class="py-10 pb-14 text-lg font-bold uppercase lg:py-20 lg:text-2xl">
+        <h1
+          class="py-10 pb-14 text-lg font-bold uppercase lg:py-16 lg:text-2xl"
+        >
           {{ album.title }}
         </h1>
         <h3
-          class="pb-3 text-sm font-medium uppercase text-neutral-600 lg:text-lg"
+          class="pb-3 text-sm uppercase text-neutral-600 lg:pb-2 lg:text-base"
         >
           tracks
         </h3>
@@ -22,35 +24,35 @@
           <li
             v-for="(track, num) in album.tracks"
             :key="track.num"
-            class="py-1 text-xs text-neutral-800 lg:text-lg"
+            class="py-1 text-xs text-neutral-800 lg:py-0 lg:text-base"
           >
             {{ num.slice(5) }}.{{ track }}
           </li>
         </ul>
         <div v-if="album.note">
           <h3
-            class="pt-10 pb-3 text-sm font-medium uppercase text-neutral-600 lg:pt-16 lg:text-lg"
+            class="pt-10 pb-3 text-sm uppercase text-neutral-600 lg:pt-14 lg:pb-2 lg:text-base"
           >
             credits
           </h3>
           <p
             v-for="(note, i) in album.note.note"
             :key="i"
-            class="py-1 text-xs text-neutral-800 lg:text-lg"
+            class="py-1 text-xs text-neutral-800 lg:py-0 lg:text-base"
           >
             {{ note }}
           </p>
         </div>
         <h3
-          class="pt-10 pb-3 text-sm font-medium uppercase text-neutral-600 lg:pt-16 lg:text-lg"
+          class="pt-10 pb-3 text-sm uppercase text-neutral-600 lg:pb-2 lg:pt-14 lg:text-base"
         >
           release date
         </h3>
-        <p class="text-xs text-neutral-800 lg:text-lg">
+        <p class="text-xs text-neutral-800 lg:text-base">
           {{ album.release }}
         </p>
         <h3
-          class="pt-10 pb-3 text-sm font-medium uppercase text-neutral-600 lg:pt-16 lg:text-lg"
+          class="pt-10 pb-3 text-sm uppercase text-neutral-600 lg:pt-14 lg:pb-2 lg:text-base"
         >
           streams
         </h3>
@@ -58,7 +60,7 @@
           <li
             v-for="(link, host) in album.listen"
             :key="host"
-            class="py-1 text-xs text-neutral-800 lg:text-lg"
+            class="py-1 text-xs text-neutral-800 lg:py-0 lg:text-base"
           >
             <a :href="link" target="_blank" class="uppercase">{{ host }}</a>
           </li>
