@@ -7,7 +7,7 @@
         :key="gig.id"
         class="mb-14 flex flex-col items-center rounded-md p-2 py-8 uppercase shadow lg:mb-8 lg:flex-row lg:p-3"
         :class="{
-          'card-shadow bg-neutral-50 lg:py-6': gig.coming,
+          'shadow-lg bg-neutral-50 lg:py-8': gig.coming,
         }"
       >
         <div class="">{{ gig.show_time }}</div>

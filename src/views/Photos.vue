@@ -1,6 +1,7 @@
 <template>
   <div class="min-h-screen w-full">
     <PageTitle>photos</PageTitle>
+    <div v-if="loading" class="text-center">Now loading...</div>
     <div class="flex flex-col flex-wrap pt-8 md:flex-row md:pt-0">
       <div class="max-w-1/2 basis-1/2">
         <TransitionGroup name="list">
@@ -41,6 +42,7 @@ export default {
   components: { ImgViewr },
   setup() {
     const { getPhotoUrls } = useStorage()
+    const loading = ref(false)
     const visible = ref(false)
     const singlePhotoUrl = ref([])
     const photoUrlsA = ref([])
@@ -58,10 +60,12 @@ export default {
     }
 
     onMounted(() => {
+      loading.value = true
       getPhotoUrls().then((data) => {
         const half = Math.ceil(data.length / 2)
         photoUrlsA.value = data.slice(0, half)
         photoUrlsB.value = data.slice(half)
+        loading.value = false
       })
     })
 
@@ -70,6 +74,7 @@ export default {
       photoUrlsA,
       photoUrlsB,
       visible,
+      loading,
       showImagesByComponent,
       closeHandler,
     }
