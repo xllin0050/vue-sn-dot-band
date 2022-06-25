@@ -9,8 +9,8 @@
           class="nameText"
           :class="
             backgroundName === 'shih'
-              ? 'text-neutral-700 dark:text-purple-200'
-              : 'text-neutral-200 dark:text-neutral-600'
+              ? 'text-neutral-700 '
+              : 'text-neutral-200 '
           "
         >
           shih(drum)
@@ -19,9 +19,7 @@
           ref="yauGtr"
           class="nameText"
           :class="
-            backgroundName === 'yau'
-              ? 'text-neutral-700 dark:text-purple-200'
-              : 'text-neutral-200 dark:text-neutral-600'
+            backgroundName === 'yau' ? 'text-neutral-700 ' : 'text-neutral-200 '
           "
         >
           yau(gtr/vox)
@@ -31,8 +29,8 @@
           class="nameText"
           :class="
             backgroundName === 'weiting'
-              ? 'text-neutral-700 dark:text-purple-200'
-              : 'text-neutral-200 dark:text-neutral-600'
+              ? 'text-neutral-700 '
+              : 'text-neutral-200 '
           "
         >
           weiting(bass)
@@ -47,7 +45,7 @@
       :class="[name, name === backgroundName ? 'opacity-100' : 'opacity-0']"
     >
       <div
-        class="absolute bottom-4 w-full text-center uppercase tracking-widest text-white opacity-100 lg:opacity-0"
+        class="absolute bottom-4 w-full text-center uppercase tracking-widest text-neutral-50 opacity-100 lg:opacity-0"
       >
         {{ name }}
       </div>

@@ -4,7 +4,7 @@
     class="fixed bottom-5 z-10 block rounded-sm transition sm:hidden"
   >
     <div
-      class="py-2 px-4 font-redhat font-medium uppercase text-neutral-900 dark:text-purple-400"
+      class="py-2 px-4 font-redhat font-medium uppercase text-neutral-900"
       @click="scrollToTop"
     >
       <span
@@ -13,7 +13,7 @@
       ></span>
     </div>
     <div
-      class="py-2 px-4 font-redhat font-medium uppercase text-neutral-900 dark:text-purple-400"
+      class="py-2 px-4 font-redhat font-medium uppercase text-neutral-900"
       @click="router.foroward"
     >
       <span
@@ -22,7 +22,7 @@
       ></span>
     </div>
     <div
-      class="py-2 px-4 font-redhat font-medium uppercase text-neutral-900 dark:text-purple-400"
+      class="py-2 px-4 font-redhat font-medium uppercase text-neutral-900"
       @click="router.back"
     >
       <span

@@ -1,14 +1,14 @@
 <template>
-  <div
-    class="max-w-screen min-h-screen overflow-x-hidden dark:bg-neutral-900 dark:text-purple-200"
-  >
-    <ThemeSwitch />
-    <LangSwitch v-show="route.name === 'About Us'" />
-    <NoGlitchTitle />
+  <div class="max-w-screen min-h-screen overflow-x-hidden">
+    <div class="w-full pt-16">
+      <div
+        class="text-center font-redhat text-3xl font-medium uppercase tracking-[.1em] text-neutral-900 lg:text-7xl lg:tracking-[.3em]"
+      >
+        super napkin
+      </div>
+    </div>
     <SiteNavbar :routes-list="pageNames" />
-
     <AppNavbar :routes-list="pageNames" />
-
     <main class="mx-auto max-w-xs lg:max-w-4xl">
       <router-view v-slot="{ Component }">
         <transition name="fade">
@@ -16,20 +16,15 @@
         </transition>
       </router-view>
     </main>
-
     <SiteFooter />
     <ScrollToTop />
   </div>
 </template>
 <script setup>
-import { ref, onMounted } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
+import { onMounted } from 'vue'
 import { storeUserLang } from '@/stores/lang'
 
-const router = useRouter()
-const route = useRoute()
 const store = storeUserLang()
-
 const pageNames = [
   'Home',
   'About Us',
@@ -41,8 +36,6 @@ const pageNames = [
 ]
 
 onMounted(() => {
-  // 主題色
-  localStorage.setItem('theme', 'light')
   // 語言
   const zh = ['zh-tw', 'zh-cn', 'zh-hk']
   const browser = window.navigator.language || window.navigator.browserLanguage
@@ -53,9 +46,6 @@ onMounted(() => {
 </script>
 
 <style>
-body {
-  position: relative;
-}
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 180ms ease;

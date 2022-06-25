@@ -1,70 +1,60 @@
 <template>
-    <div class="min-h-screen w-full">
-        <PageTitle>gigs</PageTitle>
-        <ul class="pt-6 font-redhat md:pt-0">
-            <li
-                v-for="gig in gigDatas"
-                :key="gig.id"
-                class="mb-6 flex flex-col items-center rounded-md border p-2 uppercase shadow-sm lg:mb-4 lg:flex-row lg:p-3"
-                :class="
-                    gig.coming
-                        ? 'border-neutral-700 shadow-md dark:border-2 dark:border-purple-400 lg:py-6'
-                        : ''
-                "
-            >
-                <div class="">{{ gig.show_time }}</div>
-                <div
-                    class="my-2 flex items-center text-sm font-normal text-neutral-800 dark:text-neutral-200 lg:my-0 lg:grow lg:text-base"
-                >
-                    <span
-                        class="iconify mx-1 dark:text-neutral-400"
-                        data-icon="ic:outline-place"
-                        data-inline="false"
-                    ></span
-                    >{{ gig.venue }}
-                </div>
-                <div
-                    class="my-1 flex items-center text-sm font-normal text-neutral-800 dark:text-neutral-200 lg:my-0 lg:mx-4 lg:w-36 lg:text-base"
-                >
-                    <span
-                        class="iconify mx-1 dark:text-neutral-400"
-                        data-icon="mdi:city-variant-outline"
-                        data-inline="false"
-                    ></span
-                    >{{ gig.city }}
-                </div>
-                <div class="flex pt-2 lg:pt-0">
-                    <div
-                        class="mx-2 cursor-pointer rounded-md border p-1 px-2 text-sm hover:border-neutral-600 lg:text-base"
-                        :class="
-                            gig.coming
-                                ? 'border-neutral-400 dark:border-purple-400'
-                                : ''
-                        "
-                        @click="showModal(gig)"
-                    >
-                        info
-                    </div>
-                    <div
-                        v-show="gig.coming"
-                        class="rounded-md border p-1 px-2 text-sm lg:text-base"
-                        :class="
-                            gig.coming
-                                ? 'cursor-pointer border-neutral-400 hover:border-neutral-600 dark:border-purple-400'
-                                : ''
-                        "
-                    >
-                        <a :href="gig.event_url" target="_blank">ticket</a>
-                    </div>
-                </div>
-            </li>
-        </ul>
-        <GigInfoModal
-            v-if="modalVisible"
-            :gig-info-data="gigInfoData"
-            @close-modal="showModal"
-        />
-    </div>
+  <div class="min-h-screen w-full pb-16">
+    <PageTitle>gigs</PageTitle>
+    <TransitionGroup name="list" tag="ul" class="pt-6 font-redhat md:pt-0">
+      <li
+        v-for="gig in gigDatas"
+        :key="gig.id"
+        class="mb-14 flex flex-col items-center rounded-md p-2 py-8 uppercase shadow lg:mb-8 lg:flex-row lg:p-3"
+        :class="{
+          'shadow-lg bg-neutral-50 lg:py-8': gig.coming,
+        }"
+      >
+        <div class="">{{ gig.show_time }}</div>
+        <div
+          class="my-2 flex items-center text-sm font-normal text-neutral-800 lg:my-0 lg:grow lg:text-base"
+        >
+          <span
+            class="iconify mx-1"
+            data-icon="ic:outline-place"
+            data-inline="false"
+          ></span
+          >{{ gig.venue }}
+        </div>
+        <div
+          class="my-1 flex items-center text-sm font-normal text-neutral-800 lg:my-0 lg:mx-3 lg:w-24"
+        >
+          <span
+            class="iconify mx-1"
+            data-icon="mdi:city-variant-outline"
+            data-inline="false"
+          ></span
+          >{{ gig.city }}
+        </div>
+        <div class="flex w-auto pt-2 lg:w-[160px] lg:pt-0">
+          <div
+            class="mx-2 cursor-pointer rounded-md p-1 px-3 text-sm font-extralight underline hover:underline-offset-4 lg:text-base"
+            @click="showModal(gig)"
+          >
+            info
+          </div>
+          <div
+            v-show="gig.coming"
+            class="rounded-md p-1 px-3 text-sm font-extralight underline hover:underline-offset-4 lg:text-base"
+          >
+            <a :href="gig.event_url" target="_blank">ticket</a>
+          </div>
+        </div>
+      </li>
+    </TransitionGroup>
+    <transition name="fade">
+      <GigInfoModal
+        v-if="modalVisible"
+        :gig-info-data="gigInfoData"
+        @close-modal="showModal"
+      />
+    </transition>
+  </div>
 </template>
 
 <script>
@@ -72,22 +62,42 @@ import { onMounted, ref } from 'vue'
 import useDatabase from '@/composables/UseDatabase'
 
 export default {
-    name: 'GigsPage',
-    setup() {
-        const { gigDatas, getGigsData } = useDatabase()
-        onMounted(() => {
-            getGigsData()
-        })
-        const gigInfoData = ref({})
-        const modalVisible = ref(false)
-        const showModal = (data) => {
-            if (data) gigInfoData.value = data
-            modalVisible.value = !modalVisible.value
-        }
+  name: 'GigsPage',
+  setup() {
+    const { gigDatas, getGigsData } = useDatabase()
+    onMounted(() => {
+      getGigsData()
+    })
+    const gigInfoData = ref({})
+    const modalVisible = ref(false)
 
-        return { gigDatas, gigInfoData, showModal, modalVisible }
-    },
+    const showModal = (data) => {
+      if (data) gigInfoData.value = data
+      modalVisible.value = !modalVisible.value
+    }
+
+    return { gigDatas, gigInfoData, showModal, modalVisible }
+  },
 }
 </script>
 
-<style scoped></style>
+<style>
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.5s ease;
+  transition-property: opacity, transform;
+}
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 200ms ease-out;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+</style>

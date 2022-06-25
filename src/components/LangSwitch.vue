@@ -1,11 +1,8 @@
 <template>
-  <button
-    class="absolute top-0 right-0 cursor-pointer p-3 md:right-16 md:top-4"
-    @click="langSwitch"
-  >
+  <button @click="langSwitch">
     <span
-      class="iconify dark:text-purple-400 md:text-2xl"
-      data-icon="lucide:languages"
+      class="iconify md:text-2xl"
+      data-icon="fa6-solid:language"
       data-inline="false"
     ></span>
   </button>

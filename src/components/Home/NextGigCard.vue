@@ -1,61 +1,58 @@
 <template>
-    <div
-        class="mx-auto flex max-w-4xl flex-col items-center justify-center py-16 text-center lg:py-24"
+  <div
+    class="mx-auto flex max-w-4xl flex-col items-center justify-center py-16 pt-10 text-center lg:py-36"
+  >
+    <h3
+      class="pb-6 font-redhat text-xl font-medium uppercase tracking-widest text-neutral-800 lg:pb-20 lg:text-3xl"
     >
-        <h3
-            class="pb-6 font-redhat text-xl font-medium uppercase tracking-widest text-neutral-800 dark:text-purple-200 lg:pb-10 lg:text-3xl"
-        >
-            next gig
-        </h3>
+      next gig
+    </h3>
 
-        <ul class="font-redhat uppercase">
-            <li
-                v-for="gig in props.nextGig"
-                :key="gig.id"
-                class="mb-3 flex flex-col items-center rounded border border-gray-400 p-4 text-sm shadow dark:border-2 lg:mb-6 lg:flex-row lg:p-3 lg:text-base"
-            >
-                <div class="text-sm lg:text-base">{{ gig.show_time }}</div>
-                <div
-                    class="m-0 flex grow items-center py-3 text-sm lg:mx-2 lg:py-4 lg:text-base"
-                >
-                    <span
-                        class="iconify mx-1"
-                        data-icon="ic:outline-place"
-                        data-inline="false"
-                    ></span
-                    >{{ gig.venue }}/{{ gig.city }}
-                </div>
-                <div
-                    class="ml-2 cursor-pointer rounded border p-1 px-2 text-sm hover:border-gray-700 dark:text-purple-400"
-                >
-                    <a
-                        :href="gig.event_url"
-                        target="_blank"
-                        class="flex items-center"
-                    >
-                        <span class="mr-1">ticket</span>
-                        <span
-                            class="iconify"
-                            data-icon="ion:md-open"
-                            data-inline="false"
-                        ></span
-                    ></a>
-                </div>
-            </li>
-            <li
-                v-if="props.nextGig.length === 0"
-                class="mb-2 flex flex-col items-center rounded border border-neutral-500 p-4 text-sm shadow lg:flex-row lg:p-3 lg:px-20 lg:text-lg"
-            >
-                <div class="px-16 uppercase tracking-widest">tba</div>
-            </li>
-        </ul>
-    </div>
+    <ul class="w-[320px] font-redhat uppercase lg:w-[456px]">
+      <li
+        v-for="(gig, ind) in props.nextGig"
+        :key="gig.id"
+        class="card-shadow hover:card-shadow-elev flex flex-col items-center rounded-lg bg-neutral-50 p-4 text-sm transition lg:text-base"
+        :class="{
+          'mb-12': props.nextGig.length > 1 && ind !== props.nextGig.length - 1,
+        }"
+      >
+        <a :href="gig.event_url" target="_blank" class="w-full">
+          <div class="flex py-4">
+            <span
+              data-icon="ic:outline-dataset"
+              class="iconify mr-4 ml-4 text-xl lg:ml-10"
+            ></span>
+            <div>{{ gig.show_time }}</div>
+          </div>
+          <div class="flex py-4">
+            <span
+              data-icon="ic:outline-house"
+              class="iconify mr-4 ml-4 text-xl lg:ml-10"
+            ></span>
+            <div>
+              {{ gig.venue }}
+            </div>
+          </div>
+          <div class="flex py-4">
+            <span
+              class="iconify mr-4 ml-4 text-xl lg:ml-10"
+              data-icon="ic:outline-place"
+              data-inline="false"
+            ></span>
+            <div>{{ gig.city }}</div>
+          </div>
+        </a>
+      </li>
+      <li
+        v-if="props.nextGig.length === 0"
+        class="card-shadow flex flex-col items-center rounded-lg bg-neutral-50 p-4 text-sm lg:text-base"
+      >
+        <div class="p-16 text-xl uppercase tracking-widest">tba</div>
+      </li>
+    </ul>
+  </div>
 </template>
-<script>
-export default {
-    props: { nextGig: Array },
-    setup(props) {
-        return { props }
-    },
-}
+<script setup>
+const props = defineProps({ nextGig: Array })
 </script>

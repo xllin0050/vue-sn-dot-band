@@ -1,5 +1,7 @@
 <template>
-  <div class="bolck sm:hidden font-redhat uppercase pt-6 font-medium text-neutral-500 dark:text-purple-200  text-center">
+  <div
+    class="bolck pt-6 text-center font-redhat font-medium uppercase text-neutral-500 sm:hidden"
+  >
     <slot></slot>
   </div>
 </template>
