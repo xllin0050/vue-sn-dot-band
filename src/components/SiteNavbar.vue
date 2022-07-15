@@ -1,5 +1,5 @@
 <template>
-  <nav class="hidden py-8 md:flex md:justify-center lg:pb-20">
+  <nav class="hidden bg-white py-8 md:flex md:justify-center lg:pb-20">
     <div
       v-for="routeName in props.routesList"
       :key="routeName"
