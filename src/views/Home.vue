@@ -2,7 +2,6 @@
   <div class="min-h-screen w-full">
     <MembersNameCircle />
     <NextGigCard :next-gig="nextGigDatas" />
-
     <AlbumList :albums="albumDatas" />
   </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <nav class="hidden bg-white py-8 md:flex md:justify-center lg:pb-20">
+  <div class="hidden bg-white py-8 md:flex md:justify-center lg:pb-20">
     <div
       v-for="routeName in props.routesList"
       :key="routeName"
@@ -11,7 +11,7 @@
     >
       <router-link :to="{ name: routeName }">{{ routeName }}</router-link>
     </div>
-  </nav>
+  </div>
 </template>
 <script setup>
 import { useRoute } from 'vue-router'
