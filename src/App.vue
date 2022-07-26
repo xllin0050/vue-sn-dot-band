@@ -3,7 +3,6 @@
     <div
       ref="innerScroll"
       class="inner-scroll fixed z-50 h-[100vh] w-full overflow-auto"
-      style="opacity: 0.7; background-color: rgba(0, 0, 0, 0)"
     >
       <div
         ref="scrollView"
@@ -13,7 +12,7 @@
     </div>
     <div ref="outterWrap" class="outter-wrap h-[100vh] overflow-auto">
       <div ref="outterScroll">
-        <div ref="videoWrap" class="relative">
+        <div ref="videoWrap" class="video-wrap relative">
           <video
             v-if="route.name === 'Home'"
             ref="videoBG"
@@ -26,7 +25,7 @@
           </video>
           <div
             ref="siteTitle"
-            class="site-title absolute w-full -translate-y-1/2"
+            class="site-title fixed w-[100vw] -translate-y-1/2"
           >
             <div
               class="my-8 text-center font-redhat text-3xl font-medium uppercase tracking-[.1em] text-neutral-900 lg:text-7xl lg:tracking-[.3em]"
@@ -53,7 +52,7 @@
   </div>
 </template>
 <script setup>
-import { onMounted, ref, onUpdated, computed } from 'vue'
+import { onMounted, ref, onUpdated } from 'vue'
 import { useRoute } from 'vue-router'
 import { storeUserLang } from '@/stores/lang'
 
@@ -83,7 +82,7 @@ const innerScroll = ref(null)
 const scrollView = ref(null)
 const outterWrap = ref(null)
 
-let siteTitleTop, siteTitleHeight
+let siteTitleHeight
 
 function throttled(fn, delay = 500) {
   let timer = null
@@ -96,37 +95,6 @@ function throttled(fn, delay = 500) {
     }
   }
 }
-
-const scoll = () => {
-  // title 滑動
-  if (outterWrap.value.scrollTop < siteTitleTop + siteTitleHeight) {
-    siteTitle.value.style.top = `${siteTitleTop + outterWrap.value.scrollTop}px`
-  } else {
-    siteTitle.value.style.top = `${
-      videoBG.value.offsetHeight + siteTitleHeight / 2
-    }px`
-  }
-  if (Number.parseInt(siteTitle.value.style.top) > videoBG.value.offsetHeight) {
-    videoWrap.value.style.marginBottom =
-      Number.parseInt(siteTitle.value.style.top) -
-      videoBG.value.offsetHeight +
-      'px'
-  }
-  if (
-    Number.parseInt(siteTitle.value.style.top) < videoBG.value.offsetHeight &&
-    Number.parseInt(videoWrap.value.style.marginBottom) < 0
-  ) {
-    const neg =
-      Number.parseInt(siteTitle.value.style.top) - videoBG.value.offsetHeight
-    videoWrap.value.style.marginBottom =
-      neg > 0
-        ? Number.parseInt(siteTitle.value.style.top) -
-          videoBG.value.offsetHeight +
-          'px'
-        : 0 + 'px'
-  }
-}
-
 onMounted(() => {
   // 語言
   const zh = ['zh-tw', 'zh-cn', 'zh-hk']
@@ -136,38 +104,87 @@ onMounted(() => {
   })
 })
 onUpdated(() => {
-  siteTitleTop = videoBG.value.offsetHeight / 2
-  siteTitleHeight = siteTitle.value.offsetHeight
-  siteTitle.value.style.top = `${siteTitleTop}px`
   outterWrap.value.addEventListener('scroll', throttled(scoll, 100))
-
-  scrollView.value.style.height = outterScroll.value.scrollHeight + 'px'
   innerScroll.value.addEventListener('scroll', throttled(windowScrollTo, 100))
   outterScroll.value.addEventListener('DOMNodeInserted', () => {
+    siteTitleHeight = siteTitle.value.offsetHeight
+    videoWrap.value.style.paddingBottom = siteTitleHeight / 2 + 'px'
     const scrollViewHeight = Number.parseInt(scrollView.value.style.height)
     const outterHeight = outterScroll.value.scrollHeight
     if (scrollViewHeight !== outterHeight) {
+      // 高度有變化重新計算video 與 title高度
+      siteTitleHeight = siteTitle.value.offsetHeight
       scrollView.value.style.height = `${
         outterHeight + siteTitle.value.offsetHeight
       }px`
     }
   })
 })
+const scoll = () => {
+  // title 滑動
+  // if (
+  //   outterWrap.value.scrollTop <
+  //   videoWrap.value.offsetHeight / 2 + siteTitleHeight
+  // ) {
+  //   siteTitle.value.style.top = window.innerHeight / 2 + 'px'
+  //   siteTitle.value.style.position = 'fixed'
+  //   return
+  // }
+  // siteTitle.value.style.top = `${
+  //   videoBG.value.offsetHeight + siteTitleHeight / 2
+  // }px`
+  // siteTitle.value.style.position = 'absolute'
+}
+
 let windowScrollWait = false
+let scrollGoCtl = null
 function windowScrollTo() {
   if (windowScrollWait) return
-  const innerDOMScrollTop = innerScroll.value.scrollTop
   if (!windowScrollWait) {
     windowScrollWait = true
-
-    outterWrap.value.scrollTo({
-      top: innerDOMScrollTop,
-      behavior: 'smooth',
-    })
+    if (scrollGoCtl) clearTimeout(scrollGoCtl)
+    scrollGoCtl = setTimeout(scrollGo, 15)
     setTimeout(() => {
       windowScrollWait = false
     }, 100)
   }
+}
+function scrollGo() {
+  const outterWrapScrollTop = outterWrap.value.scrollTop
+  const innerScrollTop = innerScroll.value.scrollTop
+  if (innerScrollTop === outterWrapScrollTop) return
+  if (
+    innerScrollTop > outterWrapScrollTop &&
+    innerScrollTop - outterWrapScrollTop < 15
+  ) {
+    outterWrap.value.scrollTop = innerScrollTop
+  } else if (innerScrollTop > outterWrapScrollTop) {
+    outterWrap.value.scrollTop = outterWrapScrollTop + 15
+  } else if (
+    innerScrollTop < outterWrapScrollTop &&
+    outterWrapScrollTop - innerScrollTop < 15
+  ) {
+    outterWrap.value.scrollTop = innerScrollTop
+  } else if (innerScrollTop < outterWrapScrollTop) {
+    outterWrap.value.scrollTop = outterWrapScrollTop - 15
+  }
+  if (scrollGoCtl) clearTimeout(scrollGoCtl)
+  scrollGoCtl = setTimeout(scrollGo, 5)
+
+  if (
+    outterWrap.value.scrollTop <
+    videoWrap.value.offsetHeight / 2 + siteTitleHeight / 2
+  ) {
+    siteTitle.value.style.top = window.innerHeight / 2 + 'px'
+    siteTitle.value.style.position = 'fixed'
+    // siteTitle.value.style.color = 'white'
+    return
+  }
+  siteTitle.value.style.top = `${
+    videoBG.value.offsetHeight + siteTitleHeight / 2
+  }px`
+  siteTitle.value.style.position = 'absolute'
+  // siteTitle.value.style.color = 'black'
 }
 </script>
 
@@ -182,7 +199,7 @@ function windowScrollTo() {
   opacity: 0;
 }
 .outter-wrap::-webkit-scrollbar {
-  display: none;
+  /* display: none; */
   width: 10px;
   background: white;
 }
@@ -190,6 +207,9 @@ function windowScrollTo() {
   background: #333;
   border-radius: 25px;
   width: 10px;
+}
+.inner-scroll {
+  /* pointer-events: none; */
 }
 .inner-scroll::-webkit-scrollbar {
   display: block;
@@ -206,9 +226,6 @@ body {
   padding: 0px;
   margin: 0px;
 }
-html ::-webkit-scrollbar {
-  /* display: none; */
-}
 ::-webkit-scrollbar-button {
   display: none;
   background-color: red;
@@ -219,6 +236,17 @@ html {
   scroll-behavior: smooth;
 }
 .site-title {
+  top: 50vh;
+  position: fixed;
+  width: 100%;
+  mix-blend-mode: difference;
+  color: #fff;
+}
+.site-title div {
+  color: inherit;
+}
+.video-wrap {
+  background-color: white;
   transition: 0.3s;
 }
 </style>
