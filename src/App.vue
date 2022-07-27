@@ -2,54 +2,85 @@
   <div class="max-w-screen relative min-h-screen overflow-x-hidden">
     <div
       ref="innerScroll"
-      class="inner-scroll fixed z-50 h-[100vh] w-full overflow-auto"
+      class="inner-scroll z-50 h-[100vh] w-full overflow-auto"
     >
       <div
         ref="scrollView"
         :style="{ height: htmlHeight }"
         class="scroll-view w-full"
-      ></div>
-    </div>
-    <div
-      ref="outterWrap"
-      class="outter-wrap h-[100vh] overflow-auto overflow-x-hidden"
-    >
-      <div ref="outterScroll">
-        <div ref="videoWrap" class="video-wrap relative">
-          <video
-            v-if="route.name === 'Home'"
-            ref="videoBG"
-            autoplay="true"
-            muted="true"
-            loop="true"
-            class="hidden min-w-full sm:block"
-          >
-            <source :src="videoUrl" type="video/mp4" />
-          </video>
-          <div
-            ref="siteTitle"
-            class="site-title relative w-[100vw] pt-16 sm:fixed sm:top-[50vh] sm:-translate-y-1/2 sm:pt-0"
-          >
-            <div
-              class="my-8 text-center font-redhat text-3xl font-medium uppercase tracking-[.1em] text-neutral-900 lg:text-7xl lg:tracking-[.3em]"
+      >
+        <div
+          style="top: 0px; left: 0px; z-index: 999; opacity: 0"
+          class="absolute w-full"
+        >
+          <div class="relative" ref="videoWrap2">
+            <video
+              v-if="route.name === 'Home'"
+              ref="videoBG"
+              autoplay="true"
+              muted="true"
+              loop="true"
+              class="hidden min-w-full sm:block"
             >
-              super napkin
+              <source :src="videoUrl" type="video/mp4" />
+            </video>
+          </div>
+          <nav ref="siteNav">
+            <SiteNavbar :routes-list="pageNames" />
+          </nav>
+          <AppNavbar :routes-list="pageNames" />
+          <main class="mx-auto max-w-xs bg-white lg:max-w-4xl">
+            <router-view v-slot="{ Component }">
+              <transition name="fade">
+                <component :is="Component" />
+              </transition>
+            </router-view>
+          </main>
+          <SiteFooter />
+          <ScrollToTop />
+        </div>
+      </div>
+      <div
+        ref="outterWrap"
+        class="outter-wrap h-[100vh] overflow-auto overflow-x-hidden"
+      >
+        <div ref="outterScroll">
+          <div ref="videoWrap" class="video-wrap relative">
+            <video
+              v-if="route.name === 'Home'"
+              ref="videoBG"
+              autoplay="true"
+              muted="true"
+              loop="true"
+              class="hidden min-w-full sm:block"
+            >
+              <source :src="videoUrl" type="video/mp4" />
+            </video>
+            <div
+              ref="siteTitle"
+              class="site-title relative w-[100vw] pt-16 sm:fixed sm:top-[50vh] sm:-translate-y-1/2 sm:pt-0"
+            >
+              <div
+                class="my-8 text-center font-redhat text-3xl font-medium uppercase tracking-[.1em] text-neutral-900 lg:text-7xl lg:tracking-[.3em]"
+              >
+                super napkin
+              </div>
             </div>
           </div>
+          <nav ref="siteNav">
+            <SiteNavbar :routes-list="pageNames" />
+          </nav>
+          <AppNavbar :routes-list="pageNames" />
+          <main class="mx-auto max-w-xs bg-white lg:max-w-4xl">
+            <router-view v-slot="{ Component }">
+              <transition name="fade">
+                <component :is="Component" />
+              </transition>
+            </router-view>
+          </main>
+          <SiteFooter />
+          <ScrollToTop />
         </div>
-        <nav ref="siteNav">
-          <SiteNavbar :routes-list="pageNames" />
-        </nav>
-        <AppNavbar :routes-list="pageNames" />
-        <main class="mx-auto max-w-xs bg-white lg:max-w-4xl">
-          <router-view v-slot="{ Component }">
-            <transition name="fade">
-              <component :is="Component" />
-            </transition>
-          </router-view>
-        </main>
-        <SiteFooter />
-        <ScrollToTop />
       </div>
     </div>
   </div>
@@ -76,6 +107,7 @@ const pageNames = [
 ]
 
 const videoWrap = ref(null)
+const videoWrap2 = ref(null)
 const videoBG = ref(null)
 const siteTitle = ref(null)
 const siteNav = ref(null)
@@ -115,6 +147,7 @@ onUpdated(() => {
   innerScroll.value.addEventListener('scroll', throttled(windowScrollTo, 100))
   outterScroll.value.addEventListener('DOMNodeInserted', () => {
     siteTitleHeight = siteTitle.value.offsetHeight
+    videoWrap2.value.style.paddingBottom = siteTitleHeight / 2 + 'px'
     videoWrap.value.style.paddingBottom = siteTitleHeight / 2 + 'px'
     const scrollViewHeight = Number.parseInt(scrollView.value.style.height)
     const outterHeight = outterScroll.value.scrollHeight
@@ -128,19 +161,15 @@ onUpdated(() => {
   })
 })
 const scoll = () => {
-  // title 滑動
-  // if (
-  //   outterWrap.value.scrollTop <
-  //   videoWrap.value.offsetHeight / 2 + siteTitleHeight
-  // ) {
-  //   siteTitle.value.style.top = window.innerHeight / 2 + 'px'
-  //   siteTitle.value.style.position = 'fixed'
+  // const outterWrapScrollTop = outterWrap.value.scrollTop
+  // const innerScrollTop = innerScroll.value.scrollTop
+  // console.log('scroll', window.innerHeight / 2, outterWrap.value.scrollTop)
+  // if (innerScrollTop === outterWrapScrollTop) {
+  //   scrollView.value.style.pointerEvents = 'none'
   //   return
   // }
-  // siteTitle.value.style.top = `${
-  //   videoBG.value.offsetHeight + siteTitleHeight / 2
-  // }px`
-  // siteTitle.value.style.position = 'absolute'
+  // innerScroll.value.scrollTop = outterWrapScrollTop
+  // scrollView.value.style.pointerEvents = 'auto'
 }
 
 let windowScrollWait = false
@@ -177,21 +206,18 @@ function scrollGo() {
   }
   if (scrollGoCtl) clearTimeout(scrollGoCtl)
   scrollGoCtl = setTimeout(scrollGo, 5)
-
   if (
     window.innerHeight / 2 + outterWrap.value.scrollTop <
     videoWrap.value.offsetHeight
   ) {
     siteTitle.value.style.top = window.innerHeight / 2 + 'px'
     siteTitle.value.style.position = 'fixed'
-    // siteTitle.value.style.color = 'white'
     return
   }
   siteTitle.value.style.top = `${
     videoBG.value.offsetHeight + siteTitleHeight / 2
   }px`
   siteTitle.value.style.position = 'absolute'
-  // siteTitle.value.style.color = 'black'
 }
 </script>
 
@@ -246,6 +272,23 @@ html {
 }
 .site-title div {
   color: inherit;
+}
+.inner-scroll {
+  pointer-events: auto;
+  z-index: 1;
+  position: relative;
+}
+.scroll-view {
+  pointer-events: auto;
+  z-index: 10;
+  position: relative;
+}
+.outter-wrap {
+  pointer-events: none;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
 }
 .video-wrap {
   background-color: white;
