@@ -15,6 +15,7 @@ export default {
   setup() {
     const { getAlbumsData, albumDatas, nextGigDatas, getNextGigs } =
       useDatabase()
+
     onMounted(() => {
       getAlbumsData('id, release, title, created_at')
       getNextGigs()
