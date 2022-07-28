@@ -1,50 +1,11 @@
 <template>
   <div class="max-w-screen relative min-h-screen overflow-x-hidden">
-    <div
-      ref="innerScroll"
-      class="inner-scroll z-50 h-[100vh] w-full overflow-auto"
-    >
-      <div
-        ref="scrollView"
-        :style="{ height: htmlHeight }"
-        class="scroll-view w-full"
-      >
-        <div
-          style="top: 0px; left: 0px; z-index: 999; opacity: 0"
-          class="absolute w-full"
-        >
-          <div class="relative" ref="videoWrap2">
-            <video
-              v-if="route.name === 'Home'"
-              ref="videoBG"
-              autoplay="true"
-              muted="true"
-              loop="true"
-              class="hidden min-w-full sm:block"
-            >
-              <source :src="videoUrl" type="video/mp4" />
-            </video>
-          </div>
-          <nav ref="siteNav">
-            <SiteNavbar :routes-list="pageNames" />
-          </nav>
-          <AppNavbar :routes-list="pageNames" />
-          <main class="mx-auto max-w-xs bg-white lg:max-w-4xl">
-            <router-view v-slot="{ Component }">
-              <transition name="fade">
-                <component :is="Component" />
-              </transition>
-            </router-view>
-          </main>
-          <SiteFooter />
-          <ScrollToTop />
-        </div>
-      </div>
+    <div ref="innerScroll" class="inner-scroll h-[100vh] w-full overflow-auto">
       <div
         ref="outterWrap"
         class="outter-wrap h-[100vh] overflow-auto overflow-x-hidden"
       >
-        <div ref="outterScroll">
+        <div ref="outterScroll" class="outter-scroll">
           <div ref="videoWrap" class="video-wrap relative">
             <video
               v-if="route.name === 'Home'"
@@ -82,6 +43,11 @@
           <ScrollToTop />
         </div>
       </div>
+      <div
+        ref="scrollView"
+        :style="{ height: htmlHeight }"
+        class="scroll-view w-full"
+      ></div>
     </div>
   </div>
 </template>
@@ -107,7 +73,6 @@ const pageNames = [
 ]
 
 const videoWrap = ref(null)
-const videoWrap2 = ref(null)
 const videoBG = ref(null)
 const siteTitle = ref(null)
 const siteNav = ref(null)
@@ -147,7 +112,6 @@ onUpdated(() => {
   innerScroll.value.addEventListener('scroll', throttled(windowScrollTo, 100))
   outterScroll.value.addEventListener('DOMNodeInserted', () => {
     siteTitleHeight = siteTitle.value.offsetHeight
-    videoWrap2.value.style.paddingBottom = siteTitleHeight / 2 + 'px'
     videoWrap.value.style.paddingBottom = siteTitleHeight / 2 + 'px'
     const scrollViewHeight = Number.parseInt(scrollView.value.style.height)
     const outterHeight = outterScroll.value.scrollHeight
@@ -234,17 +198,21 @@ function scrollGo() {
 .outter-wrap::-webkit-scrollbar {
   /* display: none; */
   width: 10px;
+  z-index: 999;
   background: white;
 }
 .outter-wrap::-webkit-scrollbar-thumb {
   background: #333;
   border-radius: 25px;
   width: 10px;
+  z-index: 999;
 }
 .inner-scroll::-webkit-scrollbar {
   display: block;
   width: 10px;
+  z-index: 999;
   background: white;
+  position: relative;
 }
 .inner-scroll::-webkit-scrollbar-thumb {
   background: #333;
@@ -275,23 +243,32 @@ html {
 }
 .inner-scroll {
   pointer-events: auto;
-  z-index: 1;
-  position: relative;
-}
-.scroll-view {
-  pointer-events: auto;
-  z-index: 10;
-  position: relative;
-}
-.outter-wrap {
-  pointer-events: none;
   position: fixed;
   top: 0px;
   left: 0px;
-  width: 100%;
+}
+.scroll-view {
+  pointer-events: none;
+  position: relative;
 }
 .video-wrap {
   background-color: white;
   transition: 0.3s;
+}
+.outter-wrap {
+  top: 0px;
+  left: 0px;
+  width: calc(100% - 10px);
+  pointer-events: none;
+  position: fixed;
+  overflow: hidden !important;
+}
+.outter-scroll {
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.outter-scroll a {
+  pointer-events: auto;
 }
 </style>
