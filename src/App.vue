@@ -1,10 +1,18 @@
 <template>
   <div class="max-w-screen min-h-screen overflow-x-hidden">
-    <div class="w-full pt-16">
+    <div class="banner relative">
+      <div class="w-full">
+        <img src="./assets/dummy.jpg" alt="" />
+      </div>
       <div
-        class="text-center font-redhat text-3xl font-medium uppercase tracking-[.1em] text-neutral-900 lg:text-7xl lg:tracking-[.3em]"
+        ref="siteTitle"
+        class="absolute top-1/2 w-full -translate-y-1/2 transition-transform"
       >
-        super napkin
+        <div
+          class="my-10 text-center font-redhat text-3xl font-medium uppercase tracking-[.1em] text-neutral-900 invert lg:text-7xl lg:tracking-[.3em]"
+        >
+          super napkin
+        </div>
       </div>
     </div>
     <SiteNavbar :routes-list="pageNames" />
@@ -21,7 +29,7 @@
   </div>
 </template>
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import { storeUserLang } from '@/stores/lang'
 
 const store = storeUserLang()
@@ -35,6 +43,8 @@ const pageNames = [
   'Products',
 ]
 
+const siteTitle = ref(null)
+
 onMounted(() => {
   // 語言
   const zh = ['zh-tw', 'zh-cn', 'zh-hk']
@@ -42,6 +52,46 @@ onMounted(() => {
   store.$patch((state) => {
     if (zh.includes(browser.toLowerCase())) state.lang = 'zh'
   })
+  // 初始位置
+  let additionY = siteTitle.value.parentNode.offsetHeight / 2
+  let previousY = 0
+
+  const moveingTitle = () => {
+    // 已移動距離
+    const scrollY =
+      document.documentElement.scrollTop || document.body.scrollTop
+
+    // 原點
+    if (scrollY === 0) {
+      siteTitle.value.style.top = ''
+      additionY = siteTitle.value.parentNode.offsetHeight / 2
+    }
+
+    if (scrollY >= previousY) {
+      // 行為：向下滾動
+      previousY = scrollY
+      if (scrollY + 100 > siteTitle.value.offsetTop) {
+        additionY += scrollY + 100 - siteTitle.value.offsetTop
+        if (additionY < siteTitle.value.parentNode.offsetHeight) {
+          siteTitle.value.style.top = `${additionY}px`
+        }
+      }
+    } else {
+      // 行為：向上
+      previousY = scrollY
+      if (scrollY + 100 > siteTitle.value.parentNode.offsetHeight / 2) {
+        additionY =
+          siteTitle.value.parentNode.offsetHeight -
+          (siteTitle.value.parentNode.offsetHeight - scrollY) +
+          100
+        if (additionY < siteTitle.value.parentNode.offsetHeight) {
+          siteTitle.value.style.top = `${additionY}px`
+        }
+      }
+    }
+  }
+
+  window.addEventListener('scroll', moveingTitle)
 })
 </script>
 
