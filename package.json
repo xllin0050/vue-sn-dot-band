@@ -10,6 +10,7 @@
     "@iconify/iconify": "^2.2.1",
     "@supabase/supabase-js": "^1.35.4",
     "@vitejs/plugin-legacy": "^1.8.2",
+    "@vueuse/core": "^9.0.0",
     "pinia": "^2.0.17",
     "postcss-import": "^14.1.0",
     "vue": "^3.2.37",

@@ -31,6 +31,7 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import { storeUserLang } from '@/stores/lang'
+import { useThrottleFn, useEventListener } from '@vueuse/core'
 
 const store = storeUserLang()
 const pageNames = [
@@ -56,7 +57,7 @@ onMounted(() => {
   let additionY = siteTitle.value.parentNode.offsetHeight / 2
   let previousY = 0
 
-  const moveingTitle = () => {
+  const movingTitle = useThrottleFn(() => {
     // 已移動距離
     const scrollY =
       document.documentElement.scrollTop || document.body.scrollTop
@@ -89,9 +90,11 @@ onMounted(() => {
         }
       }
     }
-  }
+  }, 15)
 
-  window.addEventListener('scroll', moveingTitle)
+  useEventListener(window, 'scroll', () => {
+    movingTitle()
+  })
 })
 </script>
 
