@@ -1,15 +1,12 @@
 <template>
   <div class="max-w-screen min-h-screen overflow-x-hidden">
-    <div class="banner relative">
+    <div class="banner relative pb-20">
       <div class="w-full">
         <img src="./assets/dummy.jpg" alt="" />
       </div>
-      <div
-        ref="siteTitle"
-        class="absolute top-1/2 w-full -translate-y-1/2 transition-transform"
-      >
+      <div ref="siteTitle" class="absolute top-1/2 w-full -translate-y-1/2">
         <div
-          class="my-10 text-center font-redhat text-3xl font-medium uppercase tracking-[.1em] text-neutral-900 invert lg:text-7xl lg:tracking-[.3em]"
+          class="text-center font-redhat text-3xl font-medium uppercase tracking-[.1em] text-neutral-900 invert lg:text-7xl lg:tracking-[.3em]"
         >
           super napkin
         </div>
@@ -54,25 +51,27 @@ onMounted(() => {
     if (zh.includes(browser.toLowerCase())) state.lang = 'zh'
   })
   // 初始位置
+
   let additionY = siteTitle.value.parentNode.offsetHeight / 2
   let previousY = 0
+  siteTitle.value.style.top = `${window.innerHeight / 2}px`
 
   const movingTitle = useThrottleFn(() => {
     // 已移動距離
     const scrollY =
       document.documentElement.scrollTop || document.body.scrollTop
-
+    console.log(window.innerHeight)
     // 原點
     if (scrollY === 0) {
-      siteTitle.value.style.top = ''
+      siteTitle.value.style.top = `${window.innerHeight / 2}px`
       additionY = siteTitle.value.parentNode.offsetHeight / 2
     }
 
     if (scrollY >= previousY) {
       // 行為：向下滾動
       previousY = scrollY
-      if (scrollY + 100 > siteTitle.value.offsetTop) {
-        additionY += scrollY + 100 - siteTitle.value.offsetTop
+      if (scrollY + 150 > siteTitle.value.offsetTop) {
+        additionY += scrollY + 150 - siteTitle.value.offsetTop
         if (additionY < siteTitle.value.parentNode.offsetHeight) {
           siteTitle.value.style.top = `${additionY}px`
         }
@@ -80,11 +79,11 @@ onMounted(() => {
     } else {
       // 行為：向上
       previousY = scrollY
-      if (scrollY + 100 > siteTitle.value.parentNode.offsetHeight / 2) {
+      if (scrollY + 150 > siteTitle.value.parentNode.offsetHeight / 2) {
         additionY =
           siteTitle.value.parentNode.offsetHeight -
           (siteTitle.value.parentNode.offsetHeight - scrollY) +
-          100
+          150
         if (additionY < siteTitle.value.parentNode.offsetHeight) {
           siteTitle.value.style.top = `${additionY}px`
         }
