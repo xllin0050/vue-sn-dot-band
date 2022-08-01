@@ -1,8 +1,8 @@
 <template>
   <div class="max-w-screen min-h-screen overflow-x-hidden">
     <div class="banner relative pb-20">
-      <div class="w-full">
-        <img src="./assets/dummy.jpg" alt="" />
+      <div ref="videoWrap" class="h-auto w-full">
+        <img src="./assets/dummy.jpg" alt="DUMMY" />
       </div>
       <div ref="siteTitle" class="absolute top-1/2 w-full -translate-y-1/2">
         <div
@@ -42,6 +42,7 @@ const pageNames = [
 ]
 
 const siteTitle = ref(null)
+const videoWrap = ref(null)
 
 onMounted(() => {
   // 語言
@@ -60,11 +61,13 @@ onMounted(() => {
     // 已移動距離
     const scrollY =
       document.documentElement.scrollTop || document.body.scrollTop
-    console.log(window.innerHeight)
+
+    const bannerHeight = siteTitle.value.parentNode.offsetHeight
+
     // 原點
     if (scrollY === 0) {
       siteTitle.value.style.top = `${window.innerHeight / 2}px`
-      additionY = siteTitle.value.parentNode.offsetHeight / 2
+      additionY = bannerHeight / 2
     }
 
     if (scrollY >= previousY) {
@@ -72,19 +75,16 @@ onMounted(() => {
       previousY = scrollY
       if (scrollY + 150 > siteTitle.value.offsetTop) {
         additionY += scrollY + 150 - siteTitle.value.offsetTop
-        if (additionY < siteTitle.value.parentNode.offsetHeight) {
+        if (additionY < bannerHeight) {
           siteTitle.value.style.top = `${additionY}px`
         }
       }
     } else {
       // 行為：向上
       previousY = scrollY
-      if (scrollY + 150 > siteTitle.value.parentNode.offsetHeight / 2) {
-        additionY =
-          siteTitle.value.parentNode.offsetHeight -
-          (siteTitle.value.parentNode.offsetHeight - scrollY) +
-          150
-        if (additionY < siteTitle.value.parentNode.offsetHeight) {
+      if (scrollY + 150 > (bannerHeight - 150) / 2) {
+        additionY = bannerHeight - (bannerHeight - scrollY) + 150
+        if (additionY < bannerHeight) {
           siteTitle.value.style.top = `${additionY}px`
         }
       }
