@@ -108,8 +108,9 @@ onUpdated(() => {
     innerScroll.value.style.display = 'none'
     return
   }
-  outterWrap.value.addEventListener('scroll', throttled(scoll, 100))
-  innerScroll.value.addEventListener('scroll', throttled(windowScrollTo, 100))
+  outterWrap.value.addEventListener('scroll', throttled(scoll, 10))
+  outterWrap.value.addEventListener('wheel', throttled(scroll2, 10), true)
+  innerScroll.value.addEventListener('scroll', throttled(windowScrollTo, 10))
   outterScroll.value.addEventListener('DOMNodeInserted', () => {
     siteTitleHeight = siteTitle.value.offsetHeight
     videoWrap.value.style.paddingBottom = siteTitleHeight / 2 + 'px'
@@ -124,6 +125,9 @@ onUpdated(() => {
     }
   })
 })
+const scroll2 = (e) => {
+  innerScroll.value.scrollTop += -e.wheelDelta
+}
 const scoll = () => {
   // const outterWrapScrollTop = outterWrap.value.scrollTop
   // const innerScrollTop = innerScroll.value.scrollTop
@@ -155,18 +159,18 @@ function scrollGo() {
   if (innerScrollTop === outterWrapScrollTop) return
   if (
     innerScrollTop > outterWrapScrollTop &&
-    innerScrollTop - outterWrapScrollTop < 15
+    innerScrollTop - outterWrapScrollTop < 25
   ) {
     outterWrap.value.scrollTop = innerScrollTop
   } else if (innerScrollTop > outterWrapScrollTop) {
-    outterWrap.value.scrollTop = outterWrapScrollTop + 15
+    outterWrap.value.scrollTop = outterWrapScrollTop + 25
   } else if (
     innerScrollTop < outterWrapScrollTop &&
-    outterWrapScrollTop - innerScrollTop < 15
+    outterWrapScrollTop - innerScrollTop < 25
   ) {
     outterWrap.value.scrollTop = innerScrollTop
   } else if (innerScrollTop < outterWrapScrollTop) {
-    outterWrap.value.scrollTop = outterWrapScrollTop - 15
+    outterWrap.value.scrollTop = outterWrapScrollTop - 25
   }
   if (scrollGoCtl) clearTimeout(scrollGoCtl)
   scrollGoCtl = setTimeout(scrollGo, 5)
@@ -196,7 +200,7 @@ function scrollGo() {
   opacity: 0;
 }
 .outter-wrap::-webkit-scrollbar {
-  /* display: none; */
+  display: none;
   width: 10px;
   z-index: 999;
   background: white;
@@ -208,7 +212,7 @@ function scrollGo() {
   z-index: 999;
 }
 .inner-scroll::-webkit-scrollbar {
-  display: block;
+  display: none;
   width: 10px;
   z-index: 999;
   background: white;
