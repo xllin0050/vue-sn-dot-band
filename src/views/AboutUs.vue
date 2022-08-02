@@ -1,4 +1,6 @@
 <template>
+  <SiteNavbar />
+
   <div class="relative w-full pb-10 lg:pb-40">
     <PageTitle>about us</PageTitle>
     <LangSwitch

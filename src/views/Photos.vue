@@ -1,5 +1,7 @@
 <template>
-  <div class="min-h-screen w-full">
+  <SiteNavbar />
+
+  <div class="min-h-screen mx-auto max-w-xs lg:max-w-4xl">
     <PageTitle>photos</PageTitle>
     <div v-if="loading" class="text-center">Now loading...</div>
     <div class="flex flex-col flex-wrap pt-8 md:flex-row md:pt-0">

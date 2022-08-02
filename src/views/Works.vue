@@ -1,4 +1,6 @@
 <template>
+  <SiteNavbar />
+
   <div class="min-h-screen w-full">
     <div
       v-for="album in singleAlbum"

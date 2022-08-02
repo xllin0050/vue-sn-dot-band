@@ -1,6 +1,8 @@
 <template>
+  <SiteNavbar />
+
   <div
-    class="min-h-screen w-full pb-16 font-redhat"
+    class="min-h-screen mx-auto max-w-xs lg:max-w-4xl pb-16 font-redhat"
     :class="{ 'overflow-hidden': modalVisible }"
   >
     <PageTitle>videos</PageTitle>

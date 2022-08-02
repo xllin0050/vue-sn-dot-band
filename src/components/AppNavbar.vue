@@ -15,7 +15,7 @@
     >
       <ul class="pt-10 font-redhat font-medium uppercase tracking-wider">
         <li
-          v-for="routeName in props.routesList"
+          v-for="routeName in pageNames"
           :key="routeName"
           class="p-3 px-12 hover:underline"
         >
@@ -47,7 +47,16 @@ export default {
     const handlerMenu = () => {
       isShow.value = !isShow.value
     }
-    return { props, isShow, handlerMenu }
+    const pageNames = [
+      'Home',
+      'About Us',
+      'Discography',
+      'Gigs',
+      'Videos',
+      'Photos',
+      'Products',
+    ]
+    return { props, isShow, handlerMenu, pageNames }
   },
 }
 </script>

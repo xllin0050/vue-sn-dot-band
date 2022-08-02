@@ -1,5 +1,7 @@
 <template>
-  <div class="min-h-screen w-full">
+  <SiteNavbar />
+
+  <div class="mx-auto min-h-screen max-w-xs lg:max-w-4xl">
     <PageTitle>Discography</PageTitle>
     <div
       v-for="album in albumDatas"

@@ -1,5 +1,7 @@
 <template>
-  <div class="min-h-screen w-full pb-16">
+  <SiteNavbar />
+
+  <div class="min-h-screen mx-auto max-w-xs lg:max-w-4xl pb-16">
     <PageTitle>gigs</PageTitle>
     <TransitionGroup name="list" tag="ul" class="pt-6 font-redhat md:pt-0">
       <li
@@ -7,7 +9,7 @@
         :key="gig.id"
         class="mb-14 flex flex-col items-center rounded-md p-2 py-8 uppercase shadow lg:mb-8 lg:flex-row lg:p-3"
         :class="{
-          'shadow-lg bg-neutral-50 lg:py-8': gig.coming,
+          'bg-neutral-50 shadow-lg lg:py-8': gig.coming,
         }"
       >
         <div class="">{{ gig.show_time }}</div>

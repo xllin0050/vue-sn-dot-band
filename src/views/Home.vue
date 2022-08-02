@@ -1,13 +1,32 @@
 <template>
-  <div class="min-h-screen w-full">
-    <MembersNameCircle />
-    <NextGigCard :next-gig="nextGigDatas" />
-    <AlbumList :albums="albumDatas" />
+  <div class="banner relative hidden pb-20 mix-blend-difference lg:block">
+    <div ref="videoWrap" class="h-auto w-full">
+      <img src="../assets/dummy.jpg" alt="DUMMY" class="w-full" />
+    </div>
+    <div
+      ref="siteTitle"
+      class="site-title absolute w-full -translate-y-1/2 text-neutral-900 mix-blend-difference"
+    >
+      <div
+        class="text-center font-redhat text-3xl font-medium uppercase tracking-[.1em] text-inherit lg:text-7xl lg:tracking-[.3em]"
+      >
+        super napkin
+      </div>
+    </div>
   </div>
+  <SiteNavbar />
+<section class="mx-auto max-w-xs lg:max-w-4xl">
+
+  <MembersNameCircle />
+  <NextGigCard :next-gig="nextGigDatas" />
+  <AlbumList :albums="albumDatas" />
+</section>
 </template>
 
 <script>
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
+import { useThrottleFn, useEventListener, useElementSize } from '@vueuse/core'
+
 import useDatabase from '@/composables/UseDatabase'
 
 export default {
@@ -16,11 +35,60 @@ export default {
     const { getAlbumsData, albumDatas, nextGigDatas, getNextGigs } =
       useDatabase()
 
+    const siteTitle = ref(null)
+    const videoWrap = ref(null)
+    const { height: videoWrapHEIGHT } = useElementSize(videoWrap)
+
     onMounted(() => {
       getAlbumsData('id, release, title, created_at')
       getNextGigs()
+
+      // 初始位置
+      let additionY = siteTitle.value.parentNode.offsetHeight / 2
+      let previousY = 0
+      useEventListener(window, 'load', () => {
+        siteTitle.value.style.top = `${videoWrapHEIGHT.value / 2}px`
+      })
+
+      const movingTitle = useThrottleFn(() => {
+        // 已移動距離
+        const scrollY =
+          document.documentElement.scrollTop || document.body.scrollTop
+
+        const bannerHeight = siteTitle.value.parentNode.offsetHeight
+        // 原點
+        if (scrollY === 0) {
+          siteTitle.value.style.top = `${videoWrapHEIGHT.value / 2}px`
+          additionY = bannerHeight / 2
+        }
+
+        if (scrollY >= previousY) {
+          // 行為：向下滾動
+          previousY = scrollY
+
+          if (scrollY + 150 > siteTitle.value.offsetTop) {
+            additionY += scrollY + 150 - siteTitle.value.offsetTop
+            if (siteTitle.value.offsetTop < bannerHeight) {
+              siteTitle.value.style.top = `${additionY}px`
+            }
+          }
+        } else {
+          // 行為：向上
+          previousY = scrollY
+          if (scrollY + 250 > videoWrapHEIGHT.value / 2) {
+            additionY = bannerHeight - (bannerHeight - scrollY) + 250
+            if (additionY < videoWrapHEIGHT.value) {
+              siteTitle.value.style.top = `${additionY}px`
+            }
+          }
+        }
+      }, 15)
+
+      useEventListener(window, 'scroll', () => {
+        movingTitle()
+      })
     })
-    return { albumDatas, nextGigDatas }
+    return { albumDatas, nextGigDatas, siteTitle, videoWrap }
   },
 }
 </script>
