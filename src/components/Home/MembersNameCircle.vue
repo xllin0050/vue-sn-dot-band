@@ -1,5 +1,5 @@
 <template>
-  <div class="relative my-0 h-[380px] w-full pb-0 lg:h-[675px]">
+  <div class="relative my-0 h-[380px] w-full pb-0 lg:h-[675px] pointer-events-none">
     <div class="hidden w-full lg:flex lg:items-center lg:justify-center">
       <div
         class="relative block h-[550px] w-[550px] rounded-full font-redhat text-xl font-medium translate-y-16"

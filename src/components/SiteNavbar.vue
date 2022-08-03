@@ -1,7 +1,7 @@
 <template>
   <div
     v-show="route.name !== 'Home'"
-    class="absolute w-full -translate-y-1/2 pt-16 text-neutral-900 mix-blend-difference"
+    class="w-full pt-12 pb-4 text-neutral-900 sm:pt-20 sm:pb-0"
   >
     <div
       class="text-center font-redhat text-3xl font-medium uppercase tracking-[.1em] text-inherit lg:text-7xl lg:tracking-[.3em]"

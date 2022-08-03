@@ -6,6 +6,7 @@
     <div
       ref="siteTitle"
       class="site-title absolute w-full -translate-y-1/2 text-neutral-900 mix-blend-difference"
+      :style="`top:${videoWrapHEIGHT / 2}px`"
     >
       <div
         class="text-center font-redhat text-3xl font-medium uppercase tracking-[.1em] text-inherit lg:text-7xl lg:tracking-[.3em]"
@@ -14,17 +15,26 @@
       </div>
     </div>
   </div>
+  <div
+    v-show="route.name === 'Home'"
+    class="block w-full pt-12 text-neutral-900 lg:hidden"
+  >
+    <div
+      class="text-center font-redhat text-3xl font-medium uppercase tracking-[.1em] text-inherit lg:text-7xl lg:tracking-[.3em]"
+    >
+      super napkin
+    </div>
+  </div>
   <SiteNavbar />
-<section class="mx-auto max-w-xs lg:max-w-4xl">
-
   <MembersNameCircle />
   <NextGigCard :next-gig="nextGigDatas" />
   <AlbumList :albums="albumDatas" />
-</section>
 </template>
 
 <script>
 import { onMounted, ref } from 'vue'
+import { useRoute } from 'vue-router'
+
 import { useThrottleFn, useEventListener, useElementSize } from '@vueuse/core'
 
 import useDatabase from '@/composables/UseDatabase'
@@ -34,6 +44,8 @@ export default {
   setup() {
     const { getAlbumsData, albumDatas, nextGigDatas, getNextGigs } =
       useDatabase()
+
+    const route = useRoute()
 
     const siteTitle = ref(null)
     const videoWrap = ref(null)
@@ -46,9 +58,6 @@ export default {
       // 初始位置
       let additionY = siteTitle.value.parentNode.offsetHeight / 2
       let previousY = 0
-      useEventListener(window, 'load', () => {
-        siteTitle.value.style.top = `${videoWrapHEIGHT.value / 2}px`
-      })
 
       const movingTitle = useThrottleFn(() => {
         // 已移動距離
@@ -88,7 +97,14 @@ export default {
         movingTitle()
       })
     })
-    return { albumDatas, nextGigDatas, siteTitle, videoWrap }
+    return {
+      albumDatas,
+      nextGigDatas,
+      siteTitle,
+      videoWrap,
+      videoWrapHEIGHT,
+      route,
+    }
   },
 }
 </script>
