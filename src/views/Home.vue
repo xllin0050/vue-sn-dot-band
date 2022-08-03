@@ -97,11 +97,14 @@ export default {
             additionY += scrollY + 150 - siteTitle.value.offsetTop
             if (siteTitle.value.offsetTop < bannerHeight) {
               siteTitle.value.style.top = `${additionY}px`
+            } else {
+              siteTitle.value.style.top = `${bannerHeight}px`
             }
           }
         } else {
           // 行為：向上
           previousY = scrollY
+
           if (scrollY + 250 > videoWrapHEIGHT.value / 2) {
             additionY = bannerHeight - (bannerHeight - scrollY) + 250
             if (additionY < videoWrapHEIGHT.value) {
