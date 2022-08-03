@@ -16,7 +16,7 @@
       :style="`top:${videoWrapHEIGHT / 2}px`"
     >
       <div
-        class="text-center font-redhat text-3xl font-medium uppercase tracking-[.1em] text-inherit lg:text-7xl lg:tracking-[.3em]"
+        class="ml-0 text-center font-redhat text-3xl font-medium uppercase tracking-[.1em] text-inherit lg:ml-[.3em] lg:text-7xl lg:tracking-[.3em]"
       >
         super napkin
       </div>
@@ -27,7 +27,7 @@
     class="block w-full pt-12 text-neutral-900 lg:hidden"
   >
     <div
-      class="text-center font-redhat text-3xl font-medium uppercase tracking-[.1em] text-inherit lg:text-7xl lg:tracking-[.3em]"
+      class="ml-0 text-center font-redhat text-3xl font-medium uppercase tracking-[.1em] text-inherit lg:ml-[.3em] lg:text-7xl lg:tracking-[.3em]"
     >
       super napkin
     </div>
@@ -112,7 +112,7 @@ export default {
             }
           }
         }
-      }, 15)
+      }, 10)
 
       useEventListener(window, 'scroll', () => {
         movingTitle()

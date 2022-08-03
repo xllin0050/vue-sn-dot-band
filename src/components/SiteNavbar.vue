@@ -4,12 +4,12 @@
     class="w-full pt-12 pb-4 text-neutral-900 sm:pt-20 sm:pb-0"
   >
     <div
-      class="text-center font-redhat text-3xl font-medium uppercase tracking-[.1em] text-inherit lg:text-7xl lg:tracking-[.3em]"
+      class="ml-0 text-center font-redhat text-3xl font-medium uppercase tracking-[.1em] text-inherit lg:ml-[.3em] lg:text-7xl lg:tracking-[.3em]"
     >
       super napkin
     </div>
   </div>
-  <nav class="hidden py-8 md:flex md:justify-center lg:py-12 bg-white">
+  <nav class="hidden bg-white py-8 md:flex md:justify-center lg:py-12">
     <div
       v-for="routeName in pageNames"
       :key="routeName"
