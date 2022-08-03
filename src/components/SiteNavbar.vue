@@ -9,7 +9,7 @@
       super napkin
     </div>
   </div>
-  <nav class="hidden py-8 md:flex md:justify-center lg:py-12">
+  <nav class="hidden py-8 md:flex md:justify-center lg:py-12 bg-white">
     <div
       v-for="routeName in pageNames"
       :key="routeName"

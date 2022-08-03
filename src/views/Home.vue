@@ -1,11 +1,19 @@
 <template>
-  <div class="banner relative hidden pb-20 mix-blend-difference lg:block">
+  <div class="banner relative hidden bg-white pb-20 lg:block">
     <div ref="videoWrap" class="h-auto w-full">
-      <img src="../assets/dummy.jpg" alt="DUMMY" class="w-full" />
+      <!-- <img src="../assets/dummy.jpg" alt="DUMMY" class="w-full" /> -->
+      <video
+        src="../assets/video-banner.mp4"
+        autoplay="true"
+        muted="true"
+        loop="true"
+        poster="../assets/still-banner.jpeg"
+        type="video/mp4"
+      ></video>
     </div>
     <div
       ref="siteTitle"
-      class="site-title absolute w-full -translate-y-1/2 text-neutral-900 mix-blend-difference"
+      class="site-title absolute w-full -translate-y-1/2 text-white mix-blend-difference"
       :style="`top:${videoWrapHEIGHT / 2}px`"
     >
       <div
@@ -108,3 +116,8 @@ export default {
   },
 }
 </script>
+<style scoped>
+video {
+  filter: contrast(3)  grayscale(1);
+}
+</style>
