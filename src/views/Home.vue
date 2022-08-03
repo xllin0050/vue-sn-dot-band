@@ -1,19 +1,18 @@
 <template>
   <div class="banner relative hidden bg-white pb-20 lg:block">
     <div ref="videoWrap" class="h-auto w-full">
-      <!-- <img src="../assets/dummy.jpg" alt="DUMMY" class="w-full" /> -->
       <video
         src="../assets/video-banner.mp4"
-        autoplay="true"
-        muted="true"
-        loop="true"
+        :autoplay="videoAuto"
+        muted=""
+        loop=""
         poster="../assets/still-banner.jpeg"
         type="video/mp4"
       ></video>
     </div>
     <div
       ref="siteTitle"
-      class="site-title absolute w-full -translate-y-1/2 text-white mix-blend-difference"
+      class="absolute w-full -translate-y-1/2 text-white mix-blend-difference"
       :style="`top:${videoWrapHEIGHT / 2}px`"
     >
       <div
@@ -43,7 +42,12 @@
 import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 
-import { useThrottleFn, useEventListener, useElementSize } from '@vueuse/core'
+import {
+  useThrottleFn,
+  useEventListener,
+  useElementSize,
+  useWindowSize,
+} from '@vueuse/core'
 
 import useDatabase from '@/composables/UseDatabase'
 
@@ -57,12 +61,18 @@ export default {
 
     const siteTitle = ref(null)
     const videoWrap = ref(null)
+    const videoAuto = ref(false)
     const { height: videoWrapHEIGHT } = useElementSize(videoWrap)
+    const { width: screenWidth } = useWindowSize()
 
     onMounted(() => {
       getAlbumsData('id, release, title, created_at')
       getNextGigs()
 
+      // 手機板停止自動播放
+      if (screenWidth.value > 1024) {
+        videoAuto.value = true
+      }
       // 初始位置
       let additionY = siteTitle.value.parentNode.offsetHeight / 2
       let previousY = 0
@@ -111,6 +121,7 @@ export default {
       siteTitle,
       videoWrap,
       videoWrapHEIGHT,
+      videoAuto,
       route,
     }
   },
@@ -118,6 +129,6 @@ export default {
 </script>
 <style scoped>
 video {
-  filter: contrast(3)  grayscale(1);
+  filter: contrast(3) grayscale(1);
 }
 </style>
