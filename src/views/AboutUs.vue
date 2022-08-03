@@ -1,8 +1,10 @@
 <template>
+  <SiteNavbar />
+
   <div class="relative w-full pb-10 lg:pb-40">
     <PageTitle>about us</PageTitle>
     <LangSwitch
-      class="absolute top-7 right-3 md:top-0 md:right-0 md:-translate-y-8 md:-translate-x-20"
+      class="absolute top-10 right-8 md:top-0 md:right-1/4 2xl:right-1/3 md:-translate-y-8 md:translate-x-6 2xl:translate-x-14"
     />
     <article v-show="userLang === 'zh'" class="article">
       <p class="paragraph">
@@ -86,7 +88,7 @@
       </p>
     </article>
 
-    <div class="mx-auto max-w-2xl pt-12 lg:pt-28">
+    <div class="mx-auto max-w-2xl px-8 pt-12 lg:pt-28">
       <img :src="imgUrl" alt="About Us" class="block w-full" />
     </div>
   </div>
@@ -102,7 +104,7 @@ const imgUrl = new URL('../assets/images/about-us.jpg', import.meta.url).href
 </script>
 <style scoped>
 .paragraph {
-  @apply py-4;
+  @apply p-8 sm:py-4;
 }
 .article {
   @apply mx-auto max-w-2xl break-all pt-2 text-left font-redhat text-sm font-normal leading-relaxed text-neutral-700  sm:break-words sm:pt-0 sm:text-justify sm:text-base;

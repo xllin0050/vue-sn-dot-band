@@ -1,4 +1,6 @@
 <template>
+  <SiteNavbar />
+
   <div class="w-full">
     <PageTitle>products</PageTitle>
     <div v-for="(product, i) in products" :key="i" class="pt-8 lg:pt-16">

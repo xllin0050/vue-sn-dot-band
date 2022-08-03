@@ -1,17 +1,19 @@
 <template>
-  <div class="min-h-screen w-full">
+  <SiteNavbar />
+
+  <div class="mx-auto min-h-screen max-w-xs lg:max-w-4xl">
     <PageTitle>Discography</PageTitle>
     <div
       v-for="album in albumDatas"
       :key="album.id"
-      class="flex flex-col items-center justify-center py-8 font-redhat md:pt-2 md:pb-24 lg:flex-row lg:items-start lg:pt-16 lg:pb-36"
+      class="flex flex-col items-center justify-center pt-4 pb-32 font-redhat md:pt-2 md:pb-24 lg:flex-row lg:items-start lg:pt-16 lg:pb-36"
     >
-      <div class="w-[250px] grow-0 lg:w-[650px]">
+      <div class="w-[250px] lg:w-[300px] shrink-0">
         <router-link :to="`/album/${album.release}/${album.url}`">
           <img :src="album.cover" class="block w-full shadow-xl" />
         </router-link>
       </div>
-      <div class="grow pt-8 pl-8 lg:pt-0">
+      <div class=" pt-8 pl-8 lg:pt-0">
         <h3
           class="pb-4 text-sm font-medium uppercase text-neutral-800 lg:text-xl"
         >

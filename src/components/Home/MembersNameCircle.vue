@@ -1,8 +1,8 @@
 <template>
-  <div class="relative my-0 h-[380px] w-full pb-0 lg:h-[475px]">
-    <div class="hidden lg:flex lg:items-center lg:justify-center lg:pt-4">
+  <div class="relative my-0 h-[380px] w-full pb-0 lg:h-[675px] pointer-events-none">
+    <div class="hidden w-full lg:flex lg:items-center lg:justify-center">
       <div
-        class="relative block h-[440px] w-[440px] rounded-full font-redhat text-xl font-medium"
+        class="relative block h-[550px] w-[550px] rounded-full font-redhat text-xl font-medium translate-y-16"
       >
         <p
           ref="shihDrum"
@@ -41,7 +41,7 @@
     <div
       v-for="name in membersName"
       :key="name"
-      class="absolute top-1/2 left-1/2 h-60 w-60 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-lg lg:h-80 lg:w-80"
+      class="absolute top-1/2 left-1/2 h-60 w-60 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-lg lg:h-[380px] lg:w-[380px]"
       :class="[name, name === backgroundName ? 'opacity-100' : 'opacity-0']"
     >
       <div
@@ -107,7 +107,7 @@ onBeforeUnmount(() => {
 .nameText span {
   position: absolute;
   left: 50%;
-  transform-origin: 0 220px;
+  transform-origin: 0 275px;
 }
 .shih {
   background: url('@/assets/images/members/shih.jpg');
