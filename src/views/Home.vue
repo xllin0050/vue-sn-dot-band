@@ -13,7 +13,7 @@
     <div
       ref="siteTitle"
       class="absolute w-full -translate-y-1/2 text-white mix-blend-difference"
-      :style="`top:${videoWrapHEIGHT / 2}px`"
+      :style="`top:${titleTop}px`"
     >
       <div
         class="ml-0 text-center font-redhat text-3xl font-medium uppercase tracking-[.1em] text-inherit lg:ml-[.3em] lg:text-7xl lg:tracking-[.3em]"
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, computed } from 'vue'
 import { useRoute } from 'vue-router'
 
 import {
@@ -62,15 +62,20 @@ export default {
     const siteTitle = ref(null)
     const videoWrap = ref(null)
     const videoAuto = ref(false)
+    const titleTop = computed(() =>
+      screenWIDTH.value / screenHEIGHT.value < 1.77
+        ? videoWrapHEIGHT.value / 2
+        : screenHEIGHT.value / 2
+    )
     const { height: videoWrapHEIGHT } = useElementSize(videoWrap)
-    const { width: screenWidth } = useWindowSize()
+    const { width: screenWIDTH, height: screenHEIGHT } = useWindowSize()
 
     onMounted(() => {
       getAlbumsData('id, release, title, created_at')
       getNextGigs()
 
       // 手機板停止自動播放
-      if (screenWidth.value > 1024) {
+      if (screenWIDTH.value > 1024) {
         videoAuto.value = true
       }
       // 初始位置
@@ -85,7 +90,7 @@ export default {
         const bannerHeight = siteTitle.value.parentNode.offsetHeight
         // 原點
         if (scrollY === 0) {
-          siteTitle.value.style.top = `${videoWrapHEIGHT.value / 2}px`
+          siteTitle.value.style.top = `${titleTop.value}px`
           additionY = bannerHeight / 2
         }
 
@@ -105,9 +110,9 @@ export default {
           // 行為：向上
           previousY = scrollY
 
-          if (scrollY + 250 > videoWrapHEIGHT.value / 2) {
+          if (scrollY + 250 > screenHEIGHT.value / 2) {
             additionY = bannerHeight - (bannerHeight - scrollY) + 250
-            if (additionY < videoWrapHEIGHT.value) {
+            if (additionY < screenHEIGHT.value) {
               siteTitle.value.style.top = `${additionY}px`
             }
           }
@@ -125,6 +130,7 @@ export default {
       videoWrap,
       videoWrapHEIGHT,
       videoAuto,
+      titleTop,
       route,
     }
   },
