@@ -1,13 +1,13 @@
 <template>
   <div
     id="modal-backdrop"
-    class="fixed inset-0 flex items-center justify-center bg-neutral-50/95"
+    class="fixed inset-0 flex items-center justify-center bg-neutral-100/95"
     @click.self="$emit('closeModal')"
   >
     <div id="modal" class="w-full p-0 font-redhat text-lg uppercase lg:w-3/4">
       <div class="absolute top-10 right-5 lg:right-16">
         <div
-          class="card-shadow hover:card-shadow-elev rounded-full bg-neutral-50 p-4 hover:bg-neutral-100"
+          class="ring-2 ring-neutral-300 rounded-full bg-neutral-50 p-4 hover:bg-neutral-100"
           @click="$emit('closeModal')"
         >
           <span

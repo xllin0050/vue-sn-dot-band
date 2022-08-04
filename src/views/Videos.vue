@@ -2,27 +2,45 @@
   <SiteNavbar />
 
   <div
-    class="min-h-screen mx-auto max-w-xs lg:max-w-4xl pb-16 font-redhat"
+    class="mx-auto min-h-screen max-w-xs pb-16 font-redhat lg:max-w-4xl"
     :class="{ 'overflow-hidden': modalVisible }"
   >
     <PageTitle>videos</PageTitle>
-    <TransitionGroup name="list" tag="ul" class="mx-auto max-w-3xl">
+    <ul class="mx-auto max-w-3xl">
       <li
         v-for="video in videos"
         :key="video.title"
-        class="pb-0 lg:pb-28"
+        class="pb-0 lg:mb-28"
         @click="showModal(video)"
       >
         <h3 class="pt-10 pb-3 text-xs font-medium lg:pb-6 lg:text-base">
           {{ video.title }}
         </h3>
-        <img
-          :src="video.snapshot"
-          :alt="video.title"
-          class="card-shadow cursor-pointer"
-        />
+        <div
+          class="relative"
+          @mouseover="saveVideoID = video.id"
+          @mouseleave="saveVideoID = ''"
+        >
+          <img
+            :src="video.snapshot"
+            :alt="video.title"
+            class="card-shadow bg-white"
+          />
+          <transition name="hover">
+            <div
+              v-show="saveVideoID === video.id"
+              class="absolute top-0 flex h-full w-full items-center justify-center bg-neutral-700/30"
+            >
+              <span
+                class="iconify text-7xl text-purple-400"
+                data-icon="material-symbols:play-circle"
+                data-inline="false"
+              ></span>
+            </div>
+          </transition>
+        </div>
       </li>
-    </TransitionGroup>
+    </ul>
     <transition name="fade">
       <VideoModal
         v-if="modalVisible"
@@ -73,7 +91,7 @@ const videos = [
     id: 'uoLYfKt-l38',
   },
 ]
-
+const saveVideoID = ref('')
 const modalVisible = ref(false)
 const modalData = ref({})
 const showModal = (data) => {
@@ -82,21 +100,21 @@ const showModal = (data) => {
 }
 </script>
 <style>
-.list-enter-active,
-.list-leave-active {
-  transition: all 0.5s ease;
-  transition-property: opacity, transform;
+.hover-enter-active,
+.hover-leave-active {
+  transition: opacity 400ms ease-in-out;
 }
-.list-enter-from,
-.list-leave-to {
+.hover-enter,
+.hover-leave-to {
   opacity: 0;
-  transform: translateY(30px);
 }
+
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 200ms ease-out;
+  transition: opacity 300ms ease-out;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
 }
 </style>

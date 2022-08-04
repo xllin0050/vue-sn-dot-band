@@ -1,15 +1,15 @@
 <template>
   <SiteNavbar />
 
-  <div class="min-h-screen mx-auto max-w-xs lg:max-w-4xl pb-16">
+  <div class="mx-auto min-h-screen max-w-xs pb-16 lg:max-w-4xl">
     <PageTitle>gigs</PageTitle>
     <TransitionGroup name="list" tag="ul" class="pt-6 font-redhat md:pt-0">
       <li
         v-for="gig in gigDatas"
         :key="gig.id"
-        class="mb-14 flex flex-col items-center rounded-md p-2 py-8 uppercase shadow lg:mb-8 lg:flex-row lg:p-3"
+        class="mb-14 flex flex-col items-center rounded-md bg-neutral-50 p-2 py-8 uppercase shadow-md transition-shadow hover:shadow-lg lg:mb-8 lg:flex-row lg:px-3"
         :class="{
-          'bg-neutral-50 shadow-lg lg:py-8': gig.coming,
+          ' ring-1 ring-neutral-600': gig.coming,
         }"
       >
         <div class="">{{ gig.show_time }}</div>
@@ -35,7 +35,7 @@
         </div>
         <div class="flex w-auto pt-2 lg:w-[160px] lg:pt-0">
           <div
-            class="mx-2 cursor-pointer rounded-md p-1 px-3 text-sm font-extralight underline hover:underline-offset-4 lg:text-base"
+            class="mx-2 cursor-pointer rounded-md p-1 px-3 text-sm font-extralight ring-1 ring-neutral-300 transition-colors hover:ring-neutral-400 lg:text-base"
             @click="showModal(gig)"
           >
             info
