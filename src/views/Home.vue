@@ -62,6 +62,7 @@ export default {
     const siteTitle = ref(null)
     const videoWrap = ref(null)
     const videoAuto = ref(false)
+    // 視螢幕大小比例調整初始高度
     const titleTop = computed(() =>
       screenWIDTH.value / screenHEIGHT.value < 1.77
         ? videoWrapHEIGHT.value / 2
@@ -87,11 +88,11 @@ export default {
         const scrollY =
           document.documentElement.scrollTop || document.body.scrollTop
 
-        const bannerHeight = siteTitle.value.parentNode.offsetHeight
+        const bannerHEIGHT = siteTitle.value.parentNode.offsetHeight
         // 原點
         if (scrollY === 0) {
           siteTitle.value.style.top = `${titleTop.value}px`
-          additionY = bannerHeight / 2
+          additionY = bannerHEIGHT / 2
         }
 
         if (scrollY >= previousY) {
@@ -100,10 +101,10 @@ export default {
 
           if (scrollY + 150 > siteTitle.value.offsetTop) {
             additionY += scrollY + 150 - siteTitle.value.offsetTop
-            if (siteTitle.value.offsetTop < bannerHeight) {
+            if (siteTitle.value.offsetTop < bannerHEIGHT) {
               siteTitle.value.style.top = `${additionY}px`
             } else {
-              siteTitle.value.style.top = `${bannerHeight}px`
+              siteTitle.value.style.top = `${bannerHEIGHT}px`
             }
           }
         } else {
@@ -111,7 +112,7 @@ export default {
           previousY = scrollY
 
           if (scrollY + 250 > screenHEIGHT.value / 2) {
-            additionY = bannerHeight - (bannerHeight - scrollY) + 250
+            additionY = bannerHEIGHT - (bannerHEIGHT - scrollY) + 250
             if (additionY < screenHEIGHT.value) {
               siteTitle.value.style.top = `${additionY}px`
             }

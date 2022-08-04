@@ -5,7 +5,7 @@
     <div
       v-for="album in singleAlbum"
       :key="album.id"
-      class="flex flex-col pt-6 font-redhat lg:pt-0"
+      class="flex flex-col p-12 font-redhat lg:pt-0"
     >
       <div class="mx-auto mb-3 max-w-xl lg:mb-4">
         <img :src="album.cover" :alt="album.title" class="block w-full" />
