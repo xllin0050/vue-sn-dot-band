@@ -15,4 +15,10 @@
 
 body {
   position: relative;
+
+  /* scrollbar-width: none; */
+}
+body::-webkit-scrollbar {
+  display: none;
+  /* scrollbar-width: none; */
 }
