@@ -11,7 +11,9 @@
       class="pb-10 lg:pb-28"
     >
       <div class="mx-auto max-w-[75%] lg:max-w-sm">
-        <router-link :to="`/album/${album.release}/${album.url}`">
+        <router-link
+          :to="{ path: `/album/${album.release}/${album.url}`, hash: '#title' }"
+        >
           <img
             :src="album.cover"
             :alt="album.title"

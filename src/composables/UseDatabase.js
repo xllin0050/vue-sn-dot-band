@@ -3,7 +3,6 @@ import { supabase } from '@/supabase.js'
 
 export default function useDatabase() {
   const albumDatas = ref([])
-  const singleAlbum = ref([])
   const nextGigDatas = ref([])
   const gigDatas = ref([])
 
@@ -35,10 +34,11 @@ export default function useDatabase() {
       .from('albums')
       .select()
       .match({ release: params })
-    singleAlbum.value = albums.map((item) => {
-      item.cover = getAlbumsArt(item.title)
-      return item
-    })
+
+    const [singleAlbum] = albums
+    singleAlbum.cover = getAlbumsArt(singleAlbum.title)
+
+    return singleAlbum
   }
 
   const getNextGigs = async () => {
@@ -68,7 +68,6 @@ export default function useDatabase() {
   return {
     albumDatas,
     getAlbumsData,
-    singleAlbum,
     getSingleAlbum,
     nextGigDatas,
     getNextGigs,
