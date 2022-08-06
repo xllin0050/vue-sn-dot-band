@@ -139,6 +139,6 @@ export default {
 </script>
 <style scoped>
 video {
-  filter: contrast(3) grayscale(1);
+  filter: contrast(1.3) grayscale(1);
 }
 </style>
