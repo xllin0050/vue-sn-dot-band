@@ -85,7 +85,7 @@ const changeNameTimer = setInterval(() => {
   nameIndex++
   if (nameIndex === 3) nameIndex = 0
   backgroundName.value = membersName[nameIndex]
-}, 1000 * 6)
+}, 1000 * 2)
 onBeforeUnmount(() => {
   clearInterval(changeNameTimer)
 })
