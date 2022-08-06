@@ -8,6 +8,7 @@
         loop=""
         poster="../assets/still-banner.jpeg"
         type="video/mp4"
+        class="mx-auto"
       ></video>
     </div>
     <div

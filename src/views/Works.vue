@@ -5,7 +5,7 @@
     class="css-selector hidden h-screen w-full items-center justify-center text-neutral-700 lg:flex"
     :class="`selector-${albumData.id}`"
   >
-    <h1 class="break-all font-redhat text-[18vw] uppercase leading-[14vw]">
+    <h1 class="break-all font-redhat text-[14vw] uppercase leading-[11vw]">
       {{ albumData.title }}
     </h1>
   </div>
