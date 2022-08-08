@@ -1,6 +1,6 @@
 <template>
   <div class="banner relative hidden bg-white pb-20 lg:block">
-    <div ref="videoWrap" class="h-auto w-full">
+    <div ref="videoWrap" class="h-auto w-full bg-black">
       <video
         src="../assets/video-banner.mp4"
         :autoplay="videoAuto"
