@@ -1,40 +1,40 @@
 <template>
   <div
     id="modal-backdrop"
-    class="fixed inset-0 flex items-center justify-center bg-neutral-900 bg-opacity-80"
+    class="fixed inset-0 flex w-full items-center justify-center bg-neutral-900 bg-opacity-80"
     @click.self="$emit('closeModal')"
   >
     <div
       id="modal"
-      class="flex w-[300px] flex-col items-center justify-between rounded-md border bg-neutral-50 p-4 font-redhat uppercase lg:w-[500px]"
+      class="relative flex w-3/4 flex-col items-center justify-between rounded-md bg-neutral-50 p-4 font-redhat uppercase  md:w-1/3 md:p-12"
     >
+      <div
+        class="absolute top-2 right-2 rounded bg-neutral-50 p-2 text-base shadow hover:bg-neutral-100"
+        @click="$emit('closeModal')"
+      >
+        <span
+          class="iconify"
+          data-icon="ion:close-round"
+          data-inline="false"
+        ></span>
+      </div>
       <div class="w-full">
         <img
           :src="props.gigInfoData.banner"
           class="mx-auto w-full"
           @load="show = false"
         />
-        <div v-if="show" class="h-[300px] w-full text-center">wait for poster loading or nothing at all</div>
-      </div>
-      <div class="flex p-4 text-base">
-        <p class="p-1">{{ props.gigInfoData.show_time }}</p>
-        <p class="p-1">{{ props.gigInfoData.venue }}</p>
-        <!-- <p class="p-1">{{ props.gigInfoData.city }}</p> -->
-      </div>
-      <div class="flex">
-        <div
-          class="mx-4 flex cursor-default items-center rounded bg-neutral-50 p-2 text-base shadow hover:bg-neutral-100"
-          @click="$emit('closeModal')"
-        >
-          <span class="mr-1">colse</span>
-          <span
-            class="iconify"
-            data-icon="ion:close-round"
-            data-inline="false"
-          ></span>
+        <div v-if="show" class="h-[300px] w-full text-center">
+          wait for poster loading or nothing at all
         </div>
+      </div>
+      <div class="flex flex-col p-4 text-sm lg:text-base">
+        <p class="pt-6">{{ props.gigInfoData.show_time }}</p>
+        <p class="pt-6">{{ props.gigInfoData.venue }}</p>
+      </div>
+      <div class="pt-8">
         <div
-          class="mx-4 rounded bg-neutral-50 p-2 text-base shadow hover:bg-neutral-100"
+          class="rounded bg-neutral-50 p-2 text-base shadow hover:bg-neutral-100"
         >
           <a
             :href="props.gigInfoData.event_url"
