@@ -92,7 +92,6 @@ export default {
     const route = useRoute()
     const albumData = ref({})
     getSingleAlbum(route.params.date).then((data) => {
-      console.log(data)
       albumData.value = data
     })
     return { albumData }

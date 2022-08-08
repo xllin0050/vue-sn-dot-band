@@ -66,9 +66,12 @@ import useDatabase from '@/composables/UseDatabase'
 export default {
   name: 'GigsPage',
   setup() {
-    const { gigDatas, getGigsData } = useDatabase()
+    const { getGigsData } = useDatabase()
+    const gigDatas = ref([])
     onMounted(() => {
-      getGigsData()
+      getGigsData().then((data) => {
+        gigDatas.value = data
+      })
     })
     const gigInfoData = ref({})
     const modalVisible = ref(false)

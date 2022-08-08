@@ -2,10 +2,6 @@ import { ref } from 'vue'
 import { supabase } from '@/supabase.js'
 
 export default function useDatabase() {
-  const albumDatas = ref([])
-  const nextGigDatas = ref([])
-  const gigDatas = ref([])
-
   const getAlbumsArt = (title) => {
     const fileName = title.replace(/ /g, '-')
     const { publicURL, error } = supabase.storage
@@ -19,14 +15,14 @@ export default function useDatabase() {
       .from('albums')
       .select(select)
       .order('release', { ascending: false })
-    if (albums.length)
-      albumDatas.value = albums.map((item) => {
-        item.url = item.title
-          .toLowerCase()
-          .replace(/'|\s/g, (e) => (e === "'" ? '' : '-'))
-        item.cover = getAlbumsArt(item.title)
-        return item
-      })
+
+    return albums.map((item) => {
+      item.url = item.title
+        .toLowerCase()
+        .replace(/'|\s/g, (e) => (e === "'" ? '' : '-'))
+      item.cover = getAlbumsArt(item.title)
+      return item
+    })
   }
 
   const getSingleAlbum = async (params) => {
@@ -43,12 +39,13 @@ export default function useDatabase() {
 
   const getNextGigs = async () => {
     const today = new Date().toISOString()
-    let { data: gigs, error } = await supabase
+    let { data, error } = await supabase
       .from('gigs')
       .select('*')
       .order('show_time')
       .gte('show_time', today)
-    nextGigDatas.value = gigs
+
+    return data
   }
 
   const getGigsData = async () => {
@@ -57,21 +54,18 @@ export default function useDatabase() {
       .from('gigs')
       .select('*')
       .order('show_time', { ascending: false })
-    if (gigs.length)
-      gigDatas.value = gigs.map((gig) => {
-        const gigDate = new Date(gig.show_time)
-        gig.coming = gigDate >= today
-        return gig
-      })
+
+    return gigs.map((gig) => {
+      const gigDate = new Date(gig.show_time)
+      gig.coming = gigDate >= today
+      return gig
+    })
   }
 
   return {
-    albumDatas,
     getAlbumsData,
     getSingleAlbum,
-    nextGigDatas,
     getNextGigs,
-    gigDatas,
     getGigsData,
   }
 }

@@ -35,7 +35,7 @@
   </div>
   <SiteNavbar />
   <MembersNameCircle />
-  <NextGigCard :next-gig="nextGigDatas" />
+  <NextGigCard :next-gig="nextGigData" />
   <AlbumList :albums="albumDatas" />
 </template>
 
@@ -55,11 +55,11 @@ import useDatabase from '@/composables/UseDatabase'
 export default {
   name: 'HomePage',
   setup() {
-    const { getAlbumsData, albumDatas, nextGigDatas, getNextGigs } =
-      useDatabase()
+    const { getAlbumsData, getNextGigs } = useDatabase()
 
     const route = useRoute()
-
+    const albumDatas = ref([])
+    const nextGigData = ref([])
     const siteTitle = ref(null)
     const videoWrap = ref(null)
     const videoAuto = ref(false)
@@ -73,8 +73,12 @@ export default {
     const { width: screenWIDTH, height: screenHEIGHT } = useWindowSize()
 
     onMounted(() => {
-      getAlbumsData('id, release, title, created_at')
-      getNextGigs()
+      getAlbumsData('id, release, title, created_at').then((data) => {
+        albumDatas.value = data
+      })
+      getNextGigs().then((data) => {
+        nextGigData.value = data
+      })
 
       // 手機板停止自動播放
       if (screenWIDTH.value > 1024) {
@@ -127,7 +131,7 @@ export default {
     })
     return {
       albumDatas,
-      nextGigDatas,
+      nextGigData,
       siteTitle,
       videoWrap,
       videoWrapHEIGHT,
