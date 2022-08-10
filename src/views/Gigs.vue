@@ -9,7 +9,7 @@
         :key="gig.id"
         class="mb-14 flex flex-col items-center rounded-md bg-neutral-50 p-2 py-8 uppercase shadow-md transition-shadow hover:shadow-lg lg:mb-8 lg:flex-row lg:px-3"
         :class="{
-          ' ring-1 ring-neutral-600': gig.coming,
+          ' ring-2 ring-neutral-600': gig.coming,
         }"
       >
         <div class="">{{ gig.show_time }}</div>
@@ -35,14 +35,14 @@
         </div>
         <div class="flex w-auto pt-2 lg:w-[160px] lg:pt-0">
           <div
-            class="mx-2 cursor-pointer rounded-md p-1 px-3 text-sm font-extralight ring-1 ring-neutral-300 transition-colors hover:ring-neutral-400 lg:text-base"
+            class="mx-2 cursor-pointer rounded-md p-1 px-3 text-sm ring-2 ring-neutral-400 transition-colors hover:ring-neutral-600 lg:text-base hover:font-medium"
             @click="showModal(gig)"
           >
             info
           </div>
           <div
             v-show="gig.coming"
-            class="rounded-md p-1 px-3 text-sm font-extralight underline hover:underline-offset-4 lg:text-base"
+            class="rounded-md p-1 px-3 text-sm font-medium underline underline-offset-4 lg:text-base hover:text-red-400"
           >
             <a :href="gig.event_url" target="_blank">ticket</a>
           </div>

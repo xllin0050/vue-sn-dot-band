@@ -45,7 +45,9 @@ export default function useDatabase() {
       .order('show_time')
       .gte('show_time', today)
 
-    return data
+    const [theNextOne] = data
+
+    return theNextOne
   }
 
   const getGigsData = async () => {
