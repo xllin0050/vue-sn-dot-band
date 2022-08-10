@@ -9,7 +9,9 @@
       class="flex flex-col items-center justify-center pt-4 pb-32 font-redhat md:pt-2 md:pb-24 lg:flex-row lg:items-start lg:pt-16 lg:pb-36"
     >
       <div class="w-[250px] shrink-0 lg:w-[300px]">
-        <router-link :to="`/album/${album.release}/${album.url}`">
+        <router-link
+          :to="{ path: `/album/${album.release}/${album.url}`, hash: '#title' }"
+        >
           <img :src="album.cover" class="block w-full shadow-xl" />
         </router-link>
       </div>
