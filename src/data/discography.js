@@ -1,5 +1,78 @@
 const data = [
   {
+    id: 5,
+    release: '2022-08-16',
+    tracks: {
+      track1: 'Subtropical Jet Stream',
+      track2: 'Love as a Bullet',
+      track3: '我在想',
+      track4: 'Love is a Weapon',
+      track5: 'Overcompensation ',
+      track6: 'Diamox Shaped Hearts ',
+    },
+    title: 'Subtropical Jet Stream',
+    listen: {
+      bandcamp: 'https://supernapkin.bandcamp.com/album/subtropical-jet-stream',
+      // Spotify: 'spotify:album:5MD1zeCYPjOlqFFk9dAJAm',
+      // 'apple music':
+      //   'https://music.apple.com/album/theres-nothing-that-cannot-beat-me/1518778453',
+    },
+    bandcamp:
+      'https://bandcamp.com/EmbeddedPlayer/album=3721763089/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=none/transparent=true/',
+    desc: '有史以來以飛天章魚視角書寫人類困頓生命的最佳專輯，Super Napkin 自信之作。開場曲「亞熱帶噴射氣流」為搭乘著氣流，旅經各大洲的親身體驗，以搖滾三套件詳實地紀錄。「愛是 Bullet 咖啡烘豆機」是目前已知唯一以咖啡烘豆機視角書寫的情歌，描述嘗試克服社交障礙的思維鍛鍊。「我在想」是一首關於沒想清楚，所以需要一直想，狀似充滿哲理，實際沒有邏輯的獨白。「愛是把武器」把礙事的烏煙瘴氣愛來愛去全都一股腦的吐出去，就像一隻努力不懈的飛天章魚。從飛天章魚熱帶地區級的巨眼看來，人類都在從事「過度補償」的行為，特此寫歌傳頌。這張體現人性的專輯結尾在「丹木斯形狀的心臟」。飛天章魚沒有爬過山，不知道就算要吃藥也要去挑戰高山的人類心態。飛天章魚將其歸納為神秘體驗的一種，和在海底火山旁吃火鍋，是同等的最高境界。',
+    note: {
+      note: [
+        'Tracking - Jihe Lin',
+        'Mixing - Brian "Brian Elgin" Elgin',
+        'Mastering - Mark "Robbie" Robinson',
+        'Mastering Assistant - Adam Burt',
+        'Producer - Brian Elgin, Jihe Lin, Super Napkin',
+        'Recording Studio - Rebel Sound Studio',
+        'All Sounds Made by Super Napkin',
+        'Released by Airhead Records (AR-024)',
+      ],
+    },
+    url: 'subtropical-jet-stream',
+    cover:
+      'https://aqydueetkbvytisuceru.supabase.co/storage/v1/object/public/works/albums/Subtropical-Jet-Stream.jpg',
+  },
+  {
+    id: 4,
+    release: '2022-08-16',
+    tracks: {
+      track1: 'Michael’s Credit',
+      track2: 'Midnight Friends',
+      track3: 'Sofia’s Yoga Lesson',
+      track4: 'Wednesday Ballon',
+      track5: 'Strawberry I Want You',
+    },
+    title: "Sherry's Neighbors",
+    listen: {
+      bandcamp:
+        'https://supernapkin.bandcamp.com/album/sherrys-neighbors',
+      // Spotify: 'spotify:album:5MD1zeCYPjOlqFFk9dAJAm',
+      // 'apple music':
+      //   'https://music.apple.com/album/theres-nothing-that-cannot-beat-me/1518778453',
+    },
+    bandcamp:
+      'https://bandcamp.com/EmbeddedPlayer/album=2890441980/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=none/transparent=true/',
+    desc: '設計師「雪莉」長期在獨立廠牌身兼數職，被 Super Napkin 發現時已呈石化狀態，石像旁聚集數隻野貓，似乎已習於在周遭灑尿。這些「鄰居」個性一隻比一隻差，罄竹難書，只好寫成歌。「麥可的名聲」很好，不過只有熟知他的人才知道他是借錢上癮、欠錢不還的慣犯。「午夜之友」常常在酒吧待到很晚，喝多了就講同一段沒有結果，也沒有如果的單戀。「索妃亞的瑜伽」專練下跪，跪到關節軟韌肌肉精實，以違反貓體工學的教誨，磕頭磕到貓心的黑暗面。「水曜日氣球」是貓群們口述的戀愛傳奇。一隻流浪到羅馬尼亞的玳瑁浪浪，為了流浪而將戀情拋在腦後的故事。「草夠了莓」是都市家貓圈愛講的，關於草莓及貓草夠了沒的雙關笑話。野貓對此嗤之以鼻，開始將都市家貓稱作，「草莓族」。',
+    note: {
+      note: [
+        'Tracking - Jihe Lin',
+        'Mixing - Jihe Lin',
+        'Mastering - Brian "Brian Elgin" Elgin',
+        'Producer - Jihe Lin, Super Napkin',
+        'Recording Studio - Rebel Sound Studio',
+        'All Sounds Made by Super Napkin',
+        'Released by Airhead Records (AR-023)',
+      ],
+    },
+    url: 'sherrys-neighbors',
+    cover:
+      "https://aqydueetkbvytisuceru.supabase.co/storage/v1/object/public/works/albums/Sherrys-Neighbors.jpg",
+  },
+  {
     id: 3,
     release: '2020-05-11',
     tracks: {
