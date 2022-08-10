@@ -42,6 +42,7 @@
 <script>
 import { onMounted, ref, computed } from 'vue'
 import { useRoute } from 'vue-router'
+import data from '../data/discography'
 
 import {
   useThrottleFn,
@@ -55,10 +56,10 @@ import useDatabase from '@/composables/UseDatabase'
 export default {
   name: 'HomePage',
   setup() {
-    const { getAlbumsData, getNextGigs } = useDatabase()
+    const { getNextGigs } = useDatabase()
 
     const route = useRoute()
-    const albumDatas = ref([])
+    const albumDatas = ref(data)
     const nextGigData = ref([])
     const siteTitle = ref(null)
     const videoWrap = ref(null)
@@ -73,9 +74,6 @@ export default {
     const { width: screenWIDTH, height: screenHEIGHT } = useWindowSize()
 
     onMounted(() => {
-      getAlbumsData('id, release, title, created_at').then((data) => {
-        albumDatas.value = data
-      })
       getNextGigs().then((data) => {
         nextGigData.value = data
       })

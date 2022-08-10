@@ -1,6 +1,5 @@
 <template>
   <SiteNavbar />
-
   <div class="mx-auto min-h-screen max-w-xs lg:max-w-4xl">
     <PageTitle>Discography</PageTitle>
     <div
@@ -36,24 +35,11 @@
   </div>
 </template>
 
-<script>
-import { onMounted, ref } from 'vue'
-import useDatabase from '@/composables/UseDatabase'
+<script setup>
+import { ref } from 'vue'
+import data from '../data/discography'
 
-export default {
-  name: 'DiscPage',
-  setup() {
-    const { getAlbumsData } = useDatabase()
-    const albumDatas = ref([])
-    onMounted(() => {
-      getAlbumsData('*').then((data) => {
-        albumDatas.value = data
-      })
-    })
-
-    return { albumDatas }
-  },
-}
+const albumDatas = ref(data)
 </script>
 
 <style scoped></style>

@@ -7,7 +7,7 @@
     </h3>
     <div
       v-for="album in props.albums"
-      :key="album.created_at"
+      :key="album.id"
       class="relative pb-10 lg:pb-28"
     >
       <div class="mx-auto max-w-[75%] lg:max-w-sm">

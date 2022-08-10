@@ -81,22 +81,13 @@
     </div>
   </div>
 </template>
-<script>
+<script setup>
 import { ref } from 'vue'
 import { useRoute } from 'vue-router'
-import useDatabase from '@/composables/UseDatabase'
-export default {
-  name: 'AlbumPage',
-  setup() {
-    const { getSingleAlbum } = useDatabase()
-    const route = useRoute()
-    const albumData = ref({})
-    getSingleAlbum(route.params.date).then((data) => {
-      albumData.value = data
-    })
-    return { albumData }
-  },
-}
+import data from '../data/discography'
+
+const route = useRoute()
+const albumData = ref(data.find((album) => album.url === route.params.title))
 </script>
 <style scoped>
 .selector-2 {
