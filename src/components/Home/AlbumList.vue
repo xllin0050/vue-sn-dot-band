@@ -12,7 +12,7 @@
     >
       <div class="mx-auto max-w-[75%] lg:max-w-sm">
         <router-link
-          :to="{ path: `/album/${album.release}/${album.url}`, hash: '#title' }"
+          :to="{ path: `/album/${album.release}/${album.url}`, hash: '#banner' }"
         >
           <img
             :src="album.cover"

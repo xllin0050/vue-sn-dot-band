@@ -9,7 +9,7 @@
     >
       <div class="w-[250px] shrink-0 lg:w-[400px]">
         <router-link
-          :to="{ path: `/album/${album.release}/${album.url}`, hash: '#title' }"
+          :to="{ path: `/album/${album.release}/${album.url}`, hash: '#banner' }"
         >
           <img
             :src="album.cover"

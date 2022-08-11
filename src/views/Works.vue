@@ -1,7 +1,7 @@
 <template>
   <SiteNavbar />
   <div
-    id="title"
+    id="banner"
     class="selector-animation hidden h-screen w-full items-center justify-center text-neutral-600 lg:flex"
     :class="`selector-${albumData.id}`"
   >
