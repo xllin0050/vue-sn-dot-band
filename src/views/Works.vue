@@ -2,7 +2,7 @@
   <SiteNavbar />
   <div
     id="title"
-    class="css-selector hidden h-screen w-full items-center justify-center text-neutral-700 lg:flex"
+    class="selector-animation hidden h-screen w-full items-center justify-center text-neutral-600 lg:flex"
     :class="`selector-${albumData.id}`"
   >
     <h1 class="font-redhat text-[14vw] uppercase leading-[11vw]">
@@ -90,64 +90,63 @@ const route = useRoute()
 const albumData = ref(data.find((album) => album.url === route.params.title))
 </script>
 <style scoped>
+.selector-1 {
+  background: linear-gradient(180deg, #000000, #ffffff);
+}
 .selector-2 {
-  background: linear-gradient(180deg, #018abe, #e9b2c0);
-  background-size: 400% 400%;
-
-  -webkit-animation: AnimationName 7s ease infinite;
-  -moz-animation: AnimationName 7s ease infinite;
-  animation: AnimationName 7s ease infinite;
+  background: linear-gradient(90deg, #018abe, #e9b2c0);
 }
 
 .selector-3 {
-  background: linear-gradient(180deg, #695690, #92c7d9);
-  background-size: 400% 400%;
-
-  -webkit-animation: AnimationName 7s ease infinite;
-  -moz-animation: AnimationName 7s ease infinite;
-  animation: AnimationName 7s ease infinite;
+  background: linear-gradient(160deg, #695690, #92c7d9);
 }
 
-.selector-1 {
-  background: linear-gradient(180deg, #000000, #ffffff);
-  background-size: 400% 400%;
-
-  -webkit-animation: AnimationName 7s ease infinite;
-  -moz-animation: AnimationName 7s ease infinite;
-  animation: AnimationName 7s ease infinite;
+.selector-4 {
+  background: linear-gradient(185deg, #8c1622, #cb2e3b);
+  color: #da8b91;
+}
+.selector-5 {
+  background: linear-gradient(110deg, #050202, #77598a);
+  color: #d8580d;
+}
+.selector-animation {
+  background-size: 250% 250%;
+  -webkit-animation: AnimationName 10s ease-in-out infinite;
+  -moz-animation: AnimationName 10s ease-in-out infinite;
+  animation: AnimationName 10s ease-in-out infinite;
 }
 
 @-webkit-keyframes AnimationName {
   0% {
-    background-position: 18% 0%;
+    background-position: 10% 0%;
   }
   50% {
     background-position: 83% 100%;
   }
   100% {
-    background-position: 18% 0%;
+    background-position: 10% 0%;
   }
 }
 @-moz-keyframes AnimationName {
   0% {
-    background-position: 18% 0%;
+    background-position: 10% 0%;
   }
   50% {
     background-position: 83% 100%;
   }
   100% {
-    background-position: 18% 0%;
+    background-position: 10% 0%;
   }
 }
 @keyframes AnimationName {
   0% {
-    background-position: 18% 0%;
+    background-position: 10% 0%;
   }
   50% {
     background-position: 83% 100%;
   }
   100% {
-    background-position: 18% 0%;
+    background-position: 10% 0%;
   }
 }
 </style>

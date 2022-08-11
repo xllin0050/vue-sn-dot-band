@@ -160,7 +160,7 @@ const data = [
     bandcamp:
       'https://bandcamp.com/EmbeddedPlayer/album=3755431565/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=none/transparent=true/',
     desc: '如果要構思一個超級英雄的故事，我想寫一個叫做紙巾人的角色，能力是好好地聽每個心靈受傷的人說話，陪著他們將傷口上的污垢和血淚都擦拭乾淨。每個人都需要這樣的英雄。',
-    note: ['Release Date: 2016-04-08'],
+    note: ['All by Super Napkin', 'Release: 2016-04-08'],
     url: 'rhythmic-lizard-moon',
     cover:
       'https://aqydueetkbvytisuceru.supabase.co/storage/v1/object/public/works/albums/Rhythmic-Lizard-Moon.jpg',

@@ -1,5 +1,5 @@
 <template>
-  <footer class="w-full py-8 font-redhat font-medium uppercase">
+  <footer class="w-full py-12 font-redhat font-medium uppercase">
     <ul class="mx-auto flex max-w-sm items-center justify-center">
       <li
         v-for="(link, key) in links"

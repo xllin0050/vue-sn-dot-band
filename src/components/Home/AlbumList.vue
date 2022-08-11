@@ -22,7 +22,7 @@
         </router-link>
       </div>
       <h5
-        class="py-4 text-center font-redhat text-sm font-medium uppercase text-neutral-800"
+        class="py-4 text-center font-redhat text-sm font-medium uppercase text-neutral-800 lg:text-base"
       >
         <span class="rounded-lg p-6 drop-shadow">
           {{ album.title }}
