@@ -19,7 +19,13 @@
         ' text-neutral-800 underline  ': route.name === routeName,
       }"
     >
-      <router-link :to="{ name: routeName }">{{ routeName }}</router-link>
+      <router-link
+        :to="{
+          name: routeName,
+          hash: routeName === 'About Us' ? '#banner' : '',
+        }"
+        >{{ routeName }}</router-link
+      >
     </div>
   </nav>
 </template>
