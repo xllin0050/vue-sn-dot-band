@@ -12,7 +12,10 @@
     >
       <div class="mx-auto max-w-[75%] lg:max-w-sm">
         <router-link
-          :to="{ path: `/album/${album.release}/${album.url}`, hash: '#banner' }"
+          :to="{
+            path: `/album/${album.release}/${album.url}`,
+            hash: width > 1024 ? '#banner' : '',
+          }"
         >
           <img
             :src="album.cover"
@@ -32,5 +35,7 @@
   </div>
 </template>
 <script setup>
+import { useWindowSize } from '@vueuse/core'
 const props = defineProps({ albums: Array })
+const { width } = useWindowSize()
 </script>

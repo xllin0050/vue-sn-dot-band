@@ -9,11 +9,14 @@
     >
       <div class="w-[250px] shrink-0 lg:w-[400px]">
         <router-link
-          :to="{ path: `/album/${album.release}/${album.url}`, hash: '#banner' }"
+          :to="{
+            path: `/album/${album.release}/${album.url}`,
+            hash: width > 1024 ? '#banner' : '',
+          }"
         >
           <img
             :src="album.cover"
-            class="block w-full shadow-xl ring-neutral-300 hover:ring p-1"
+            class="block w-full p-1 shadow-xl ring-neutral-300 hover:ring"
           />
         </router-link>
       </div>
@@ -40,10 +43,12 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useWindowSize } from '@vueuse/core'
 import data from '../data/discography'
 
+const { width } = useWindowSize()
+
 const albumDatas = ref(data)
-const movingIn = ref(false)
 </script>
 
 <style scoped></style>

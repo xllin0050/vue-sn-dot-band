@@ -11,7 +11,7 @@
     "@supabase/supabase-js": "^1.35.6",
     "@vitejs/plugin-legacy": "^1.8.2",
     "@vueuse/core": "^9.1.0",
-    "pinia": "^2.0.17",
+    "pinia": "^2.0.18",
     "postcss-import": "^14.1.0",
     "vue": "^3.2.37",
     "vue-img-viewr": "^2.0.8",
@@ -32,7 +32,7 @@
     "tailwindcss": "^3.1.8",
     "unplugin-vue-components": "^0.17.21",
     "vite": "^2.9.14",
-    "vite-plugin-eslint": "^1.7.0",
+    "vite-plugin-eslint": "^1.8.0",
     "vite-plugin-purge-icons": "^0.7.0"
   },
   "browserslist": [

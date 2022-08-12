@@ -13,7 +13,7 @@
         Format: {{ props.data.format }}
       </div>
       <SizeGuide v-if="props.data.size" :guide="props.data.size" />
-      <div v-if="props.data.note" class="p-4 text-left pt-12">
+      <div v-if="props.data.note" class="p-4 text-left pt-8">
         Notice: {{ props.data.note }} and sizes may rarely vary in the range of 5%.
       </div>
       <!-- <p

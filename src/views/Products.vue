@@ -26,27 +26,26 @@
         </div>
       </div>
     </div>
-    <div
-      class="flex justify-center py-8 font-redhat text-sm font-normal text-neutral-800 lg:pb-36 lg:pt-14 lg:text-base lg:font-medium"
-    >
-      <p class="inline-block">
-        If you’d like to get a copy of our albums or merchants,
-        <br class="hidden lg:inline-block" />
-        please drop us a line at
-        <a href="mailto:supernapkinsogood@gmail.com"
-          >supernapkinsogood@gmail.com</a
-        >
-      </p>
-      <p>
-        SN4、SN5專輯、SN5 亞熱帶 T-Shirt 預計於9/15 (四) 台北場首賣。怪物
-        T-Shirt 復刻上市。
-      </p>
-      <p>
-        怪物 T-Shirt (L) 、亞熱帶 T-Shirt (S)
-        廠商無庫存。其他尺寸均可在巡迴場次買到。
-      </p>
+    <div class="flex justify-center">
+      <div
+        class="inline-block py-8 px-12 font-redhat text-sm font-normal text-neutral-800 lg:px-0 lg:pb-36 lg:pt-14 lg:text-base lg:font-medium"
+      >
+        <p>If you’d like to get a copy of our albums or merchants,</p>
+        <p>
+          please drop us a line at
+          <a href="mailto:supernapkinsogood@gmail.com" class="text-purple-500"
+            >supernapkinsogood@gmail.com</a
+          >
+        </p>
+        <p class="pt-12">
+          專輯：Sherry’s Neighbors、Subtropical Jet Stream 以及亞熱帶 T-Shirt
+          預計於 9/15 台北場首賣。
+        </p>
+        <p class="pt-2">怪物 T-Shirt 復刻上市。</p>
+        <p class="pt-12">怪物 T-Shirt (L)、亞熱帶 T-Shirt (S) 廠商無庫存。</p>
+        <p class="pt-2">其他尺寸均可在巡迴場次買到。</p>
+      </div>
     </div>
-    <p></p>
   </div>
 </template>
 
