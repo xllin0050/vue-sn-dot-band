@@ -99,10 +99,10 @@
         data-aos="zoom-in-up"
         data-aos-duration="1000"
       >
-        <div class="pb-10">
-          {{ comment.person }}
+        <div class="pb-10 underline underline-offset-8">
+          {{ comment.subject }}
         </div>
-        <div class="pb-4">{{ comment.subject }}</div>
+        <div class="pb-4">{{ comment.person }}:</div>
         <p
           v-for="(words, i) in comment.content"
           :key="i"
