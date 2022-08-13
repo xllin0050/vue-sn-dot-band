@@ -27,6 +27,15 @@
         >
           {{ albumData.title }}
         </h1>
+        <div class="max-w-xl pb-14">
+          <LangSwitch v-if="albumData.desc.en" />
+          <div
+            class="text-xs leading-loose lg:text-sm lg:leading-loose"
+            :clsss="userLang === 'zh' ? 'text-justify' : ''"
+          >
+            {{ albumData.desc[userLang] || albumData.desc.zh }}
+          </div>
+        </div>
         <h3
           class="pb-3 text-sm font-medium uppercase text-neutral-600 lg:pb-4 lg:text-base"
         >
@@ -82,8 +91,12 @@
   </div>
 </template>
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useRoute } from 'vue-router'
+import { storeUserLang } from '@/stores/lang'
+const store = storeUserLang()
+const userLang = computed(() => store.lang)
+
 import data from '../data/discography'
 
 const route = useRoute()

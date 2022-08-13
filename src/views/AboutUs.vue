@@ -10,10 +10,8 @@
     />
   </div>
 
-  <div class="relative mt-8 lg:mt-14">
-    <LangSwitch
-      class="absolute top-0 right-4 md:right-1/4 md:-translate-y-8 md:-translate-x-8 2xl:right-1/3"
-    />
+  <div class="relative mx-auto mt-8 max-w-2xl lg:mt-14">
+    <LangSwitch class="pl-8" />
     <article v-show="userLang === 'zh'" class="article">
       <p class="paragraph">
         Super Napkin 是個所有事都要有點不可理喻的樂團，但僅限有點。
@@ -92,7 +90,7 @@
         </p> -->
     </article>
   </div>
-  <div class="mx-auto max-w-2xl px-4">
+  <!-- <div class="mx-auto max-w-2xl px-4">
     <div v-for="comment in comments[userLang]" :key="comment.person">
       <div
         class="card-shadow my-20 rounded p-8 font-redhat text-xs lg:my-40 lg:text-sm"
@@ -112,7 +110,7 @@
         </p>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 <script setup>
 import { computed, reactive, onMounted } from 'vue'
@@ -216,9 +214,9 @@ onMounted(() => {
 </script>
 <style scoped>
 .paragraph {
-  @apply p-8 sm:py-4;
+  @apply px-8 py-4;
 }
 .article {
-  @apply mx-auto max-w-2xl pt-2  text-justify font-redhat text-sm font-normal leading-relaxed text-neutral-700  sm:pt-0 sm:text-base;
+  @apply pt-2 font-redhat text-sm font-normal leading-relaxed text-neutral-700  sm:pt-0 sm:text-base;
 }
 </style>

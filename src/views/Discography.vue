@@ -5,7 +5,7 @@
     <div
       v-for="album in albumDatas"
       :key="album.id"
-      class="flex flex-col items-center justify-center pt-8 pb-32 font-redhat md:pt-2 md:pb-24 lg:flex-row lg:items-start lg:pt-4 lg:pb-44"
+      class="flex flex-col items-center justify-center pt-10 pb-24 font-redhat md:pt-2 md:pb-24 lg:flex-row lg:items-start lg:pt-4 lg:pb-44"
     >
       <div class="w-[250px] shrink-0 lg:w-[400px]">
         <router-link
@@ -20,17 +20,15 @@
           />
         </router-link>
       </div>
-      <div class="mx-8 pt-14 lg:ml-16 lg:pt-0">
+      <div class="mx-8 w-[250px] lg:w-full pt-12 lg:ml-16 lg:pt-0">
         <h3
-          class="flex pb-4 text-sm font-medium uppercase text-neutral-800 lg:pb-12 lg:text-2xl"
+          class="pb-8 text-sm uppercase text-neutral-800 lg:pb-12 lg:text-lg"
         >
-          {{ album.title }}
+          <span class="capitalize lg:hidden">title: </span>{{ album.title }}
         </h3>
-        <p
-          class="pt-4 pb-8 text-justify text-xs leading-[2.2em] tracking-widest text-neutral-600 lg:pb-12 lg:text-base lg:leading-[2em]"
-        >
-          {{ album.desc }}
-        </p>
+        <div class="pb-8 text-sm capitalize lg:text-base lg:pb-12">
+          release: {{ album.release.slice(0, 4) }}
+        </div>
         <iframe
           style="border: 0; width: 100%; height: 120px; margin: auto"
           :src="album.bandcamp"
@@ -42,13 +40,13 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { reactive } from 'vue'
 import { useWindowSize } from '@vueuse/core'
 import data from '../data/discography'
 
 const { width } = useWindowSize()
 
-const albumDatas = ref(data)
+const albumDatas = reactive(data)
 </script>
 
 <style scoped></style>
