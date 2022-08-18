@@ -5,7 +5,6 @@ import { createPinia } from 'pinia'
 import VueLazyLoad from 'vue3-lazyload'
 import '@purge-icons/generated'
 import './index.css'
-import 'aos/dist/aos.css'
 
 const app = createApp(App)
 

@@ -64,14 +64,6 @@
             {{ note }}
           </p>
         </div>
-        <!-- <h3
-          class="pt-10 pb-3 text-sm font-medium uppercase text-neutral-600 lg:pb-4 lg:pt-24 lg:text-base"
-        >
-          release date
-        </h3>
-        <p class="py-4 text-xs text-neutral-800 lg:py-2 lg:text-base">
-          {{ albumData.release }}
-        </p> -->
         <h3
           class="pt-10 pb-3 text-sm font-medium uppercase text-neutral-600 lg:pt-24 lg:pb-4 lg:text-base"
         >
