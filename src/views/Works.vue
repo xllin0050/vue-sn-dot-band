@@ -78,13 +78,19 @@
             <a :href="link" target="_blank" class="capitalize">{{ host }}</a>
           </li>
         </ul>
+        <div class="mt-24" @click="router.back">
+          <span
+            class="iconify text-2xl"
+            data-icon="ic:baseline-arrow-back-ios"
+          ></span>
+        </div>
       </div>
     </div>
   </div>
 </template>
 <script setup>
 import { ref, computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute,useRouter } from 'vue-router'
 import { storeUserLang } from '@/stores/lang'
 const store = storeUserLang()
 const userLang = computed(() => store.lang)
@@ -92,6 +98,7 @@ const userLang = computed(() => store.lang)
 import data from '../data/discography'
 
 const route = useRoute()
+const router = useRouter()
 const albumData = ref(data.find((album) => album.url === route.params.title))
 </script>
 <style scoped>
