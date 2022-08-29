@@ -55,6 +55,24 @@ import { ref } from 'vue'
 
 const videos = [
   {
+    title: 'Rebel Sound Studio Live Session',
+    snapshot: new URL(
+      '../assets/images/videos/rebel_sound_studio_live_session.jpg',
+      import.meta.url
+    ).href,
+    url: 'https://www.youtube.com/watch?v=RbNEV0XCD-A',
+    id: 'RbNEV0XCD-A',
+  },
+  {
+    title: 'Subtropical Jet Stream (OFFICIAL VIDEO)',
+    snapshot: new URL(
+      '../assets/images/videos/subtropical_jet_stream.jpg',
+      import.meta.url
+    ).href,
+    url: 'https://www.youtube.com/watch?v=ZsSoaRpV7ws',
+    id: 'ZsSoaRpV7ws',
+  },
+  {
     title: 'Time to Understand 2020 (Live at The Wall)',
     snapshot: new URL(
       '../assets/images/videos/time_to_understand_live.jpeg',
