@@ -17,7 +17,9 @@ export default defineConfig({
       format: 'mjs',
     }),
     Components(),
-    eslintPlugin(),
+    eslintPlugin({
+      cache:false
+    }),
   ],
   resolve: {
     alias: {
