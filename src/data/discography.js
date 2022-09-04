@@ -13,7 +13,8 @@ const data = [
     title: 'Subtropical Jet Stream',
     listen: {
       bandcamp: 'https://supernapkin.bandcamp.com/album/subtropical-jet-stream',
-      Spotify: 'https://open.spotify.com/album/5hqci3zLGUIzKQ9SFFKLlr?si=tm_rz4A3T_iRlEDMJ9M4kQ',
+      Spotify:
+        'https://open.spotify.com/album/5hqci3zLGUIzKQ9SFFKLlr?si=tm_rz4A3T_iRlEDMJ9M4kQ',
       'apple music':
         'https://music.apple.com/tw/album/subtropical-jet-stream/1637577614',
     },
@@ -34,8 +35,7 @@ const data = [
       'Released by Airhead Records (AR-024, 2022-08-16)',
     ],
     url: 'subtropical-jet-stream',
-    cover:
-      'https://aqydueetkbvytisuceru.supabase.co/storage/v1/object/public/works/albums/Subtropical-Jet-Stream.jpg',
+    cover: new URL('../assets/images/covers/subtropical-jet-stream-cover.jpg', import.meta.url).href,
   },
   {
     id: 4,
@@ -50,7 +50,8 @@ const data = [
     title: "Sherry's Neighbors",
     listen: {
       bandcamp: 'https://supernapkin.bandcamp.com/album/sherrys-neighbors',
-      Spotify: 'https://open.spotify.com/album/1Qa5ZTNruO48cK29ErV8f1?si=VuGw2FKjQUu7wb9VKRG45w',
+      Spotify:
+        'https://open.spotify.com/album/1Qa5ZTNruO48cK29ErV8f1?si=VuGw2FKjQUu7wb9VKRG45w',
       'apple music':
         'https://music.apple.com/tw/album/sherrys-neighbors-ep/1637576215',
     },
@@ -70,8 +71,10 @@ const data = [
       'Released by Airhead Records (AR-023, 2022-08-16) ',
     ],
     url: 'sherrys-neighbors',
-    cover:
-      'https://aqydueetkbvytisuceru.supabase.co/storage/v1/object/public/works/albums/Sherrys-Neighbors.jpg',
+    cover: new URL(
+      '../assets/images/covers/sherrys-neighbors-cover.jpg',
+      import.meta.url
+    ).href,
   },
   {
     id: 3,
@@ -87,7 +90,8 @@ const data = [
     listen: {
       bandcamp:
         'https://supernapkin.bandcamp.com/album/theres-nothing-that-cannot-beat-me',
-      Spotify: 'https://open.spotify.com/album/5MD1zeCYPjOlqFFk9dAJAm?si=lVMc-8dBQGiH-Nd-xzRJlQ',
+      Spotify:
+        'https://open.spotify.com/album/5MD1zeCYPjOlqFFk9dAJAm?si=lVMc-8dBQGiH-Nd-xzRJlQ',
       'apple music':
         'https://music.apple.com/tw/album/theres-nothing-that-cannot-beat-me/1518778453',
     },
@@ -104,8 +108,10 @@ const data = [
       'Released by Airhead Records (AR-017, 2020-05-11)',
     ],
     url: 'theres-nothing-that-cannot-beat-me',
-    cover:
-      "https://aqydueetkbvytisuceru.supabase.co/storage/v1/object/public/works/albums/There's-Nothing-That-Cannot-Beat-Me.jpg",
+    cover: new URL(
+      '../assets/images/covers/theres-nothing-that-cannot-beat-me-cover.jpg',
+      import.meta.url
+    ).href,
   },
   {
     id: 2,
@@ -125,7 +131,8 @@ const data = [
     title: 'Diamond Shaped Hearts',
     listen: {
       bandcamp: 'https://supernapkin.bandcamp.com/album/diamond-shaped-hearts',
-      Spotify: 'https://open.spotify.com/album/0jSDgk9TP5df5IH94fjIPD?si=GtFxvxzHQiCeqIU0HeSz_Q',
+      Spotify:
+        'https://open.spotify.com/album/0jSDgk9TP5df5IH94fjIPD?si=GtFxvxzHQiCeqIU0HeSz_Q',
       'apple music':
         'https://music.apple.com/tw/album/diamond-shaped-hearts/1387820653',
     },
@@ -144,8 +151,10 @@ const data = [
       'Special Thanks to I-Cheng Lin',
     ],
     url: 'diamond-shaped-hearts',
-    cover:
-      'https://aqydueetkbvytisuceru.supabase.co/storage/v1/object/public/works/albums/Diamond-Shaped-Hearts.jpg',
+    cover: new URL(
+      '../assets/images/covers/diamond-shaped-hearts-cover.jpg',
+      import.meta.url
+    ).href,
   },
   {
     id: 1,
@@ -174,8 +183,10 @@ const data = [
     },
     note: ['All by Super Napkin', 'Release: 2016-04-08'],
     url: 'rhythmic-lizard-moon',
-    cover:
-      'https://aqydueetkbvytisuceru.supabase.co/storage/v1/object/public/works/albums/Rhythmic-Lizard-Moon.jpg',
+    cover: new URL(
+      '../assets/images/covers/rhythmic-lizard-moon-cover.jpg',
+      import.meta.url
+    ).href,
   },
 ]
 
