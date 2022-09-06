@@ -64,14 +64,16 @@ export default {
     const siteTitle = ref(null)
     const videoWrap = ref(null)
     const videoAuto = ref(false)
-    // 視螢幕大小比例調整初始高度
-    const titleTop = computed(() =>
-      screenWIDTH.value / screenHEIGHT.value < 1.77
-        ? videoWrapHEIGHT.value / 2
-        : screenHEIGHT.value / 2
-    )
+
     const { height: videoWrapHEIGHT } = useElementSize(videoWrap)
     const { width: screenWIDTH, height: screenHEIGHT } = useWindowSize()
+    // 視螢幕大小比例調整初始高度
+    // const titleTop = computed(() =>
+    //   screenWIDTH.value / screenHEIGHT.value < 1.77
+    //     ? videoWrapHEIGHT.value / 2
+    //     : screenHEIGHT.value / 2
+    // )
+    const titleTop = computed(() => videoWrapHEIGHT.value / 2)
 
     onMounted(() => {
       getNextGigs().then((data) => {
@@ -113,9 +115,8 @@ export default {
         } else {
           // 行為：向上
           previousY = scrollY
-
-          if (scrollY + 250 > screenHEIGHT.value / 2) {
-            additionY = bannerHEIGHT - (bannerHEIGHT - scrollY) + 250
+          if (scrollY - screenHEIGHT.value / 2 > screenHEIGHT.value / 2) {
+            additionY = scrollY + 250
             if (additionY < screenHEIGHT.value) {
               siteTitle.value.style.top = `${additionY}px`
             }
