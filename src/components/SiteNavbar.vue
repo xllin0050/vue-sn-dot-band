@@ -1,7 +1,7 @@
 <template>
   <div
     v-show="route.name !== 'Home'"
-    class="w-full pt-12 pb-4 text-neutral-900 sm:pt-20 sm:pb-0"
+    class="w-full pt-16 pb-4 text-neutral-900 sm:pt-20 sm:pb-0"
   >
     <div
       class="ml-0 text-center font-redhat text-3xl font-medium uppercase tracking-[.1em] text-inherit lg:ml-[.3em] lg:text-7xl lg:tracking-[.3em]"
@@ -19,7 +19,13 @@
         ' text-neutral-800 underline  ': route.name === routeName,
       }"
     >
-      <router-link :to="{ name: routeName }">{{ routeName }}</router-link>
+      <router-link
+        :to="{
+          name: routeName,
+          hash: routeName === 'About Us' ? '#banner' : '',
+        }"
+        >{{ routeName }}</router-link
+      >
     </div>
   </nav>
 </template>

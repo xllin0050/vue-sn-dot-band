@@ -1,5 +1,4 @@
 import { fileURLToPath } from 'url'
-import path from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import legacy from '@vitejs/plugin-legacy'
@@ -18,7 +17,9 @@ export default defineConfig({
       format: 'mjs',
     }),
     Components(),
-    eslintPlugin(),
+    eslintPlugin({
+      cache:false
+    }),
   ],
   resolve: {
     alias: {

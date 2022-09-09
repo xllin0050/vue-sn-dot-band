@@ -1,10 +1,15 @@
 <template>
   <SiteNavbar />
 
-  <div class="min-h-screen mx-auto max-w-xs lg:max-w-4xl">
+  <div class="mx-auto min-h-screen max-w-xs lg:max-w-4xl">
     <PageTitle>photos</PageTitle>
-    <div v-if="loading" class="text-center">Now loading...</div>
-    <div class="flex flex-col flex-wrap pt-8 md:flex-row md:pt-0">
+    <div
+      v-if="loading"
+      class="mt-12 text-center font-redhat text-xl font-semibold"
+    >
+      Now loading...
+    </div>
+    <div class="flex flex-col flex-wrap pt-12 md:flex-row md:pt-0">
       <div class="max-w-1/2 basis-1/2">
         <TransitionGroup name="list">
           <img
@@ -88,8 +93,8 @@ export default {
   display: none !important;
 }
 .img-viewr__mask {
-  background-color: #fafafa;
-  opacity: 0.98;
+  background-color: #000000;
+  opacity: 0.95;
 }
 .list-enter-active,
 .list-leave-active {

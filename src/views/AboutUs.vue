@@ -1,112 +1,108 @@
 <template>
   <SiteNavbar />
-
-  <div class="relative w-full pb-10 lg:pb-40">
-    <PageTitle>about us</PageTitle>
-    <LangSwitch
-      class="absolute top-10 right-8 md:top-0 md:right-1/4 2xl:right-1/3 md:-translate-y-8 md:translate-x-6 2xl:translate-x-14"
+  <PageTitle>about us</PageTitle>
+  <div id="banner" class="mt-10 w-[100vw] px-4 lg:mt-0 lg:px-0">
+    <img
+      :src="imgUrl"
+      alt="About Us"
+      class="mx-auto object-contain"
+      :style="`height: ${imgHeight}px`"
     />
+  </div>
+
+  <div class="relative mx-auto mt-8 max-w-2xl lg:mt-14">
+    <LangSwitch class="pl-8" />
     <article v-show="userLang === 'zh'" class="article">
       <p class="paragraph">
-        Super Napkin (超級紙巾)
-        由吉他手/主唱「小帕」、鼓手「施霖」、以及貝斯手「黃尾」組成。2014
-        成團以來已發表三張專輯，並預計在 2022 年發行第四號及第五號錄音作品。
+        Super Napkin 是個所有事都要有點不可理喻的樂團，但僅限有點。
       </p>
       <p class="paragraph">
-        這八年來，他們與台灣獨立音樂的主線保持著微妙的距離。當 2016
-        年台灣樂團被化約為厭世兩個字時，他們以瞪鞋之聲在「節奏的蜥蜴之月」中唱著「如果你能接受這世界的不完美，就能省下很多淚水」。在
-        2018 年整個 City 都是 Pop 的縫隙間，Super Napkin
-        以更強烈的節奏獻上「鑽石心」，嘗試平撫無法鬆弛的靈魂。2020
-        年的「沒有打不倒我的東西」，除了曲名長到舌頭會打結外，幾乎是一張純演奏專輯，以樂器定義自己的唱腔口音。
+        73
+        年次的吉他手小帕熱愛諧音笑話，中英不拘，夾雜更棒。據悉，他組團唯一的原則，只有英文團名要以「S」開頭，以期來日國際走紅之時，專輯會與音速青春
+        Sonic Youth、音爆樂團 Sonic Boom 以及夏奇拉 Shakira
+        擺在同一貨架上。為一償宿願，正與時間賽跑，希望能在最後一間實體店面消失前發跡。
       </p>
       <p class="paragraph">
-        儘管每張專輯的風貌皆不同，Super Napkin
-        一貫地以溫柔的方式叛逆著，而他們的任性，來自於對心中的搖滾英雄之愛。
+        超級紙巾 Super Napkin
+        是他第三次的組團嘗試，同時也是歷來最不可理喻的團名。他希望過世後如果有墓碑的話，可以大大地刻上超級紙巾，不過切結書上寫著希望樹葬。
       </p>
       <p class="paragraph">
-        生於八零年代的台灣，空氣中交雜著東西洋流行金曲，及無盡的引擎、風扇、電鑽與洗衣機噪音。這些聲響或許刻進了他們的耳膜，自青春期起，就追隨著歐美
-        60 年代已降不停發展的實驗/另類搖滾。Velvet Underground
-        甜美的旋律配上高攻擊性的小提琴、Neu! 延伸到天際線般的連續鼓擊、Sonic
-        Youth 及 My Bloody Valentine 的吉他噪音金曲，對 Super Napkin
-        來說如同來自遠方的記憶，而這些團的「實驗性」則是理所當然的，做音樂的方式。
+        鼓手施霖，英文名 Steve Shih，因為有兩個 S
+        所以被選中，肌肉富有音樂性也是一大考量。貝斯手黃尾熱愛
+        Excel，原訂要擔任樂團經理的她，因為發現貝斯看起來像實體化的 Excel
+        欄列，不知不覺也開始負責起樂團的低頻。
       </p>
       <p class="paragraph">
-        以這樣的耳朵，面對現在的生活，到底想聽見怎樣的聲音，就盡可能的誠實演奏出來，是
-        Super Napkin 唯一懂得的創作方式。
+        2014
+        成團，八年來他們已推出了五張專輯。為了要解釋超級紙巾這個團名，也編造了不少故事。其中一則，是關於一個叫紙巾人的超級英雄的故事。紙巾人可以穿越宇宙，為傷心的人拭淚，為打翻牛奶的人清地板，儼然是來自台灣的聖誕老人。
       </p>
       <p class="paragraph">
-        當時在「節奏的蜥蜴之月」與「鑽石心」裡不斷嘗試，找尋屬於自己聲音的Super
-        Napkin，來到「沒有打不倒我的東西」時已描繪出屬於自己的獨特樣貌。透過精力充沛的扎實鼓擊、精力過剩的吉他噪音，與經歷磨練的穩固貝斯低頻，他們說著關於登山、關於口誤、關於自己與對方、關於爭吵與和好的故事。
-      </p>
-      <p class="paragraph">
-        Super Napkin
-        沿用多年的樂團介紹，僅短短寫著「如果要構思一個超級英雄的故事，我想寫一個叫做紙巾人的角色，能力是好好地聽每個心靈受傷的人說話，陪著他們將傷口上的污垢和血淚都擦拭乾淨。每個人都需要這樣的英雄」，而他們的音樂，則是最適合紙巾人的主題曲。
+        如果你喜歡表面未經光滑處理，品質優良的面紙，請指名超級紙巾 Super
+        Napkin，擦你心靈的屁股。
       </p>
     </article>
     <article v-show="userLang === 'en'" class="article">
       <p class="paragraph">
-        Super Napkin is a fuzz-pop trio hailing from Taiwan. Feeling that their
-        original name, “Super Nap Kid”, was a bit tired, they switched to “Super
-        Napkin” in honor of their favorite superhero, Napkin Man, who zooms
-        across the universe drying the tears of thesad and heartbroken. (In a
-        pinch, he can also sop up your spilled milk.)
+        Super Napkin is a band that does everything ridiculously, and only to a
+        slight degree.
       </p>
       <p class="paragraph">
-        The project was conceived as a portrait of an artist beginning to grow
-        old. It is veteran singer-songwriter-guitarist Matt Yau’s first stab at
-        making music post-marriage (hint: it helps if your wife can play bass)
-        and it has gifted him one more opportunity to revel in his roots.
+        Yau (he/him/founding fuzzgod) is obsessed with bad puns. His life goal
+        is to have a successful band that starts with ‘S’ in its name. He wants
+        to have his band’s records stocked on the shelf next to Sonic Youth,
+        Sonic Boom, and Shakira. Super Napkin is his third band with this naming
+        convention. As the most ridiculous name out of the three, Yau intends to
+        go to his grave with this one.
       </p>
       <p class="paragraph">
-        Roots. As an 80’s kid born in the Taipei Basin, the drone of distant
-        motorbikes and the soothing sounds of humming air conditioners comprised
-        Yau’s early childhood ‘soundtrack’. So when he came of age in the
-        Soulseek 56k baud modem era, it made perfect sense for him to fall right
-        the fuck in love with the equally droney sounds of Yo La Tengo, Sonic
-        Youth, Eric’s Trip, The Microphones, and My Bloody Valentine.
+        Steve Shih (he/him/drumming muscles) is the drummer of Super Napkin. He
+        was drafted because both his family name and first name start with 'S',
+        and because he has immensely musical muscles.
       </p>
       <p class="paragraph">
-        Yau and his wife Weiting, who was still paying installments on her first
-        bass when she joined the band, and drummer Shih, who proved his fit by
-        seamlessly filling in on drums for a show with Yau’s previous band (the
-        grungy local legends Slack Tide), have together produced three
-        full-length records, each oozing 90s nostalgia.
+        Weiting (she/her/the bass boss) loves Excel, the spreadsheeting
+        software. When Yau and Steve asked her to be the band manager, they
+        forgot to send in the request in a .csv format. Due to file format
+        incompatibility, she ended up handling the band’s dirty low end instead.
       </p>
       <p class="paragraph">
-        Both Rhythmic Lizard Moon in 2016 and Diamond Shaped Hearts in 2018 saw
-        the band channeling their inner DIY lo-fi ethos, serve up some scorching
-        guitar tones --the type that could makethe hair on J. Mascis’s back
-        stand on-end --atop a bed of powerful,precise drumming and
-        steady-as-she-goes bass riffs.
-      </p>
-      <p class="paragraph">
-        2020’s release, There’s Nothing That Cannot Beat Me, sees the band
-        taking a step toward more refined aesthetics and older sonics --asound
-        that roughly approximates the grandeur of their live shows, an
-        intoxicating mix of delicately layered psychedelic guitars within which
-        rambunctious raw noise moments bubble up to the surface.
+        Together, they've made five albums over eight years. Their sound is
+        exactly what the term “Super Napkin” conjures in your head. You should
+        be thinking of the band’s favorite superhero, Napkin Man, as he zooms
+        across the universe drying the tears of the sad and heartbroken. He is
+        the Taiwanese Santa Claus bringing you gifts to mend your broken soul.
+        Sometimes, he will bring you a glass of milk. He will even mop up the
+        spilled milk when you blubber in sadness. He will wrap you up in a warm
+        fuzzy coat made up of pure goodness, and grease your bowels to release
+        the sadness in your depths. Then he will offer you a Super Napkin to
+        wipe your metaphoric ass with.
       </p>
     </article>
-
-    <div class="mx-auto max-w-2xl px-8 pt-12 lg:pt-28">
-      <img :src="imgUrl" alt="About Us" class="block w-full" />
-    </div>
   </div>
 </template>
 <script setup>
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 import { storeUserLang } from '@/stores/lang'
+import { useWindowSize } from '@vueuse/core'
+
+const { width } = useWindowSize()
+
+const imgHeight = computed(() => (width.value / 2048) * 1152)
 
 const store = storeUserLang()
+
 const userLang = computed(() => store.lang)
 
-const imgUrl = new URL('../assets/images/about-us.jpg', import.meta.url).href
+const imgUrl = new URL('../assets/images/band-image-2022.jpg', import.meta.url)
+  .href
+
+// 
 </script>
 <style scoped>
 .paragraph {
-  @apply p-8 sm:py-4;
+  @apply px-8 py-4;
 }
 .article {
-  @apply mx-auto max-w-2xl break-all pt-2 text-left font-redhat text-sm font-normal leading-relaxed text-neutral-700  sm:break-words sm:pt-0 sm:text-justify sm:text-base;
+  @apply pt-2 font-redhat text-sm font-normal leading-relaxed text-neutral-700  sm:pt-0 sm:text-base;
 }
 </style>

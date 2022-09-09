@@ -1,31 +1,34 @@
 <template>
   <SiteNavbar />
-
-  <div class="mx-auto min-h-screen max-w-xs lg:max-w-4xl">
+  <div class="mx-auto min-h-screen max-w-sm lg:max-w-4xl">
     <PageTitle>Discography</PageTitle>
     <div
       v-for="album in albumDatas"
       :key="album.id"
-      class="flex flex-col items-center justify-center pt-4 pb-32 font-redhat md:pt-2 md:pb-24 lg:flex-row lg:items-start lg:pt-16 lg:pb-36"
+      class="flex flex-col items-center justify-center pt-10 pb-24 font-redhat md:pt-2 md:pb-24 lg:flex-row lg:items-start lg:pt-4 lg:pb-44"
     >
-      <div class="w-[250px] shrink-0 lg:w-[300px]">
+      <div class="w-[250px] shrink-0 lg:w-[400px]">
         <router-link
-          :to="{ path: `/album/${album.release}/${album.url}`, hash: '#title' }"
+          :to="{
+            path: `/album/${album.release}/${album.url}`,
+            hash: width > 1024 ? '#banner' : '',
+          }"
         >
-          <img :src="album.cover" class="block w-full shadow-xl" />
+          <img
+            :src="album.cover"
+            class="block w-full p-1 shadow-xl ring-neutral-300 hover:ring"
+          />
         </router-link>
       </div>
-      <div class="pt-8 pl-8 lg:pt-0">
+      <div class="mx-8 w-[250px] lg:w-full pt-12 lg:ml-16 lg:pt-0">
         <h3
-          class="pb-4 text-sm font-medium uppercase text-neutral-800 lg:text-xl"
+          class="pb-8 text-sm uppercase text-neutral-800 lg:pb-12 lg:text-lg"
         >
-          {{ album.title }}
+          <span class="capitalize lg:hidden">title: </span>{{ album.title }}
         </h3>
-        <p
-          class="pt-4 pb-8 text-xs leading-6 tracking-widest text-neutral-600 lg:text-base"
-        >
-          {{ album.desc }}
-        </p>
+        <div class="pb-8 text-sm capitalize lg:text-base lg:pb-12">
+          release: {{ album.release.slice(0, 4) }}
+        </div>
         <iframe
           style="border: 0; width: 100%; height: 120px; margin: auto"
           :src="album.bandcamp"
@@ -36,24 +39,14 @@
   </div>
 </template>
 
-<script>
-import { onMounted, ref } from 'vue'
-import useDatabase from '@/composables/UseDatabase'
+<script setup>
+import { reactive } from 'vue'
+import { useWindowSize } from '@vueuse/core'
+import data from '../data/discography'
 
-export default {
-  name: 'DiscPage',
-  setup() {
-    const { getAlbumsData } = useDatabase()
-    const albumDatas = ref([])
-    onMounted(() => {
-      getAlbumsData('*').then((data) => {
-        albumDatas.value = data
-      })
-    })
+const { width } = useWindowSize()
 
-    return { albumDatas }
-  },
-}
+const albumDatas = reactive(data)
 </script>
 
 <style scoped></style>

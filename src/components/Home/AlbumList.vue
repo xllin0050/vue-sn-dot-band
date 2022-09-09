@@ -7,12 +7,15 @@
     </h3>
     <div
       v-for="album in props.albums"
-      :key="album.created_at"
+      :key="album.id"
       class="relative pb-10 lg:pb-28"
     >
       <div class="mx-auto max-w-[75%] lg:max-w-sm">
         <router-link
-          :to="{ path: `/album/${album.release}/${album.url}`, hash: '#title' }"
+          :to="{
+            path: `/album/${album.release}/${album.url}`,
+            hash: width > 1024 ? '#banner' : '',
+          }"
         >
           <img
             :src="album.cover"
@@ -22,7 +25,7 @@
         </router-link>
       </div>
       <h5
-        class="py-4 text-center font-redhat text-sm font-medium uppercase text-neutral-800"
+        class="py-4 text-center font-redhat text-sm font-medium uppercase text-neutral-800 lg:text-base"
       >
         <span class="rounded-lg p-6 drop-shadow">
           {{ album.title }}
@@ -32,5 +35,7 @@
   </div>
 </template>
 <script setup>
+import { useWindowSize } from '@vueuse/core'
 const props = defineProps({ albums: Array })
+const { width } = useWindowSize()
 </script>

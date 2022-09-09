@@ -1,41 +1,40 @@
-import { ref } from 'vue'
 import { supabase } from '@/supabase.js'
 
 export default function useDatabase() {
-  const getAlbumsArt = (title) => {
-    const fileName = title.replace(/ /g, '-')
-    const { publicURL, error } = supabase.storage
-      .from('works')
-      .getPublicUrl(`albums/${fileName}.jpg`)
-    return publicURL
-  }
+  // const getAlbumsArt = (title) => {
+  //   const fileName = title.replace(/ /g, '-')
+  //   const { publicURL, error } = supabase.storage
+  //     .from('works')
+  //     .getPublicUrl(`albums/${fileName}.jpg`)
+  //   return publicURL
+  // }
 
-  const getAlbumsData = async (select) => {
-    const { data: albums, error } = await supabase
-      .from('albums')
-      .select(select)
-      .order('release', { ascending: false })
+  // const getAlbumsData = async (select) => {
+  //   const { data: albums, error } = await supabase
+  //     .from('albums')
+  //     .select(select)
+  //     .order('release', { ascending: false })
 
-    return albums.map((item) => {
-      item.url = item.title
-        .toLowerCase()
-        .replace(/'|\s/g, (e) => (e === "'" ? '' : '-'))
-      item.cover = getAlbumsArt(item.title)
-      return item
-    })
-  }
+  //   return albums.map((item) => {
+  //     item.url = item.title
+  //       .toLowerCase()
+  //       .replace(/'|\s/g, (e) => (e === "'" ? '' : '-'))
+  //     item.cover = getAlbumsArt(item.title)
+  //     return item
+  //   })
+  // }
 
-  const getSingleAlbum = async (params) => {
-    let { data: albums, error } = await supabase
-      .from('albums')
-      .select()
-      .match({ release: params })
+  // const getSingleAlbum = async (params) => {
+  //   let { data: albums, error } = await supabase
+  //     .from('albums')
+  //     .select()
+  //     .match({ release: params })
 
-    const [singleAlbum] = albums
-    singleAlbum.cover = getAlbumsArt(singleAlbum.title)
+  //   const [singleAlbum] = albums
+  //   singleAlbum.cover = getAlbumsArt(singleAlbum.title)
 
-    return singleAlbum
-  }
+  //   return singleAlbum
+  // }
 
   const getNextGigs = async () => {
     const today = new Date().toISOString()
@@ -45,7 +44,9 @@ export default function useDatabase() {
       .order('show_time')
       .gte('show_time', today)
 
-    return data
+    const [theNextOne] = data
+
+    return theNextOne || {}
   }
 
   const getGigsData = async () => {
@@ -63,8 +64,6 @@ export default function useDatabase() {
   }
 
   return {
-    getAlbumsData,
-    getSingleAlbum,
     getNextGigs,
     getGigsData,
   }

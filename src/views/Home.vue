@@ -25,7 +25,7 @@
   </div>
   <div
     v-show="route.name === 'Home'"
-    class="block w-full pt-12 text-neutral-900 lg:hidden"
+    class="block w-full pt-16 text-neutral-900 lg:hidden"
   >
     <div
       class="ml-0 text-center font-redhat text-3xl font-medium uppercase tracking-[.1em] text-inherit lg:ml-[.3em] lg:text-7xl lg:tracking-[.3em]"
@@ -42,6 +42,7 @@
 <script>
 import { onMounted, ref, computed } from 'vue'
 import { useRoute } from 'vue-router'
+import data from '../data/discography'
 
 import {
   useThrottleFn,
@@ -55,27 +56,26 @@ import useDatabase from '@/composables/UseDatabase'
 export default {
   name: 'HomePage',
   setup() {
-    const { getAlbumsData, getNextGigs } = useDatabase()
+    const { getNextGigs } = useDatabase()
 
     const route = useRoute()
-    const albumDatas = ref([])
+    const albumDatas = ref(data)
     const nextGigData = ref([])
     const siteTitle = ref(null)
     const videoWrap = ref(null)
     const videoAuto = ref(false)
-    // 視螢幕大小比例調整初始高度
-    const titleTop = computed(() =>
-      screenWIDTH.value / screenHEIGHT.value < 1.77
-        ? videoWrapHEIGHT.value / 2
-        : screenHEIGHT.value / 2
-    )
+
     const { height: videoWrapHEIGHT } = useElementSize(videoWrap)
     const { width: screenWIDTH, height: screenHEIGHT } = useWindowSize()
+    // 視螢幕大小比例調整初始高度
+    // const titleTop = computed(() =>
+    //   screenWIDTH.value / screenHEIGHT.value < 1.77
+    //     ? videoWrapHEIGHT.value / 2
+    //     : screenHEIGHT.value / 2
+    // )
+    const titleTop = computed(() => videoWrapHEIGHT.value / 2)
 
     onMounted(() => {
-      getAlbumsData('id, release, title, created_at').then((data) => {
-        albumDatas.value = data
-      })
       getNextGigs().then((data) => {
         nextGigData.value = data
       })
@@ -115,9 +115,8 @@ export default {
         } else {
           // 行為：向上
           previousY = scrollY
-
-          if (scrollY + 250 > screenHEIGHT.value / 2) {
-            additionY = bannerHEIGHT - (bannerHEIGHT - scrollY) + 250
+          if (scrollY - screenHEIGHT.value / 2 > screenHEIGHT.value / 2) {
+            additionY = scrollY + 250
             if (additionY < screenHEIGHT.value) {
               siteTitle.value.style.top = `${additionY}px`
             }

@@ -1,8 +1,8 @@
 <template>
   <SiteNavbar />
   <div
-    id="title"
-    class="css-selector hidden h-screen w-full items-center justify-center text-neutral-700 lg:flex"
+    id="banner"
+    class="selector-animation hidden h-screen w-full items-center justify-center text-neutral-600 lg:flex"
     :class="`selector-${albumData.id}`"
   >
     <h1 class="font-redhat text-[14vw] uppercase leading-[11vw]">
@@ -27,6 +27,15 @@
         >
           {{ albumData.title }}
         </h1>
+        <div class="max-w-xl pb-14">
+          <LangSwitch v-if="albumData.desc.en" />
+          <div
+            class="text-xs leading-loose lg:text-sm lg:leading-loose"
+            :clsss="userLang === 'zh' ? 'text-justify' : ''"
+          >
+            {{ albumData.desc[userLang] || albumData.desc.zh }}
+          </div>
+        </div>
         <h3
           class="pb-3 text-sm font-medium uppercase text-neutral-600 lg:pb-4 lg:text-base"
         >
@@ -48,21 +57,13 @@
             credits
           </h3>
           <p
-            v-for="(note, i) in albumData.note.note"
+            v-for="(note, i) in albumData.note"
             :key="i"
             class="py-2 text-xs text-neutral-800 lg:text-base"
           >
             {{ note }}
           </p>
         </div>
-        <h3
-          class="pt-10 pb-3 text-sm font-medium uppercase text-neutral-600 lg:pb-4 lg:pt-24 lg:text-base"
-        >
-          release date
-        </h3>
-        <p class="py-4 text-xs text-neutral-800 lg:py-2 lg:text-base">
-          {{ albumData.release }}
-        </p>
         <h3
           class="pt-10 pb-3 text-sm font-medium uppercase text-neutral-600 lg:pt-24 lg:pb-4 lg:text-base"
         >
@@ -77,86 +78,87 @@
             <a :href="link" target="_blank" class="capitalize">{{ host }}</a>
           </li>
         </ul>
+        <div class="mt-24" @click="router.back">
+          <span
+            class="iconify text-2xl"
+            data-icon="ic:baseline-arrow-back-ios"
+          ></span>
+        </div>
       </div>
     </div>
   </div>
 </template>
-<script>
-import { ref } from 'vue'
-import { useRoute } from 'vue-router'
-import useDatabase from '@/composables/UseDatabase'
-export default {
-  name: 'AlbumPage',
-  setup() {
-    const { getSingleAlbum } = useDatabase()
-    const route = useRoute()
-    const albumData = ref({})
-    getSingleAlbum(route.params.date).then((data) => {
-      albumData.value = data
-    })
-    return { albumData }
-  },
-}
+<script setup>
+import { ref, computed } from 'vue'
+import { useRoute,useRouter } from 'vue-router'
+import { storeUserLang } from '@/stores/lang'
+const store = storeUserLang()
+const userLang = computed(() => store.lang)
+
+import data from '../data/discography'
+
+const route = useRoute()
+const router = useRouter()
+const albumData = ref(data.find((album) => album.url === route.params.title))
 </script>
 <style scoped>
+.selector-1 {
+  background: linear-gradient(180deg, #000000, #ffffff);
+}
 .selector-2 {
-  background: linear-gradient(180deg, #018abe, #e9b2c0);
-  background-size: 400% 400%;
-
-  -webkit-animation: AnimationName 7s ease infinite;
-  -moz-animation: AnimationName 7s ease infinite;
-  animation: AnimationName 7s ease infinite;
+  background: linear-gradient(90deg, #018abe, #e9b2c0);
 }
 
 .selector-3 {
-  background: linear-gradient(180deg, #695690, #92c7d9);
-  background-size: 400% 400%;
-
-  -webkit-animation: AnimationName 7s ease infinite;
-  -moz-animation: AnimationName 7s ease infinite;
-  animation: AnimationName 7s ease infinite;
+  background: linear-gradient(160deg, #695690, #92c7d9);
 }
 
-.selector-1 {
-  background: linear-gradient(180deg, #000000, #ffffff);
-  background-size: 400% 400%;
-
-  -webkit-animation: AnimationName 7s ease infinite;
-  -moz-animation: AnimationName 7s ease infinite;
-  animation: AnimationName 7s ease infinite;
+.selector-4 {
+  background: linear-gradient(185deg, #8c1622, #cb2e3b);
+  color: #da8b91;
+}
+.selector-5 {
+  background: linear-gradient(110deg, #050202, #77598a);
+  color: #d8580d;
+}
+.selector-animation {
+  background-size: 250% 250%;
+  -webkit-animation: AnimationName 10s ease-in-out infinite;
+  -moz-animation: AnimationName 10s ease-in-out infinite;
+  animation: AnimationName 10s ease-in-out infinite;
 }
 
 @-webkit-keyframes AnimationName {
   0% {
-    background-position: 18% 0%;
+    background-position: 10% 0%;
   }
   50% {
     background-position: 83% 100%;
   }
   100% {
-    background-position: 18% 0%;
+    background-position: 10% 0%;
   }
 }
 @-moz-keyframes AnimationName {
   0% {
-    background-position: 18% 0%;
+    background-position: 10% 0%;
   }
   50% {
     background-position: 83% 100%;
   }
   100% {
-    background-position: 18% 0%;
+    background-position: 10% 0%;
   }
 }
 @keyframes AnimationName {
   0% {
-    background-position: 18% 0%;
+    background-position: 10% 0%;
   }
   50% {
     background-position: 83% 100%;
   }
   100% {
-    background-position: 18% 0%;
+    background-position: 10% 0%;
   }
 }
 </style>
