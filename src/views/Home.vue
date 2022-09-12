@@ -2,14 +2,20 @@
   <div class="banner relative hidden bg-white pb-20 lg:block">
     <div ref="videoWrap" class="h-auto w-full bg-black">
       <video
-        src="../assets/video-banner.mp4"
+        width="1920"
+        height="1080"
         :autoplay="videoAuto"
         muted=""
         loop=""
-        poster="../assets/still-banner.jpeg"
+        :controls="false"
+        :poster="posterUrl"
         type="video/mp4"
         class="mx-auto"
-      ></video>
+        preload="metadata"
+      >
+        <source :src="videoUrl" type="video/mp4" />
+        <p>Your browser does not support video.</p>
+      </video>
     </div>
     <div
       ref="siteTitle"
@@ -64,6 +70,10 @@ export default {
     const siteTitle = ref(null)
     const videoWrap = ref(null)
     const videoAuto = ref(false)
+
+    const videoUrl = new URL('../assets/video-banner.mp4', import.meta.url).href
+    const posterUrl = new URL('../assets/still-banner.jpeg', import.meta.url)
+      .href
 
     const { height: videoWrapHEIGHT } = useElementSize(videoWrap)
     const { width: screenWIDTH, height: screenHEIGHT } = useWindowSize()
@@ -128,12 +138,15 @@ export default {
         movingTitle()
       })
     })
+
     return {
       albumDatas,
       nextGigData,
       siteTitle,
       videoWrap,
       videoWrapHEIGHT,
+      videoUrl,
+      posterUrl,
       videoAuto,
       titleTop,
       route,
