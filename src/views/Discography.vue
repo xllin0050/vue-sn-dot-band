@@ -20,18 +20,17 @@
           />
         </router-link>
       </div>
-      <div class="mx-8 w-[250px] lg:w-full pt-12 lg:ml-16 lg:pt-0">
-        <h3
-          class="pb-8 text-sm uppercase text-neutral-800 lg:pb-12 lg:text-lg"
-        >
+      <div class="mx-8 w-[250px] pt-12 lg:ml-16 lg:w-full lg:pt-0">
+        <h3 class="pb-8 text-sm uppercase text-neutral-800 lg:pb-12 lg:text-lg">
           <span class="capitalize lg:hidden">title: </span>{{ album.title }}
         </h3>
-        <div class="pb-8 text-sm capitalize lg:text-base lg:pb-12">
+        <div class="pb-8 text-sm capitalize lg:pb-12 lg:text-base">
           release: {{ album.release.slice(0, 4) }}
         </div>
         <iframe
+          class="lazyload"
           style="border: 0; width: 100%; height: 120px; margin: auto"
-          :src="album.bandcamp"
+          :data-src="album.bandcamp"
           seamless
         ></iframe>
       </div>
@@ -40,6 +39,7 @@
 </template>
 
 <script setup>
+import 'lazysizes'
 import { reactive } from 'vue'
 import { useWindowSize } from '@vueuse/core'
 import data from '../data/discography'
