@@ -1,7 +1,6 @@
 <template>
   <SiteNavbar />
-
-  <div class="mx-auto min-h-screen max-w-xs lg:max-w-4xl">
+  <div class="min-h-screen max-w-full">
     <PageTitle>photos</PageTitle>
     <div
       v-if="loading"
@@ -9,31 +8,17 @@
     >
       Now loading...
     </div>
-    <div class="flex flex-col flex-wrap pt-12 md:flex-row md:pt-0">
-      <div class="max-w-1/2 basis-1/2">
-        <TransitionGroup name="list">
+    <div class="flex flex-col flex-wrap pt-12 md:flex-row md:pt-0 md:px-1">
+      <TransitionGroup name="list">
+        <div v-for="(url, i) in photoUrls" :key="i" class="w-full md:w-1/3">
           <img
-            v-for="(url, i) in photoUrlsA"
-            :key="i"
             v-lazy="url"
             alt="photo"
-            class="w-full p-1"
+            class="h-full w-full object-cover p-2"
             @click="showImagesByComponent(url)"
           />
-        </TransitionGroup>
-      </div>
-      <div class="max-w-1/2 basis-1/2">
-        <TransitionGroup name="list">
-          <img
-            v-for="(url, i) in photoUrlsB"
-            :key="i"
-            v-lazy="url"
-            alt="photo"
-            class="w-full p-1"
-            @click="showImagesByComponent(url)"
-          />
-        </TransitionGroup>
-      </div>
+        </div>
+      </TransitionGroup>
     </div>
     <ImgViewr :visible="visible" :urls="singlePhotoUrl" @close="closeHandler" />
   </div>
@@ -52,8 +37,7 @@ export default {
     const loading = ref(false)
     const visible = ref(false)
     const singlePhotoUrl = ref([])
-    const photoUrlsA = ref([])
-    const photoUrlsB = ref([])
+    const photoUrls = ref([])
 
     const showImagesByComponent = (url) => {
       singlePhotoUrl.value = [url]
@@ -69,17 +53,14 @@ export default {
     onMounted(() => {
       loading.value = true
       getPhotoUrls().then((data) => {
-        const half = Math.ceil(data.length / 2)
-        photoUrlsA.value = data.slice(0, half)
-        photoUrlsB.value = data.slice(half)
+        photoUrls.value = data
         loading.value = false
       })
     })
 
     return {
       singlePhotoUrl,
-      photoUrlsA,
-      photoUrlsB,
+      photoUrls,
       visible,
       loading,
       showImagesByComponent,
