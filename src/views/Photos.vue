@@ -8,13 +8,13 @@
     >
       Now loading...
     </div>
-    <div class="flex flex-col flex-wrap pt-12 md:flex-row md:pt-0 md:px-1">
+    <div class="flex flex-col flex-wrap pt-12 md:flex-row md:pt-0 md:px-12">
       <TransitionGroup name="list">
         <div v-for="(url, i) in photoUrls" :key="i" class="w-full md:w-1/3">
           <img
             v-lazy="url"
             alt="photo"
-            class="h-full w-full object-cover p-2"
+            class="h-full w-full object-cover"
             @click="showImagesByComponent(url)"
           />
         </div>
