@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-// import useAuthUser from '@/composables/UseAuthUser'
-import { store } from '@/store'
+import { storeUserAuth } from '@/stores/user'
 import Home from '../views/Home.vue'
 
 const router = createRouter({
@@ -46,7 +45,8 @@ const router = createRouter({
       name: 'GigUpdate',
       component: () => import('../views/Auth/GigUpdate.vue'),
       beforeEnter: () => {
-        if (!store.user.identities?.length) return { name: 'Login' }
+        const auth = storeUserAuth().user
+        if (!auth) return { name: 'Login' }
       },
     },
     {
