@@ -1,6 +1,5 @@
 <template>
   <SiteNavbar />
-
   <div class="mx-auto min-h-screen max-w-xs pb-16 lg:max-w-4xl">
     <PageTitle>gigs</PageTitle>
     <TransitionGroup name="list" tag="ul" class="pt-12 font-redhat md:pt-0">
@@ -35,14 +34,14 @@
         </div>
         <div class="flex w-auto pt-2 lg:w-[160px] lg:pt-0">
           <div
-            class="mx-2 cursor-pointer rounded-md p-1 px-3 text-sm ring-2 ring-neutral-400 transition-colors hover:ring-neutral-600 lg:text-base hover:font-medium"
+            class="mx-2 cursor-pointer rounded-md p-1 px-3 text-sm ring-2 ring-neutral-400 transition-colors hover:font-medium hover:ring-neutral-600 lg:text-base"
             @click="showModal(gig)"
           >
             info
           </div>
           <div
             v-show="gig.coming"
-            class="rounded-md p-1 px-3 text-sm font-medium underline underline-offset-4 lg:text-base hover:text-red-400"
+            class="rounded-md p-1 px-3 text-sm font-medium underline underline-offset-4 hover:text-red-400 lg:text-base"
           >
             <a :href="gig.event_url" target="_blank">ticket</a>
           </div>
@@ -102,7 +101,8 @@ export default {
 .fade-leave-active {
   transition: opacity 200ms ease-out;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
 }
 </style>

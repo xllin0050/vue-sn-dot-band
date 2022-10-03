@@ -5,10 +5,10 @@
         width="1920"
         height="1080"
         :autoplay="videoAuto"
-        muted=""
-        loop=""
         :controls="false"
         :poster="posterUrl"
+        loop
+        muted
         type="video/mp4"
         class="mx-auto"
         preload="metadata"
@@ -78,12 +78,12 @@ export default {
     const { height: videoWrapHEIGHT } = useElementSize(videoWrap)
     const { width: screenWIDTH, height: screenHEIGHT } = useWindowSize()
     // 視螢幕大小比例調整初始高度
-    // const titleTop = computed(() =>
-    //   screenWIDTH.value / screenHEIGHT.value < 1.77
-    //     ? videoWrapHEIGHT.value / 2
-    //     : screenHEIGHT.value / 2
-    // )
-    const titleTop = computed(() => videoWrapHEIGHT.value / 2)
+    const titleTop = computed(() =>
+      screenWIDTH.value / screenHEIGHT.value < 1.77
+        ? videoWrapHEIGHT.value / 2
+        : screenHEIGHT.value / 2
+    )
+    // const titleTop = computed(() => videoWrapHEIGHT.value / 2)
 
     onMounted(() => {
       getNextGigs().then((data) => {

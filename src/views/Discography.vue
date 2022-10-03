@@ -48,5 +48,3 @@ const { width } = useWindowSize()
 
 const albumDatas = reactive(data)
 </script>
-
-<style scoped></style>

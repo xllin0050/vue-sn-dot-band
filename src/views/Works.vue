@@ -90,13 +90,11 @@
 </template>
 <script setup>
 import { ref, computed } from 'vue'
-import { useRoute,useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { storeUserLang } from '@/stores/lang'
+import data from '../data/discography'
 const store = storeUserLang()
 const userLang = computed(() => store.lang)
-
-import data from '../data/discography'
-
 const route = useRoute()
 const router = useRouter()
 const albumData = ref(data.find((album) => album.url === route.params.title))

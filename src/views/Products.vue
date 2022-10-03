@@ -2,7 +2,7 @@
   <SiteNavbar />
   <div class="w-full">
     <PageTitle>products</PageTitle>
-    <div class="mx-auto max-w-sm pt-4 sm:pt-0 sm:max-w-5xl">
+    <div class="mx-auto max-w-sm pt-4 sm:max-w-5xl sm:pt-0">
       <div
         class="flex flex-col items-center pb-0 sm:flex-row sm:items-stretch sm:pb-16"
       >
