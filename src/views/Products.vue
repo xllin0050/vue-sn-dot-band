@@ -37,13 +37,6 @@
             >supernapkinsogood@gmail.com</a
           >
         </p>
-        <p class="pt-12">
-          專輯：Sherry’s Neighbors、Subtropical Jet Stream 以及亞熱帶 T-Shirt
-          預計於 9/15 台北場首賣。
-        </p>
-        <p class="pt-2">怪物 T-Shirt 復刻上市。</p>
-        <p class="pt-12">怪物 T-Shirt (L)、亞熱帶 T-Shirt (S) 廠商無庫存。</p>
-        <p class="pt-2">其他尺寸均可在巡迴場次買到。</p>
       </div>
     </div>
   </div>
