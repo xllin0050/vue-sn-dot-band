@@ -8,7 +8,9 @@ import './index.css'
 
 const app = createApp(App)
 
-app.use(createPinia())
-app.use(VueLazyLoad)
 app.use(router)
+app.use(createPinia())
+app.use(VueLazyLoad, {
+  observer: true,
+})
 app.mount('#app')
