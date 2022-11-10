@@ -1,5 +1,14 @@
 const data = [
   {
+    title: 'Love as a Bullet (OFFICIAL VIDEO)',
+    snapshot: new URL(
+      '../assets/images/videos/love_as_ a_bullet.jpg',
+      import.meta.url
+    ).href,
+    url: 'https://www.youtube.com/watch?v=yosGbSbgPOU',
+    id: 'yosGbSbgPOU',
+  },
+  {
     title: 'Rebel Sound Studio Live Session',
     snapshot: new URL(
       '../assets/images/videos/rebel_sound_studio_live_session.jpg',
