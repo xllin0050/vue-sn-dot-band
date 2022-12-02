@@ -53,7 +53,7 @@ export default {
     onMounted(() => {
       loading.value = true
       getPhotoUrls().then((data) => {
-        photoUrls.value = data
+        photoUrls.value = data.reverse()
         loading.value = false
       })
     })
