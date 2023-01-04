@@ -46,11 +46,11 @@
 import { reactive } from 'vue'
 const records = reactive([
   {
-    name: 'There’s Nothing That Cannot Beat Me',
-    picture: new URL('../assets/images/products/sn3-lp.png', import.meta.url)
+    name: 'Subtropical Jet Stream',
+    picture: new URL('../assets/images/products/sn5-cover.jpg', import.meta.url)
       .href,
     available: true,
-    format: 'LP',
+    format: 'CD',
   },
   {
     name: 'Sherry’s Neighbors',
@@ -59,31 +59,17 @@ const records = reactive([
     available: true,
     format: 'CD',
   },
+
   {
-    name: 'Subtropical Jet Stream',
-    picture: new URL('../assets/images/products/sn5-cover.jpg', import.meta.url)
+    name: 'There’s Nothing That Cannot Beat Me',
+    picture: new URL('../assets/images/products/sn3-lp.png', import.meta.url)
       .href,
     available: true,
-    format: 'CD',
+    format: 'LP',
   },
 ])
 
 const tshirts = reactive([
-  {
-    name: 'monster',
-    picture: new URL(
-      '../assets/images/products/monster-tshirt.jpg',
-      import.meta.url
-    ).href,
-    available: true,
-    note: 'Size L is not yet available',
-    size: {
-      s: { chest: 47, length: 69 },
-      m: { chest: 52, length: 72 },
-      l: { chest: 57, length: 76 },
-      xl: { chest: 62, length: 80 },
-    },
-  },
   {
     name: 'subtropical',
     picture: new URL(
@@ -91,12 +77,27 @@ const tshirts = reactive([
       import.meta.url
     ).href,
     available: true,
-    note: 'Size S is not yet available',
+    note: 'Size S is not yet available and sizes may rarely vary in the range of 5%',
     size: {
       s: { chest: 49, length: 65 },
       m: { chest: 52, length: 69 },
       l: { chest: 55, length: 73 },
       xl: { chest: 58, length: 77 },
+    },
+  },
+  {
+    name: 'monster',
+    picture: new URL(
+      '../assets/images/products/monster-tshirt.jpg',
+      import.meta.url
+    ).href,
+    available: true,
+    note: 'Out of Stock',
+    size: {
+      s: { chest: 47, length: 69 },
+      m: { chest: 52, length: 72 },
+      l: { chest: 57, length: 76 },
+      xl: { chest: 62, length: 80 },
     },
   },
 ])
