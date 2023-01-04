@@ -77,7 +77,7 @@ const tshirts = reactive([
       import.meta.url
     ).href,
     available: true,
-    note: 'Size S is not yet available and sizes may rarely vary in the range of 5%',
+    note: 'Size S Not Available. Size M, L & XL Available. Sizes may rarely vary in the range of 5%.',
     size: {
       s: { chest: 49, length: 65 },
       m: { chest: 52, length: 69 },
