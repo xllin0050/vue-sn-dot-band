@@ -92,7 +92,7 @@ const tshirts = reactive([
       import.meta.url
     ).href,
     available: true,
-    note: 'Out of Stock',
+    note: 'Size L & XL Out of Stock. Size S & M still Available. And sizes may rarely vary in the range of 5%',
     size: {
       s: { chest: 47, length: 69 },
       m: { chest: 52, length: 72 },

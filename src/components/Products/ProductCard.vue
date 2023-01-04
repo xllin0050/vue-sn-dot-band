@@ -2,7 +2,7 @@
   <div
     class="card-shadow hover:card-shadow-elev flex h-full w-[280px] flex-col justify-start rounded-lg bg-white transition"
   >
-    <div class="mx-auto w-full min-h-[280px] p-2">
+    <div class="mx-auto min-h-[280px] w-full p-2">
       <img :src="props.data.picture" alt="super napkin goods" />
     </div>
     <div class="flex flex-col px-2 text-center font-redhat text-xs font-medium">
@@ -13,10 +13,10 @@
         Format: {{ props.data.format }}
       </div>
       <SizeGuide v-if="props.data.size" :guide="props.data.size" />
-      <div v-if="props.data.note" class="p-4 pt-8 w-[26ch] mx-auto">
+      <div v-if="props.data.note" class="px-2 py-8 text-left">
         <span>
-
-          Notice: {{ props.data.note }} 
+          Notice:
+          {{ props.data.note }}
         </span>
       </div>
     </div>
