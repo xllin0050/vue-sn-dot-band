@@ -16,7 +16,7 @@
       <div v-if="props.data.note" class="px-2 py-8 text-left">
         <div class="pb-2">Notice:</div>
         <div v-for="(text, idx) in props.data.note" :key="idx" class="pb-2">{{ text }}</div>
-        <div class="pt-4 text-gray-500">Sizes may rarely vary in the range of 5%</div>
+        <div class="pt-4 text-gray-500 w-[24ch]">Sizes may rarely vary in the range of 5%</div>
       </div>
     </div>
   </div>
