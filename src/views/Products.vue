@@ -77,7 +77,7 @@ const tshirts = reactive([
       import.meta.url
     ).href,
     available: true,
-    note: ['Size S, L Not Available.', 'Size M, L & XL Available.'],
+    note: ['Size S, L Not Available.', 'Size M & XL Available.'],
     size: {
       s: { chest: 49, length: 65 },
       m: { chest: 52, length: 69 },
