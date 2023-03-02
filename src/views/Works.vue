@@ -125,7 +125,10 @@ const albumData = ref(data.find((album) => album.url === route.params.title))
   -moz-animation: AnimationName 10s ease-in-out infinite;
   animation: AnimationName 10s ease-in-out infinite;
 }
-
+.selector-6 {
+  background: linear-gradient(160deg, #f5d76c, #eabb1f);
+  color: #573819;
+}
 @-webkit-keyframes AnimationName {
   0% {
     background-position: 10% 0%;

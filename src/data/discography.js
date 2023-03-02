@@ -1,5 +1,42 @@
 const data = [
   {
+    id: 6,
+    release: '2023-03-15',
+    tracks: {
+      track1: 'Painjoy',
+      track2: 'Coz I Love You',
+    },
+    title: 'Coz I Love You',
+    listen: {
+      bandcamp: 'https://supernapkin.bandcamp.com/album/coz-i-love-you',
+      Spotify: 'https://open.spotify.com/',
+      'apple music': 'https://music.apple.com/',
+    },
+    bandcamp:
+      'https://bandcamp.com/EmbeddedPlayer/album=3787555656/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=none/transparent=true/',
+    desc: {
+      zh: '「Super Napkin - Coz I Love You」是一張屬於 2018 的 EP，收在抽屜深處，等待需要被開啟的時刻。「Diamond Shaped Hearts pt.1/ 鑽石心」是許多人認識超級紙巾的起點，而收錄在本張 EP 的「Painjoy/ 痛快」和「Coz I Love You/ 因為我愛妳」，同為鑽石心時期已寫好的歌曲。吉他手小帕口中「至今寫過最溫柔的兩首歌」，是關於回憶離去之人的痛苦與快樂，及放下過去所需的愛與原諒，無論對自己或對方。「總覺得這兩首歌在等我們老，老到能正確演唱它們。」紙巾花了五年，尋找最適合呈現這兩首歌的方式，由貝斯手黃尾首次擔任 Vocal 主線，透過女聲展現紙巾迄今最柔軟的面向。過去包覆在旋律上的吉他破音，被收束成一道向前延伸的光線，沿著鼓手施霖極靜到極噪的情緒堆疊，筆直地放大情緒和音量。繼鑽石心後，再次使用 Shape/垃圾 獨樹一幟的畫作為封面。2018 年分別完成的畫作和歌曲，五年後連成了一張實體 EP，如同一顆沒有製作過的時光膠囊出現在紙箱底，如同時間投來一支忘記擲出的迴力鏢。這兩首早該發行的歌，似乎就是為了這個目的留到現在。「Painjoy 和 Coz I Love You 其實都在講同一件事，我們無法改變生命歷程，可是我們可以選擇用帶著愛的目光，去檢視回憶，理解當下，跟期盼未來那個被時間療過傷的自己。生命是莫名的，而我們是為了記憶彼此的奇妙之處而存在。」「我們發了一張 EP，因為我愛妳。」',
+      en: 'Super Napkin\'s 2023 EP "Coz I Love You" can be considered a follow-up to their 2018 album "Diamond Shaped Hearts," featuring two previously unreleased tracks from that period, "Coz I Love You" and "Painjoy."According to the band, these two songs are their most tender yet, exploring the bittersweet emotions of love and loss, and the importance of forgiveness in moving forward. Weiting, the band\'s bassist, takes on lead vocal duties for the first time, delivering a delicate and haunting performance that blends seamlessly with the minimalistic drum beats and hypnotic guitar feedback, creating a mesmerizing listening experience unique to Super Napkin.The cover art for the EP was created by the artist Shape Chen, who also contributed to "Diamond Shaped Hearts." Super Napkin admires her distinctive style and hopes that more people will discover her work through this release.By bringing together art and music that were originally created separately in 2018, Super Napkin aims to convey a message of acceptance and love. As the band explains, "Life\'s path may be unalterable, but we can choose to remember our past, live in the present, and look forward to the future with love in our hearts. Although life may be complex and difficult to understand, we can bear witness to the goodness that exists within each other.""We released an EP Coz I Love You."',
+    },
+    note: [
+      'Tracking - Slater Chiang',
+      'Mixing - Pada (Lin, Szu Tung)',
+      'Mastering - Brian "Brian Elgin" Elgin',
+      'Vocal Producer - Jihe Lin',
+      'Producer - Yau',
+      'Recording Studio - Rebel Sound Studio',
+      'Original Art - Shape Chen',
+      'Cover Design - Dittooo (Wei-Ni Lai)',
+      'All Sounds Made by Super Napkin',
+      'All Art Made By Shape Chen',
+    ],
+    url: 'coz-i-love-you',
+    cover: new URL(
+      '../assets/images/covers/coz-i-love-you-cover.jpg',
+      import.meta.url
+    ).href,
+  },
+  {
     id: 5,
     release: '2022-08-16',
     tracks: {
@@ -26,8 +63,8 @@ const data = [
     },
     note: [
       'Tracking - Jihe Lin',
-      'Mixing - Brian "Brian Elgin" Elgin',
-      'Mastering - Mark "Robbie" Robinson',
+      'Mixing - Mark "Robbie" Robinson',
+      'Mastering - Brian "Brian Elgin" Elgin',
       'Mastering Assistant - Adam Burt',
       'Producer - Brian Elgin, Jihe Lin, Super Napkin',
       'Recording Studio - Rebel Sound Studio',
@@ -35,7 +72,10 @@ const data = [
       'Released by Airhead Records (AR-024, 2022-08-16)',
     ],
     url: 'subtropical-jet-stream',
-    cover: new URL('../assets/images/covers/subtropical-jet-stream-cover.jpg', import.meta.url).href,
+    cover: new URL(
+      '../assets/images/covers/subtropical-jet-stream-cover.jpg',
+      import.meta.url
+    ).href,
   },
   {
     id: 4,
