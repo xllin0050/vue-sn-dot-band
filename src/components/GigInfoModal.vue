@@ -1,12 +1,12 @@
 <template>
   <div
     id="modal-backdrop"
-    class="fixed inset-0 flex w-full items-center justify-center bg-neutral-900 bg-opacity-80"
+    class="fixed inset-0 flex w-full  items-center justify-center bg-neutral-900 bg-opacity-80"
     @click.self="$emit('closeModal')"
   >
     <div
       id="modal"
-      class="relative flex w-3/4 flex-col  justify-between rounded-md bg-neutral-50 p-4 font-redhat uppercase  md:w-1/3 md:p-12"
+      class="relative flex w-3/4  flex-col  justify-between rounded-md bg-neutral-50 p-4 font-redhat uppercase  md:w-1/3 md:p-12"
     >
       <div
         class="absolute top-2 right-2 rounded bg-neutral-50 p-2 text-base shadow-lg hover:bg-neutral-100"
@@ -21,7 +21,7 @@
       <div class="w-full">
         <img
           :src="props.gigInfoData.banner"
-          class="mx-auto w-full"
+          class="mx-auto h-full max-h-[70vh]"
           @load="show = false"
         />
         <div v-if="show" class="h-[300px] w-full text-center pt-8">
