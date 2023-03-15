@@ -9,8 +9,8 @@ const data = [
     title: 'Coz I Love You',
     listen: {
       bandcamp: 'https://supernapkin.bandcamp.com/album/coz-i-love-you',
-      Spotify: 'https://open.spotify.com/',
-      'apple music': 'https://music.apple.com/',
+      Spotify: 'https://open.spotify.com/album/5QMi9gH1Zh4T40hBgjXUrG?si=aGip3jweTkidIH-D17nLKQ',
+      'apple music': 'https://music.apple.com/tw/album/coz-i-love-you-single/1676219690',
     },
     bandcamp:
       'https://bandcamp.com/EmbeddedPlayer/album=3787555656/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=none/transparent=true/',
