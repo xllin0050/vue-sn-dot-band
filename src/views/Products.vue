@@ -4,7 +4,7 @@
     <PageTitle>products</PageTitle>
     <div class="mx-auto max-w-sm pt-4 sm:max-w-5xl sm:pt-0">
       <div
-        class="flex flex-col items-center pb-0 sm:flex-row sm:items-stretch sm:flex-wrap sm:pb-16"
+        class="flex flex-col items-center pb-0 sm:flex-row sm:flex-wrap sm:items-stretch sm:pb-16"
       >
         <div
           v-for="(record, name) in records"
@@ -86,10 +86,10 @@ const tshirts = reactive([
     available: true,
     note: [],
     size: {
-      s: { chest: 49, length: 65 },
-      m: { chest: 52, length: 69 },
-      l: { chest: 55, length: 73 },
-      xl: { chest: 58, length: 77 },
+      s: { chest: 47, length: 69 },
+      m: { chest: 52, length: 72 },
+      l: { chest: 57, length: 76 },
+      xl: { chest: 62, length: 80 },
     },
   },
   {
