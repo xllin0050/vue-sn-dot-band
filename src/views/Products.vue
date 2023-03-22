@@ -4,12 +4,12 @@
     <PageTitle>products</PageTitle>
     <div class="mx-auto max-w-sm pt-4 sm:max-w-5xl sm:pt-0">
       <div
-        class="flex flex-col items-center pb-0 sm:flex-row sm:items-stretch sm:pb-16"
+        class="flex flex-col items-center pb-0 sm:flex-row sm:items-stretch sm:flex-wrap sm:pb-16"
       >
         <div
           v-for="(record, name) in records"
           :key="name"
-          class="mx-0 my-8 sm:my-0 sm:mx-8"
+          class="mx-0 my-8 sm:my-0 sm:mx-6 sm:mb-12"
         >
           <ProductCard :data="record" />
         </div>
@@ -46,6 +46,13 @@
 import { reactive } from 'vue'
 const records = reactive([
   {
+    name: 'Coz I Love You',
+    picture: new URL('../assets/images/products/sn6-cover.jpg', import.meta.url)
+      .href,
+    available: true,
+    format: 'CD',
+  },
+  {
     name: 'Subtropical Jet Stream',
     picture: new URL('../assets/images/products/sn5-cover.jpg', import.meta.url)
       .href,
@@ -71,13 +78,13 @@ const records = reactive([
 
 const tshirts = reactive([
   {
-    name: 'subtropical',
+    name: 'Corgi & Cracker',
     picture: new URL(
-      '../assets/images/products/subtropical-tshirt.jpg',
+      '../assets/images/products/corgi-and-cracker-tshirt.jpg',
       import.meta.url
     ).href,
     available: true,
-    note: ['Size S, L Not Available.', 'Size M & XL Available.'],
+    note: [],
     size: {
       s: { chest: 49, length: 65 },
       m: { chest: 52, length: 69 },
@@ -86,13 +93,28 @@ const tshirts = reactive([
     },
   },
   {
-    name: 'monster',
+    name: 'subtropical',
+    picture: new URL(
+      '../assets/images/products/subtropical-tshirt.jpg',
+      import.meta.url
+    ).href,
+    available: true,
+    note: ['Size S, L Out of Stock.', 'Size M & XL Available.'],
+    size: {
+      s: { chest: 49, length: 65 },
+      m: { chest: 52, length: 69 },
+      l: { chest: 55, length: 73 },
+      xl: { chest: 58, length: 77 },
+    },
+  },
+  {
+    name: 'monster and a bike',
     picture: new URL(
       '../assets/images/products/monster-tshirt.jpg',
       import.meta.url
     ).href,
     available: true,
-    note: ['Size L & XL Out of Stock.','Size M Not Available.', 'Size S still Available.'],
+    note: ['Size M, L & XL Out of Stock.', 'Size S still Available.'],
     size: {
       s: { chest: 47, length: 69 },
       m: { chest: 52, length: 72 },
